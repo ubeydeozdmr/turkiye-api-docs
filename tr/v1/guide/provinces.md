@@ -6,7 +6,7 @@ outline: deep
 
 Türkiye'nin idari bölümleri arasında en üst seviyede yer alan birimlerdir. Türkiye'de toplam 81 il bulunmaktadır ve her il, bir il merkezi ile birlikte toplamda 973 ilçeye ayrılmıştır. Varsayılan olarak API, bütün illeri ID'lerine göre listeler, bu ID'ler aynı zamanda illerin **plaka kodlarıdır**.
 
-İller için giriş URL'si: `/api/v1/provinces` şeklindedir.
+İller için giriş URL'si: `/v1/provinces` şeklindedir.
 
 ## İl Özellikleri
 
@@ -28,20 +28,20 @@ Türkiye'nin idari bölümleri arasında en üst seviyede yer alan birimlerdir. 
 
 ## Birden Fazla İl Verilerini Almak
 
-Bütün illeri almak için, yalnızca il URL'sini kullanmanız yeterlidir. Örneğin, bütün illeri almak için `/api/v1/provinces` gibi bir URL kullanabilirsiniz.
+Bütün illeri almak için, yalnızca il URL'sini kullanmanız yeterlidir. Örneğin, bütün illeri almak için `/v1/provinces` gibi bir URL kullanabilirsiniz.
 
 ```url
-https://turkiyeapi.dev/api/v1/provinces
+https://api.turkiyeapi.dev/v1/provinces
 ```
 
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/provinces
+curl https://api.turkiyeapi.dev/v1/provinces
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/provinces')
+fetch('https://api.turkiyeapi.dev/v1/provinces')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -180,20 +180,20 @@ fetch('https://turkiyeapi.dev/api/v1/provinces')
 
 ## Tek İl Verilerini Almak
 
-Tek bir ilin verilerini almak için, il ID'sini URL'ye eklemeniz yeterlidir. Örneğin, Adana ilinin verilerini almak için `/api/v1/provinces/1` gibi bir URL kullanabilirsiniz.
+Tek bir ilin verilerini almak için, il ID'sini URL'ye eklemeniz yeterlidir. Örneğin, Adana ilinin verilerini almak için `/v1/provinces/1` gibi bir URL kullanabilirsiniz.
 
 ```url
-https://turkiyeapi.dev/api/v1/provinces/1
+https://api.turkiyeapi.dev/v1/provinces/1
 ```
 
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/provinces/1
+curl https://api.turkiyeapi.dev/v1/provinces/1
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/provinces/1')
+fetch('https://api.turkiyeapi.dev/v1/provinces/1')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));

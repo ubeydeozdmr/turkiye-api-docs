@@ -15,18 +15,18 @@ In this section, we'll use queries that are more likely to be used in real life.
 One of the first things an end user will probably do when they enter your website, application, etc. is to search for any province (or district, neighborhood, etc.). In this case, it would make the most sense to use this query.
 
 ::: warning WARNING
-Remember that this method only deals with the names of provinces (or other units). If you want to search by ID, use `/api/v1/provinces/34` instead of `/api/v1/provinces?name=34`.
+Remember that this method only deals with the names of provinces (or other units). If you want to search by ID, use `/v1/provinces/34` instead of `/v1/provinces?name=34`.
 :::
 
 Example usage:
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/provinces?name=istanbul
+curl https://api.turkiyeapi.dev/v1/provinces?name=istanbul
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/provinces?name=istanbul')
+fetch('https://api.turkiyeapi.dev/v1/provinces?name=istanbul')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -95,12 +95,12 @@ Example usage:
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/districts?minPopulation=100000&maxPopulation=300000
+curl https://api.turkiyeapi.dev/v1/districts?minPopulation=100000&maxPopulation=300000
 ```
 
 ```javascript [fetch]
 fetch(
-  'https://turkiyeapi.dev/api/v1/districts?minPopulation=100000&maxPopulation=300000',
+  'https://api.turkiyeapi.dev/v1/districts?minPopulation=100000&maxPopulation=300000',
 )
   .then((response) => response.json())
   .then((data) => console.log(data))
@@ -156,11 +156,11 @@ Example usage:
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/provinces?offset=30&limit=10
+curl https://api.turkiyeapi.dev/v1/provinces?offset=30&limit=10
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/provinces?offset=30&limit=10')
+fetch('https://api.turkiyeapi.dev/v1/provinces?offset=30&limit=10')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -271,12 +271,12 @@ Example usage:
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/provinces?fields=id,name,area,population,altitude,areaCode,isCoastal,isMetropolitan,maps,region
+curl https://api.turkiyeapi.dev/v1/provinces?fields=id,name,area,population,altitude,areaCode,isCoastal,isMetropolitan,maps,region
 ```
 
 ```javascript [fetch]
 fetch(
-  'https://turkiyeapi.dev/api/v1/provinces?fields=id,name,area,population,altitude,areaCode,isCoastal,isMetropolitan,maps,region',
+  'https://api.turkiyeapi.dev/v1/provinces?fields=id,name,area,population,altitude,areaCode,isCoastal,isMetropolitan,maps,region',
 )
   .then((response) => response.json())
   .then((data) => console.log(data))
@@ -352,11 +352,11 @@ Example usage:
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/districts?sort=-population
+curl https://api.turkiyeapi.dev/v1/districts?sort=-population
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/districts?sort=-population')
+fetch('https://api.turkiyeapi.dev/v1/districts?sort=-population')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -419,12 +419,12 @@ Example usage:
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/districts?name=i&minPopulation=100000&sort=name&offset=10&limit=20
+curl https://api.turkiyeapi.dev/v1/districts?name=i&minPopulation=100000&sort=name&offset=10&limit=20
 ```
 
 ```javascript [fetch]
 fetch(
-  'https://turkiyeapi.dev/api/v1/districts?name=i&minPopulation=100000&sort=name&offset=10&limit=20',
+  'https://api.turkiyeapi.dev/v1/districts?name=i&minPopulation=100000&sort=name&offset=10&limit=20',
 )
   .then((response) => response.json())
   .then((data) => console.log(data))

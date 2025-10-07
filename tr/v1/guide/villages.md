@@ -10,7 +10,7 @@ Türkiye'nin idari bölümleri arasında ilçelerden sonra gelen birimlerdir. He
 Köylerin bağlı olduğu iller büyükşehir belediyesi değildir. (`isMetropolitan: false`)
 :::
 
-Köyler için giriş URL'si: `/api/v1/villages` şeklindedir.
+Köyler için giriş URL'si: `/v1/villages` şeklindedir.
 
 ## Köy Özellikleri
 
@@ -26,20 +26,20 @@ Köy kaynakları, aşağıdaki özelliklere sahiptir:
 
 ## Birden Fazla Köy Verilerini Almak
 
-Bütün köyleri almak için, yalnızca köy URL'sini kullanmanız yeterlidir. Örneğin, bütün köyleri almak için `/api/v1/villages` gibi bir URL kullanabilirsiniz.
+Bütün köyleri almak için, yalnızca köy URL'sini kullanmanız yeterlidir. Örneğin, bütün köyleri almak için `/v1/villages` gibi bir URL kullanabilirsiniz.
 
 ```url
-https://turkiyeapi.dev/api/v1/villages
+https://api.turkiyeapi.dev/v1/villages
 ```
 
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/villages
+curl https://api.turkiyeapi.dev/v1/villages
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/villages')
+fetch('https://api.turkiyeapi.dev/v1/villages')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -82,20 +82,20 @@ fetch('https://turkiyeapi.dev/api/v1/villages')
 
 ## Tek Bir Köy Verisini Almak
 
-Tek bir köy verisini almak için, köyün ID'sini kullanarak `/api/v1/villages/{id}` şeklinde bir URL oluşturabilirsiniz. Örneğin, ID'si `37777` olan köyü almak için `/api/v1/villages/37777` URL'sini kullanabilirsiniz.
+Tek bir köy verisini almak için, köyün ID'sini kullanarak `/v1/villages/{id}` şeklinde bir URL oluşturabilirsiniz. Örneğin, ID'si `37777` olan köyü almak için `/v1/villages/37777` URL'sini kullanabilirsiniz.
 
 ```url
-https://turkiyeapi.dev/api/v1/villages/37777
+https://api.turkiyeapi.dev/v1/villages/37777
 ```
 
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/villages/37777
+curl https://api.turkiyeapi.dev/v1/villages/37777
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/villages/37777')
+fetch('https://api.turkiyeapi.dev/v1/villages/37777')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));

@@ -14,7 +14,7 @@ Bu bölümde, kullanıcıların sıkça sorduğu soruları yanıtlayacağız.
 
 TurkiyeAPI, RESTful bir API olarak tasarlanmıştır. API'yi kullanmak için HTTP istekleri göndermeniz yeterlidir. API, JSON formatında veri döndürür ve kimlik doğrulama gerektirmez. API'yi kullanmak için aşağıdaki adımları izleyebilirsiniz:
 
-1. API URL'sini kullanarak istek gönderin. Örneğin, bütün illeri almak için `/api/v1/provinces` URL'sini kullanabilirsiniz.
+1. API URL'sini kullanarak istek gönderin. Örneğin, bütün illeri almak için `/v1/provinces` URL'sini kullanabilirsiniz.
 2. İstek başarılı olduğunda, API size JSON formatında veri döndürecektir.
 3. Dönen veriyi işleyerek istediğiniz bilgilere erişebilirsiniz.
 
@@ -46,4 +46,4 @@ TurkiyeAPI'nin dokümantasyonu, kullanıcı deneyimini iyileştirmek ve API'nin 
 
 ## Eski Dokümantasyona Erişebilir Miyim?
 
-Evet, eski dokümantasyona [buradan](https://turkiyeapi.dev/docs) erişebilirsiniz.
+Evet, eski dokümantasyona [buradan](https://api.turkiyeapi.dev/docs) erişebilirsiniz.

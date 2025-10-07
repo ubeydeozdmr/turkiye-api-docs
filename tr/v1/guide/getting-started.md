@@ -29,7 +29,7 @@ Bu sınırı aşmamak ve API'yi adil bir şekilde kullanmak, diğer kullanıcıl
 ## API'yi Kullanma
 
 ```url
-https://turkiyeapi.dev/api/v1/
+https://api.turkiyeapi.dev/v1/
 ```
 
 Yukarıda belirtilen URL, API'nin ana giriş noktasıdır. Bu URL'yi kullanarak API'ye erişebilir ve veri alışverişi yapabilirsiniz.
@@ -39,11 +39,11 @@ Yukarıda belirtilen URL, API'nin ana giriş noktasıdır. Bu URL'yi kullanarak 
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/
+curl https://api.turkiyeapi.dev/v1/
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/')
+fetch('https://api.turkiyeapi.dev/v1/')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -55,7 +55,7 @@ fetch('https://turkiyeapi.dev/api/v1/')
 Windows PowerShell'da `curl` komutu çalışmayabilir. Bu durumda, `Invoke-WebRequest` komutunu kullanabilirsiniz.
 
 ```powershell
-Invoke-WebRequest -Uri 'https://turkiyeapi.dev/api/v1/' -Method GET
+Invoke-WebRequest -Uri 'https://api.turkiyeapi.dev/v1/' -Method GET
 ```
 
 :::
@@ -109,7 +109,7 @@ TurkiyeAPI is running at http://localhost:8181
 5. API'ye tarayıcınızdan veya bir API test aracından erişebilirsiniz:
 
 ```url
-http://localhost:8181/api/v1/
+http://localhost:8181/v1/
 ```
 
 ## Ortam Değişkenleri

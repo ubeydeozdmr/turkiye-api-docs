@@ -6,7 +6,7 @@ outline: deep
 
 Türkiye'nin idari bölümleri arasında illerden sonra gelen birimlerdir. Her il, bir veya daha fazla ilçeye ayrılmıştır. Türkiye'de toplam 973 ilçe bulunmaktadır. Varsayılan olarak API, bütün ilçeleri önce bağlı oldukları illere göre ardından da adlarına göre listeler.
 
-İlçeler için giriş URL'si: `/api/v1/districts` şeklindedir.
+İlçeler için giriş URL'si: `/v1/districts` şeklindedir.
 
 ## İlçe Özellikleri
 
@@ -18,11 +18,11 @@ Türkiye'nin idari bölümleri arasında illerden sonra gelen birimlerdir. Her i
 - `name`: İlçenin adı
 - `population`: İlçenin nüfusu
 - `area`: İlçenin yüzölçümü (km²)
-- `neighborhoods`: İlçenin mahalleleri (yalnızca `GET /api/v1/districts/{id}` ile erişilebilir)
-- `villages`: İlçenin köyleri (yalnızca `GET /api/v1/districts/{id}` ile erişilebilir)
+- `neighborhoods`: İlçenin mahalleleri (yalnızca `GET /v1/districts/{id}` ile erişilebilir)
+- `villages`: İlçenin köyleri (yalnızca `GET /v1/districts/{id}` ile erişilebilir)
 
 ::: info BİLGİ
-Bir ilçenin mahalleleri ve köyleri, yalnızca o ilçeye ait ID ile sorgulandığında döndürülür. Örneğin, `GET /api/v1/districts/1757` isteği ile `Aladağ` ilçesinin mahallelerine erişebilirsiniz.
+Bir ilçenin mahalleleri ve köyleri, yalnızca o ilçeye ait ID ile sorgulandığında döndürülür. Örneğin, `GET /v1/districts/1757` isteği ile `Aladağ` ilçesinin mahallelerine erişebilirsiniz.
 :::
 
 ::: info BİLGİ
@@ -31,20 +31,20 @@ Bir ilçeye bağlı olan köylerin olabilmesi için, o ilçenin bağlı olduğu 
 
 ## Birden Fazla İlçe Verilerini Almak
 
-Bütün ilçeleri almak için, yalnızca ilçe URL'sini kullanmanız yeterlidir. Örneğin, bütün ilçeleri almak için `/api/v1/districts` gibi bir URL kullanabilirsiniz.
+Bütün ilçeleri almak için, yalnızca ilçe URL'sini kullanmanız yeterlidir. Örneğin, bütün ilçeleri almak için `/v1/districts` gibi bir URL kullanabilirsiniz.
 
 ```url
-https://turkiyeapi.dev/api/v1/districts
+https://api.turkiyeapi.dev/v1/districts
 ```
 
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/districts
+curl https://api.turkiyeapi.dev/v1/districts
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/districts')
+fetch('https://api.turkiyeapi.dev/v1/districts')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -112,17 +112,17 @@ fetch('https://turkiyeapi.dev/api/v1/districts')
 Belirli bir ilçeyi almak için, ilçe ID'sini kullanarak URL'yi şu şekilde oluşturabilirsiniz:
 
 ```url
-https://turkiyeapi.dev/api/v1/districts/{id}
+https://api.turkiyeapi.dev/v1/districts/{id}
 ```
 
 Burada `{id}` kısmını almak istediğiniz ilçenin ID'si ile değiştirmelisiniz.
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/districts/1757
+curl https://api.turkiyeapi.dev/v1/districts/1757
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/districts/1757')
+fetch('https://api.turkiyeapi.dev/v1/districts/1757')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));

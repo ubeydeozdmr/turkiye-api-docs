@@ -7,7 +7,7 @@ outline: deep
 TurkiyeAPI, v1 versiyonu için aşağıdaki API yapısına sahiptir:
 
 ```plaintext
-/api/v1/
+/v1/
 ├─/provinces
 │   └─/:provinceId
 ├─/districts
@@ -42,7 +42,7 @@ TurkiyeAPI'yi kullanırken yalnızca `GET` istekleri gönderebilirsiniz. Diğer 
 :::
 
 ::: info BİLGİ
-`/api/v1` altında API dokümantasyonunda belirtilmemiş bir URL'ye istek gönderirseniz, API size `404` kodlu bir hata mesajı döndürecektir:
+`/v1` altında API dokümantasyonunda belirtilmemiş bir URL'ye istek gönderirseniz, API size `404` kodlu bir hata mesajı döndürecektir:
 
 ```json {3}
 {

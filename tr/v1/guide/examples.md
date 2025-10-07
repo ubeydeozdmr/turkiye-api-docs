@@ -15,18 +15,18 @@ Bu bölümde gerçek hayatta kullanılma olasılığı daha yüksek olan sorgula
 Son kullanıcının sitenize, uygulamanıza vb. girdiğinde yapacağı ilk şeylerden biri muhtemelen herhangi bir ili (veya ilçeyi, mahalleyi vb.) aramak olacaktır. Bu durumda bu sorguyu kullanmak en mantıklısı olacaktır.
 
 ::: warning UYARI
-Bu yöntemin yalnızca illerin (veya diğer birimlerin) adlarıyla ilgilendiğini unutmayın. Eğer ID ile arama yapmak istiyorsanız, bunun için `/api/v1/provinces?name=34` yerine `/api/v1/provinces/34` kullanın.
+Bu yöntemin yalnızca illerin (veya diğer birimlerin) adlarıyla ilgilendiğini unutmayın. Eğer ID ile arama yapmak istiyorsanız, bunun için `/v1/provinces?name=34` yerine `/v1/provinces/34` kullanın.
 :::
 
 Örnek kullanım:
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/provinces?name=istanbul
+curl https://api.turkiyeapi.dev/v1/provinces?name=istanbul
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/provinces?name=istanbul')
+fetch('https://api.turkiyeapi.dev/v1/provinces?name=istanbul')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -95,12 +95,12 @@ Kullanıcılar belirli bir nüfus aralığındaki ilçeleri listelemek isteyebil
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/districts?minPopulation=100000&maxPopulation=300000
+curl https://api.turkiyeapi.dev/v1/districts?minPopulation=100000&maxPopulation=300000
 ```
 
 ```javascript [fetch]
 fetch(
-  'https://turkiyeapi.dev/api/v1/districts?minPopulation=100000&maxPopulation=300000',
+  'https://api.turkiyeapi.dev/v1/districts?minPopulation=100000&maxPopulation=300000',
 )
   .then((response) => response.json())
   .then((data) => console.log(data))
@@ -156,11 +156,11 @@ Bu sorgu, nüfusu 100.000 ile 300.000 arasında olan tüm ilçeleri JSON format�
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/provinces?offset=30&limit=10
+curl https://api.turkiyeapi.dev/v1/provinces?offset=30&limit=10
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/provinces?offset=30&limit=10')
+fetch('https://api.turkiyeapi.dev/v1/provinces?offset=30&limit=10')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -271,12 +271,12 @@ Tüm illeri listelemek istediğinizi düşünün. Bu durumda bu illerin verileri
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/provinces?fields=id,name,area,population,altitude,areaCode,isCoastal,isMetropolitan,maps,region
+curl https://api.turkiyeapi.dev/v1/provinces?fields=id,name,area,population,altitude,areaCode,isCoastal,isMetropolitan,maps,region
 ```
 
 ```javascript [fetch]
 fetch(
-  'https://turkiyeapi.dev/api/v1/provinces?fields=id,name,area,population,altitude,areaCode,isCoastal,isMetropolitan,maps,region',
+  'https://api.turkiyeapi.dev/v1/provinces?fields=id,name,area,population,altitude,areaCode,isCoastal,isMetropolitan,maps,region',
 )
   .then((response) => response.json())
   .then((data) => console.log(data))
@@ -352,11 +352,11 @@ Varsayılan olarak ilçeler önce bağlı oldukları illere göre, eğer ilçele
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/districts?sort=-population
+curl https://api.turkiyeapi.dev/v1/districts?sort=-population
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/districts?sort=-population')
+fetch('https://api.turkiyeapi.dev/v1/districts?sort=-population')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -419,12 +419,12 @@ Dikkat ettiyseniz, `?sort=-population` sorgusunda `population`'dan önce bir eks
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/districts?name=i&minPopulation=100000&sort=name&offset=10&limit=20
+curl https://api.turkiyeapi.dev/v1/districts?name=i&minPopulation=100000&sort=name&offset=10&limit=20
 ```
 
 ```javascript [fetch]
 fetch(
-  'https://turkiyeapi.dev/api/v1/districts?name=i&minPopulation=100000&sort=name&offset=10&limit=20',
+  'https://api.turkiyeapi.dev/v1/districts?name=i&minPopulation=100000&sort=name&offset=10&limit=20',
 )
   .then((response) => response.json())
   .then((data) => console.log(data))

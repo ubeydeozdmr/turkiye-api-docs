@@ -6,7 +6,7 @@ outline: deep
 
 Türkiye'nin idari bölümleri arasında ilçelerden sonra gelen birimlerdir. Her ilçe, bir veya daha fazla mahalleye ayrılmıştır. Türkiye'de toplam 32 186 mahalle bulunmaktadır. Varsayılan olarak API, bütün mahalleleri önce bağlı oldukları illere göre, sonra bağlı oldukları ilçelere göre, ardından da adlarına göre listeler.
 
-Mahalleler için giriş URL'si: `/api/v1/neighborhoods` şeklindedir.
+Mahalleler için giriş URL'si: `/v1/neighborhoods` şeklindedir.
 
 ## Mahalle Özellikleri
 
@@ -22,20 +22,20 @@ Mahalle kaynakları, aşağıdaki özelliklere sahiptir:
 
 ## Birden Fazla Mahalle Verilerini Almak
 
-Bütün mahalleleri almak için, yalnızca mahalle URL'sini kullanmanız yeterlidir. Örneğin, bütün mahalleleri almak için `/api/v1/neighborhoods` gibi bir URL kullanabilirsiniz.
+Bütün mahalleleri almak için, yalnızca mahalle URL'sini kullanmanız yeterlidir. Örneğin, bütün mahalleleri almak için `/v1/neighborhoods` gibi bir URL kullanabilirsiniz.
 
 ```url
-https://turkiyeapi.dev/api/v1/neighborhoods
+https://api.turkiyeapi.dev/v1/neighborhoods
 ```
 
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/neighborhoods
+curl https://api.turkiyeapi.dev/v1/neighborhoods
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/neighborhoods')
+fetch('https://api.turkiyeapi.dev/v1/neighborhoods')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -81,17 +81,17 @@ fetch('https://turkiyeapi.dev/api/v1/neighborhoods')
 Tek bir mahalle verisini almak için, mahalle ID'sini kullanarak URL'yi şu şekilde oluşturabilirsiniz:
 
 ```url
-https://turkiyeapi.dev/api/v1/neighborhoods/{id}
+https://api.turkiyeapi.dev/v1/neighborhoods/{id}
 ```
 
 Burada `{id}` kısmını almak istediğiniz mahallenin ID'si ile değiştirmelisiniz.
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/neighborhoods/176887
+curl https://api.turkiyeapi.dev/v1/neighborhoods/176887
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/neighborhoods/176887')
+fetch('https://api.turkiyeapi.dev/v1/neighborhoods/176887')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));

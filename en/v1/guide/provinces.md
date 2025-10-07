@@ -6,7 +6,7 @@ outline: deep
 
 Provinces are the highest-level administrative divisions of Turkey. Turkey has a total of 81 provinces, and each province is divided into a total of 973 districts along with a provincial center. By default, the API lists all provinces according to their IDs, which are also the **license plate codes** of the provinces.
 
-The entry URL for provinces is: `/api/v1/provinces`.
+The entry URL for provinces is: `/v1/provinces`.
 
 ## Province Properties
 
@@ -28,20 +28,20 @@ Province resources have the following properties:
 
 ## Getting Multiple Province Data
 
-To get all provinces, you only need to use the province URL. For example, you can use a URL like `/api/v1/provinces` to get all provinces.
+To get all provinces, you only need to use the province URL. For example, you can use a URL like `/v1/provinces` to get all provinces.
 
 ```url
-https://turkiyeapi.dev/api/v1/provinces
+https://api.turkiyeapi.dev/v1/provinces
 ```
 
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/provinces
+curl https://api.turkiyeapi.dev/v1/provinces
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/provinces')
+fetch('https://api.turkiyeapi.dev/v1/provinces')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -180,20 +180,20 @@ If your request is successful, the API will return a response like this:
 
 ## Getting Single Province Data
 
-To get data for a single province, you just need to add the province ID to the URL. For example, you can use a URL like `/api/v1/provinces/1` to get data for Adana province.
+To get data for a single province, you just need to add the province ID to the URL. For example, you can use a URL like `/v1/provinces/1` to get data for Adana province.
 
 ```url
-https://turkiyeapi.dev/api/v1/provinces/1
+https://api.turkiyeapi.dev/v1/provinces/1
 ```
 
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/provinces/1
+curl https://api.turkiyeapi.dev/v1/provinces/1
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/provinces/1')
+fetch('https://api.turkiyeapi.dev/v1/provinces/1')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));

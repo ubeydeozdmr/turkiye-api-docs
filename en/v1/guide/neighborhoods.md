@@ -6,7 +6,7 @@ outline: deep
 
 Neighborhoods are administrative units that come after districts in Turkey's administrative divisions. Each district is divided into one or more neighborhoods. There are a total of 32,186 neighborhoods in Turkey. By default, the API lists all neighborhoods first by the provinces they belong to, then by the districts they belong to, and finally by their names.
 
-The entry URL for neighborhoods is: `/api/v1/neighborhoods`.
+The entry URL for neighborhoods is: `/v1/neighborhoods`.
 
 ## Neighborhood Properties
 
@@ -22,20 +22,20 @@ Neighborhood resources have the following properties:
 
 ## Getting Multiple Neighborhood Data
 
-To get all neighborhoods, you only need to use the neighborhood URL. For example, you can use a URL like `/api/v1/neighborhoods` to get all neighborhoods.
+To get all neighborhoods, you only need to use the neighborhood URL. For example, you can use a URL like `/v1/neighborhoods` to get all neighborhoods.
 
 ```url
-https://turkiyeapi.dev/api/v1/neighborhoods
+https://api.turkiyeapi.dev/v1/neighborhoods
 ```
 
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/neighborhoods
+curl https://api.turkiyeapi.dev/v1/neighborhoods
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/neighborhoods')
+fetch('https://api.turkiyeapi.dev/v1/neighborhoods')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -81,17 +81,17 @@ If your request is successful, the API will return a response like this:
 To get a single neighborhood's data, you can create the URL using the neighborhood ID as follows:
 
 ```url
-https://turkiyeapi.dev/api/v1/neighborhoods/{id}
+https://api.turkiyeapi.dev/v1/neighborhoods/{id}
 ```
 
 Here you should replace the `{id}` part with the ID of the neighborhood you want to get.
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/neighborhoods/176887
+curl https://api.turkiyeapi.dev/v1/neighborhoods/176887
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/neighborhoods/176887')
+fetch('https://api.turkiyeapi.dev/v1/neighborhoods/176887')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));

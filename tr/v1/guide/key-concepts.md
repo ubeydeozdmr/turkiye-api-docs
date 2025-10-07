@@ -16,7 +16,7 @@ API'de kullanılan path değişkenleri aşağıdaki gibidir:
 - `:villageId`: Köy kimlik numarası (ID'si)
 
 ```plaintext
-/api/v1/
+/v1/
 ├─/provinces
 │   └─/:provinceId
 ├─/districts
@@ -34,7 +34,7 @@ Path değişkenleri için girmeniz gereken değerler sayı cinsinden olmalıdır
 ::: danger ÖRNEK HATA
 
 ```plaintext
-GET /api/v1/provinces/istanbul
+GET /v1/provinces/istanbul
 ```
 
 Yukarıdaki örnekte, `:provinceId` için `istanbul` değeri bir **sayı olmadığı** için **geçersiz** bir değerdir _(böyle bir il olsa bile)_ ve API size `404` kodlu bir hata mesajı döndürecektir.
@@ -70,7 +70,7 @@ API'de kullanılan sorgu parametreleri aşağıdaki gibidir:
 İçerisinde `a` harfi geçen illeri isimlerine göre sıralayarak, sadece `id` ve `name` (isim) alanlarını almak ve ilk 10 il için aşağıdaki gibi bir sorgu yapabilirsiniz:
 
 ```plaintext
-GET /api/v1/provinces?name=a&offset=0&limit=10&fields=id,name&sort=name
+GET /v1/provinces?name=a&offset=0&limit=10&fields=id,name&sort=name
 ```
 
 Çıkış:
@@ -136,7 +136,7 @@ Azalan sıralama yapmak için `sort` (sıralama) alanının başına `-` işaret
 İsimlerine göre azalan sıralama yapmak için aşağıdaki gibi bir sorgu yapabilirsiniz:
 
 ```plaintext
-GET /api/v1/provinces?fields=id,name&sort=-name
+GET /v1/provinces?fields=id,name&sort=-name
 ```
 
 Çıkış:
@@ -263,7 +263,7 @@ Birden fazla alana göre sıralama yapmak için sıralama alanlarını virgülle
 Bağlı oldukları illerin isimlerine göre ve nüfuslarına göre sıralama yapmak için aşağıdaki gibi bir sorgu yapabilirsiniz (önce `province` (il) değerine göre, sonra `population` (nüfus) değerine göre sıralama yapar):
 
 ```plaintext
-GET /api/v1/districts?fields=name,province,population&sort=province,population
+GET /v1/districts?fields=name,province,population&sort=province,population
 ```
 
 Çıkış:

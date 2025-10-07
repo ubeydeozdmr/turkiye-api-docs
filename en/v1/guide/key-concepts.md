@@ -16,7 +16,7 @@ The following path variables are used in the API:
 - `:villageId`: Village ID
 
 ```plaintext
-/api/v1/
+/v1/
 ├─/provinces
 │   └─/:provinceId
 ├─/districts
@@ -34,7 +34,7 @@ The values you provide for path variables must be numbers. Otherwise, the API wi
 ::: danger SAMPLE ERROR
 
 ```plaintext
-GET /api/v1/provinces/istanbul
+GET /v1/provinces/istanbul
 ```
 
 In the example above, the value `istanbul` is **not a valid number** for `:provinceId` _(even though it is a real province)_, so the API will return a `404` error:
@@ -70,7 +70,7 @@ The following query parameters are supported by the API:
 To retrieve the first 10 provinces that contain the letter `a` in their name, sorted alphabetically by name, and return only `id` and `name` fields:
 
 ```plaintext
-GET /api/v1/provinces?name=a&offset=0&limit=10&fields=id,name&sort=name
+GET /v1/provinces?name=a&offset=0&limit=10&fields=id,name&sort=name
 ```
 
 Response:
@@ -136,7 +136,7 @@ To sort in descending order, prefix the field name in the `sort` parameter with 
 To sort provinces by name in descending order:
 
 ```plaintext
-GET /api/v1/provinces?fields=id,name&sort=-name
+GET /v1/provinces?fields=id,name&sort=-name
 ```
 
 Response:
@@ -263,7 +263,7 @@ You can sort by multiple fields by separating them with commas.
 To sort districts first by their province names (`province`), then by population (`population`):
 
 ```plaintext
-GET /api/v1/districts?fields=name,province,population&sort=province,population
+GET /v1/districts?fields=name,province,population&sort=province,population
 ```
 
 Response:

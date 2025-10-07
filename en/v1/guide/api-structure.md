@@ -7,7 +7,7 @@ outline: deep
 TurkiyeAPI has the following API structure for version v1:
 
 ```plaintext
-/api/v1/
+/v1/
 ├─/provinces
 │   └─/:provinceId
 ├─/districts
@@ -42,7 +42,7 @@ TurkiyeAPI only supports `GET` requests. Other HTTP methods are not allowed. If 
 :::
 
 ::: info INFO
-If you send a request to an undefined endpoint under `/api/v1`, the API will respond with a `404` error code:
+If you send a request to an undefined endpoint under `/v1`, the API will respond with a `404` error code:
 
 ```json {3}
 {

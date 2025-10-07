@@ -10,7 +10,7 @@ Villages are the administrative units that come after districts among Turkey's a
 The provinces that villages belong to are not metropolitan municipalities. (`isMetropolitan: false`)
 :::
 
-The entry URL for villages is: `/api/v1/villages`.
+The entry URL for villages is: `/v1/villages`.
 
 ## Village Properties
 
@@ -26,20 +26,20 @@ Village resources have the following properties:
 
 ## Getting Multiple Village Data
 
-To get all villages, you only need to use the village URL. For example, you can use a URL like `/api/v1/villages` to get all villages.
+To get all villages, you only need to use the village URL. For example, you can use a URL like `/v1/villages` to get all villages.
 
 ```url
-https://turkiyeapi.dev/api/v1/villages
+https://api.turkiyeapi.dev/v1/villages
 ```
 
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/villages
+curl https://api.turkiyeapi.dev/v1/villages
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/villages')
+fetch('https://api.turkiyeapi.dev/v1/villages')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -82,20 +82,20 @@ If your request is successful, the API will return a response like this:
 
 ## Getting Single Village Data
 
-To get data for a single village, you can create a URL like `/api/v1/villages/{id}` using the village ID. For example, you can use the URL `/api/v1/villages/37777` to get the village with ID `37777`.
+To get data for a single village, you can create a URL like `/v1/villages/{id}` using the village ID. For example, you can use the URL `/v1/villages/37777` to get the village with ID `37777`.
 
 ```url
-https://turkiyeapi.dev/api/v1/villages/37777
+https://api.turkiyeapi.dev/v1/villages/37777
 ```
 
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/villages/37777
+curl https://api.turkiyeapi.dev/v1/villages/37777
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/villages/37777')
+fetch('https://api.turkiyeapi.dev/v1/villages/37777')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));

@@ -16,7 +16,7 @@ export const trNav = [
           { text: 'Sürüm Notları', link: '/tr/v1/changelog' },
           {
             text: 'Eski Dokümantasyon (v1)',
-            link: 'https://turkiyeapi.dev/docs',
+            link: 'https://api.turkiyeapi.dev/docs',
           },
         ],
       },
@@ -42,7 +42,7 @@ export const enNav = [
           { text: 'Changelog', link: '/en/v1/changelog' },
           {
             text: 'Old Documentation (v1)',
-            link: 'https://turkiyeapi.dev/docs',
+            link: 'https://api.turkiyeapi.dev/docs',
           },
         ],
       },

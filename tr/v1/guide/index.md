@@ -32,7 +32,7 @@ Neden dokümantasyonun değiştirildiği, eski dokümantasyona ne olduğu gibi b
 TurkiyeAPI, Postman ve Swagger gibi popüler API araçları ile uyumludur:
 
 - [Postman Dokümantasyonu](https://documenter.getpostman.com/view/19561492/UzBguVHM)
-- [Swagger UI](https://turkiyeapi.dev/swagger)
+- [Swagger UI](https://api.turkiyeapi.dev/swagger)
 
 ## Kimlik Doğrulama
 

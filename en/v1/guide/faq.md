@@ -14,7 +14,7 @@ This section answers some of the most commonly asked questions by users.
 
 TurkiyeAPI is designed as a RESTful API. To use it, simply send HTTP requests. It responds with data in JSON format and does not require authentication. Here’s how to get started:
 
-1. Send a request using the API URL. For example, to get all provinces, use the `/api/v1/provinces` endpoint.
+1. Send a request using the API URL. For example, to get all provinces, use the `/v1/provinces` endpoint.
 2. If the request is successful, the API will return data in JSON format.
 3. Process the returned data to access the information you need.
 
@@ -46,4 +46,4 @@ The documentation has been redesigned to improve the user experience and make th
 
 ## Can I Still Access the Old Documentation?
 
-Yes, you can access the previous version of the documentation [here](https://turkiyeapi.dev/docs).
+Yes, you can access the previous version of the documentation [here](https://api.turkiyeapi.dev/docs).

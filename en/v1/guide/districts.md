@@ -6,7 +6,7 @@ outline: deep
 
 Districts are the second-level administrative divisions in Türkiye, following provinces. Each province is divided into one or more districts. There are 973 districts in total across the country. By default, the API lists districts first by their parent province and then alphabetically by name.
 
-The entry point for districts is: `/api/v1/districts`
+The entry point for districts is: `/v1/districts`
 
 ## District Properties
 
@@ -18,11 +18,11 @@ Each district resource contains the following fields:
 - `name`: The name of the district
 - `population`: The population of the district
 - `area`: The surface area of the district (in km²)
-- `neighborhoods`: The neighborhoods within the district (available only via `GET /api/v1/districts/{id}`)
-- `villages`: The villages within the district (available only via `GET /api/v1/districts/{id}`)
+- `neighborhoods`: The neighborhoods within the district (available only via `GET /v1/districts/{id}`)
+- `villages`: The villages within the district (available only via `GET /v1/districts/{id}`)
 
 ::: info NOTE
-Neighborhoods and villages of a district are only returned when querying that district by its specific ID. For example, `GET /api/v1/districts/1757` returns the neighborhoods of the Aladağ district.
+Neighborhoods and villages of a district are only returned when querying that district by its specific ID. For example, `GET /v1/districts/1757` returns the neighborhoods of the Aladağ district.
 :::
 
 ::: info NOTE
@@ -34,17 +34,17 @@ For a district to have villages, its parent province must **not** be a metropoli
 To fetch all districts, simply use the root district endpoint:
 
 ```url
-https://turkiyeapi.dev/api/v1/districts
+https://api.turkiyeapi.dev/v1/districts
 ```
 
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/districts
+curl https://api.turkiyeapi.dev/v1/districts
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/districts')
+fetch('https://api.turkiyeapi.dev/v1/districts')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -112,17 +112,17 @@ If the request is successful, the API will return a response like this:
 To fetch a single district, use the district ID in the endpoint:
 
 ```url
-https://turkiyeapi.dev/api/v1/districts/{id}
+https://api.turkiyeapi.dev/v1/districts/{id}
 ```
 
 Replace `{id}` with the ID of the district you want to retrieve.
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/districts/1757
+curl https://api.turkiyeapi.dev/v1/districts/1757
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/districts/1757')
+fetch('https://api.turkiyeapi.dev/v1/districts/1757')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));

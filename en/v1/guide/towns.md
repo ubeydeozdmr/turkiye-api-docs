@@ -14,7 +14,7 @@ The scope of TurkiyeAPI's v1 version (without municipal units) includes province
 In v2 version, these routes will probably be removed and replaced with municipality-focused routes.
 :::
 
-The entry URL for towns is: `/api/v1/towns`.
+The entry URL for towns is: `/v1/towns`.
 
 ## Town Properties
 
@@ -30,20 +30,20 @@ Town resources have the following properties:
 
 ## Getting Multiple Town Data
 
-To get all towns, you only need to use the town URL. For example, you can use a URL like `/api/v1/towns` to get all towns.
+To get all towns, you only need to use the town URL. For example, you can use a URL like `/v1/towns` to get all towns.
 
 ```url
-https://turkiyeapi.dev/api/v1/towns
+https://api.turkiyeapi.dev/v1/towns
 ```
 
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/towns
+curl https://api.turkiyeapi.dev/v1/towns
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/towns')
+fetch('https://api.turkiyeapi.dev/v1/towns')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -89,7 +89,7 @@ If your request is successful, the API will return a response like this:
 To get data for a single town, you can make a request using the town ID as follows:
 
 ```url
-https://turkiyeapi.dev/api/v1/towns/:id
+https://api.turkiyeapi.dev/v1/towns/:id
 ```
 
 Here you should replace the `:id` part with the ID of the town you want to retrieve.
@@ -97,11 +97,11 @@ Here you should replace the `:id` part with the ID of the town you want to retri
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/towns/1002
+curl https://api.turkiyeapi.dev/v1/towns/1002
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/towns/1002')
+fetch('https://api.turkiyeapi.dev/v1/towns/1002')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));

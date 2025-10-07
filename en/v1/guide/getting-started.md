@@ -29,7 +29,7 @@ Staying within these limits helps ensure that everyone can benefit from the serv
 ## Using the API
 
 ```url
-https://turkiyeapi.dev/api/v1/
+https://api.turkiyeapi.dev/v1/
 ```
 
 The URL above is the main entry point to the API. You can use it to interact with the service and retrieve data.
@@ -39,11 +39,11 @@ Here are a few code examples that demonstrate how to make a `GET` request:
 ::: code-group
 
 ```bash [curl]
-curl https://turkiyeapi.dev/api/v1/
+curl https://api.turkiyeapi.dev/v1/
 ```
 
 ```javascript [fetch]
-fetch('https://turkiyeapi.dev/api/v1/')
+fetch('https://api.turkiyeapi.dev/v1/')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -55,7 +55,7 @@ fetch('https://turkiyeapi.dev/api/v1/')
 The `curl` command may not work in Windows PowerShell. In that case, use `Invoke-WebRequest` instead:
 
 ```powershell
-Invoke-WebRequest -Uri 'https://turkiyeapi.dev/api/v1/' -Method GET
+Invoke-WebRequest -Uri 'https://api.turkiyeapi.dev/v1/' -Method GET
 ```
 
 :::
@@ -109,7 +109,7 @@ TurkiyeAPI is running at http://localhost:8181
 5. You can now access the API via your browser or an API testing tool:
 
 ```url
-http://localhost:8181/api/v1/
+http://localhost:8181/v1/
 ```
 
 ## Environment Variables

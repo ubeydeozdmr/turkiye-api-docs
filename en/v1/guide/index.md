@@ -32,7 +32,7 @@ For more information on why the documentation was changed and how to access the 
 TurkiyeAPI is compatible with popular API tools such as Postman and Swagger:
 
 - [Postman Documentation](https://documenter.getpostman.com/view/19561492/UzBguVHM)
-- [Swagger UI](https://turkiyeapi.dev/swagger)
+- [Swagger UI](https://api.turkiyeapi.dev/swagger)
 
 ## Authentication
 

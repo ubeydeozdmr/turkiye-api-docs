@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: Guide
-      link: /en/guide/v1/welcome
+      link: /en/v1/guide/welcome
     - theme: alt
       text: GitHub
       link: https://github.com/ubeydeozdmr/turkiye-api

@@ -6,7 +6,7 @@ outline: deep
 
 Depending on your needs and what you want to build, you can use TurkiyeAPI in different ways. This guide explains how to start using the API step-by-step.
 
-If you're working on a personal or non-critical project, you can use the API directly via `turkiyeapi.dev`. However, if you want more control and customization—especially for commercial use—we recommend running the API on your own server. This approach offers better security and scalability for your project.
+If you're working on a personal or non-critical project, you can use the API directly via `api.turkiyeapi.dev`. However, if you want more control and customization—especially for commercial use—we recommend running the API on your own server. This approach offers better security and scalability for your project.
 
 <!-- [Read more](./faq.md) -->
 

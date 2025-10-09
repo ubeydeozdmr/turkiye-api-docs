@@ -6,7 +6,7 @@ outline: deep
 
 Gereksinimlerinize ve yapmak istediklerinize bağlı olarak TurkiyeAPI'yi farklı şekillerde kullanabilirsiniz. Bu rehber, API'yi nasıl kullanacağınızı ve nasıl başlayacağınızı adım adım açıklamaktadır.
 
-Kendi projeleriniz için hobi amaçlı veya kritik olmayan bir işte kullanmayı düşünüyorsanız, API'yi doğrudan `turkiyeapi.dev` üzerinden kullanabilirsiniz. Ancak, API'yi kendi sunucunuzda çalıştırarak daha fazla kontrol ve özelleştirme seçeneğine sahip olabilirsiniz. Özellikle ticari bir proje geliştiriyorsanız, API'yi kendi sunucunuzda çalıştırmanızı öneririz. Bu, projenizin güvenliğini ve ölçeklenebilirliğini artıracaktır.
+Kendi projeleriniz için hobi amaçlı veya kritik olmayan bir işte kullanmayı düşünüyorsanız, API'yi doğrudan `api.turkiyeapi.dev` üzerinden kullanabilirsiniz. Ancak, API'yi kendi sunucunuzda çalıştırarak daha fazla kontrol ve özelleştirme seçeneğine sahip olabilirsiniz. Özellikle ticari bir proje geliştiriyorsanız, API'yi kendi sunucunuzda çalıştırmanızı öneririz. Bu, projenizin güvenliğini ve ölçeklenebilirliğini artıracaktır.
 
 <!-- [Detaylı okuma](./sss.md) -->
 

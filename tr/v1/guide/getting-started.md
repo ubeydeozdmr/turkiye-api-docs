@@ -16,12 +16,16 @@ TurkiyeAPI, herkes tarafından kullanılabilir ve kimlik doğrulama gerektirmez.
 
 ### API'nin rate limiting politikası
 
-- Aynı IP adresi için **15 dakika içinde 150 istek** sınırı vardır.
+- Aynı IP adresi için **1 dakika içinde 60 adet ve 5 dakika içinde 200 adet istek** sınırı vardır.
 - Bu sınırı aşarsanız, `429 - Too Many Requests` hatası alırsınız.
 - Bekleme süresi tamamlandıktan sonra tekrar erişebilirsiniz.
 
 ```plaintext
-Too many requests from this IP, please try again in 15 minutes!
+Too many requests from this IP, please try again in a minute!
+```
+
+```plaintext
+Too many requests from this IP, please try again in 5 minutes!
 ```
 
 Bu sınırı aşmamak ve API'yi adil bir şekilde kullanmak, diğer kullanıcıların da hizmetten yararlanmasına olanak tanır.

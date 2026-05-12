@@ -16,12 +16,16 @@ TurkiyeAPI is available for everyone and does not require authentication. That s
 
 ### API Rate Limiting Policy
 
-- Each IP address is limited to **150 requests per 15 minutes**.
+- Each IP address is limited to **60 requests per a minute and 200 requests per 5 minutes**.
 - If you exceed this limit, you’ll receive a `429 - Too Many Requests` error.
 - You can resume making requests once the cooldown period has passed.
 
 ```plaintext
-Too many requests from this IP, please try again in 15 minutes!
+Too many requests from this IP, please try again in a minute!
+```
+
+```plaintext
+Too many requests from this IP, please try again in 5 minutes!
 ```
 
 Staying within these limits helps ensure that everyone can benefit from the service.

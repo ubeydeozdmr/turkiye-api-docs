@@ -46,4 +46,4 @@ The documentation has been redesigned to improve the user experience and make th
 
 ## Can I Still Access the Old Documentation?
 
-Yes, you can access the previous version of the documentation [here](https://api.turkiyeapi.dev/docs).
+Yes, you can access the [previous version of the documentation here](https://ubeydeozdmr.github.io/turkiye-api-templates/docs).

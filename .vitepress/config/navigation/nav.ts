@@ -7,7 +7,7 @@ export const trNav = [
     items: [
       {
         items: [
-          /* { text: 'v2', link: '/tr/v1/guide/getting-started' }, */
+          /* { text: 'v2', link: '/tr/v2/guide/getting-started' }, */
           { text: 'v1', link: '/tr/v1/guide/welcome' },
         ],
       },
@@ -16,7 +16,7 @@ export const trNav = [
           { text: 'Sürüm Notları', link: '/tr/v1/changelog' },
           {
             text: 'Eski Dokümantasyon (v1)',
-            link: 'https://api.turkiyeapi.dev/docs',
+            link: 'https://ubeydeozdmr.github.io/turkiye-api-templates/docs',
           },
         ],
       },
@@ -33,7 +33,7 @@ export const enNav = [
     items: [
       {
         items: [
-          /* { text: 'v2', link: '/tr/v1/guide/getting-started' }, */
+          /* { text: 'v2', link: '/en/v2/guide/getting-started' }, */
           { text: 'v1', link: '/en/v1/guide/welcome' },
         ],
       },
@@ -42,7 +42,7 @@ export const enNav = [
           { text: 'Changelog', link: '/en/v1/changelog' },
           {
             text: 'Old Documentation (v1)',
-            link: 'https://api.turkiyeapi.dev/docs',
+            link: 'https://ubeydeozdmr.github.io/turkiye-api-templates/docs',
           },
         ],
       },

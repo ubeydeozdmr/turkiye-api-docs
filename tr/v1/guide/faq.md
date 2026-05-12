@@ -46,4 +46,4 @@ TurkiyeAPI'nin dokümantasyonu, kullanıcı deneyimini iyileştirmek ve API'nin 
 
 ## Eski Dokümantasyona Erişebilir Miyim?
 
-Evet, eski dokümantasyona [buradan](https://api.turkiyeapi.dev/docs) erişebilirsiniz.
+Evet, eski dokümantasyona [buradan](https://ubeydeozdmr.github.io/turkiye-api-templates/docs) erişebilirsiniz.

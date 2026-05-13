@@ -11,8 +11,7 @@ export const enLocale = {
     },
     editLink: {
       text: 'Edit this page on GitHub',
-      pattern:
-        'https://github.com/ubeydeozdmr/turkiye-api-docs/edit/main/:path',
+      pattern: 'https://github.com/ubeydeozdmr/turkiye-api-docs/edit/main/:path',
     },
     footer: {
       message: 'Published under the MIT License.',
@@ -22,4 +21,4 @@ export const enLocale = {
     nav: enNav,
     sidebar: enSidebar,
   },
-}; 
+};

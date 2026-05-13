@@ -11,8 +11,7 @@ export const trLocale = {
     },
     editLink: {
       text: "Bu sayfayı GitHub'da düzenle",
-      pattern:
-        'https://github.com/ubeydeozdmr/turkiye-api-docs/edit/main/:path',
+      pattern: 'https://github.com/ubeydeozdmr/turkiye-api-docs/edit/main/:path',
     },
     footer: {
       message: 'MIT Lisansı altında yayınlanmıştır.',
@@ -22,4 +21,4 @@ export const trLocale = {
     nav: trNav,
     sidebar: trSidebar,
   },
-}; 
+};

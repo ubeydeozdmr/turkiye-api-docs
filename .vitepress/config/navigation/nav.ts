@@ -1,6 +1,6 @@
 export const trNav = [
   /* { text: 'Ana Sayfa', link: '/' }, */
-  { text: 'Rehber', link: '/tr/v1/guide/welcome' },
+  { text: 'Rehber', link: '/tr/v1/guide/' },
   /* { text: 'API Referansı', link: '/tr/v1/api-reference' }, */
   {
     text: 'v1',
@@ -8,12 +8,11 @@ export const trNav = [
       {
         items: [
           /* { text: 'v2', link: '/tr/v2/guide/getting-started' }, */
-          { text: 'v1', link: '/tr/v1/guide/welcome' },
+          { text: 'v1', link: '/tr/v1/guide/' },
         ],
       },
       {
         items: [
-          { text: 'Sürüm Notları', link: '/tr/v1/changelog' },
           {
             text: 'Eski Dokümantasyon (v1)',
             link: 'https://ubeydeozdmr.github.io/turkiye-api-templates/docs',
@@ -26,7 +25,7 @@ export const trNav = [
 
 export const enNav = [
   /* { text: 'Home', link: '/en/' }, */
-  { text: 'Guide', link: '/en/v1/guide/welcome' },
+  { text: 'Guide', link: '/en/v1/guide/' },
   /* { text: 'API Reference', link: '/en/v1/api-reference' }, */
   {
     text: 'v1',
@@ -34,12 +33,11 @@ export const enNav = [
       {
         items: [
           /* { text: 'v2', link: '/en/v2/guide/getting-started' }, */
-          { text: 'v1', link: '/en/v1/guide/welcome' },
+          { text: 'v1', link: '/en/v1/guide/' },
         ],
       },
       {
         items: [
-          { text: 'Changelog', link: '/en/v1/changelog' },
           {
             text: 'Old Documentation (v1)',
             link: 'https://ubeydeozdmr.github.io/turkiye-api-templates/docs',

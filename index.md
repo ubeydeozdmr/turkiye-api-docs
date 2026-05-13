@@ -2,30 +2,33 @@
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 title: TurkiyeAPI
-description: Türkiye'nin idari yapısı için REST API
+description: Türkiye'nin idari verileri için REST API
 
 hero:
   name: 'TurkiyeAPI'
-  text: "Türkiye'nin idari yapısı için REST API"
-  tagline: TurkiyeAPI, Türkiye'nin iller, ilçeler, mahalleler ve köyler dahil olmak üzere idari bölümleri hakkında demografik ve coğrafi verilerle ayrıntılı bilgi sağlayan kapsamlı bir REST API'dır.
+  text: "Türkiye'nin idari verileri için REST API"
+  tagline: TurkiyeAPI provides administrative data for Türkiye, including provinces, districts, neighborhoods, villages and towns.
   image:
     src: /logo.png
     alt: TurkiyeAPI Logo
   actions:
     - theme: brand
-      text: Rehber
-      link: /tr/v1/guide/welcome
+      text: Türkçe Dokümantasyon
+      link: /tr/v1/guide/
+    - theme: brand
+      text: English Documentation
+      link: /en/v1/guide/
     - theme: alt
       text: GitHub
       link: https://github.com/ubeydeozdmr/turkiye-api
 
 features:
   - title: REST API
-    details: TurkiyeAPI, REST API standartlarına uygun olarak tasarlanmıştır.
-  - title: Kapsamlı Veri Seti
-    details: Türkiye'nin birçok idari bölümü hakkında ayrıntılı bilgi sağlar.
-  - title: Açık Kaynak
-    details: TurkiyeAPI, MIT lisansı altında açık kaynaklı bir projedir ve herkese açıktır.
-  - title: Filtreleme, Sıralama ve Sayfalama
-    details: TurkiyeAPI'de filtreleme, sıralama ve sayfalama özellikleri bulunmaktadır.
+    details: Designed around REST principles for public administrative data access.
+  - title: Türkiye Data
+    details: Provides structured information for Türkiye's administrative divisions.
+  - title: Open Source
+    details: TurkiyeAPI is an MIT-licensed open-source project.
+  - title: Filtering, Sorting and Pagination
+    details: Includes filtering, sorting and pagination support for API consumers.
 ---

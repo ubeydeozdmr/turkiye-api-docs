@@ -2,7 +2,7 @@
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 title: TurkiyeAPI
-description: REST API for Turkey's administrative data
+description: Türkiye'nin idari verileri için REST API
 
 hero:
   name: 'TurkiyeAPI'
@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: Rehber
-      link: /tr/v1/guide/welcome
+      link: /tr/v1/guide/
     - theme: alt
       text: GitHub
       link: https://github.com/ubeydeozdmr/turkiye-api

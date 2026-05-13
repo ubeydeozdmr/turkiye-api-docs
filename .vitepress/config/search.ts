@@ -5,6 +5,19 @@ export const searchConfig = {
       root: {
         translations: {
           button: {
+            buttonText: 'Search',
+            buttonAriaLabel: 'Search',
+          },
+          modal: {
+            resetButtonTitle: 'Reset',
+            backButtonTitle: 'Back',
+            noResultsText: 'No results found.',
+          },
+        },
+      },
+      tr: {
+        translations: {
+          button: {
             buttonText: 'Arama',
             buttonAriaLabel: 'Arama',
           },

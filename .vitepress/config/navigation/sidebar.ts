@@ -2,7 +2,7 @@ export const trSidebar = [
   {
     text: 'Giriş',
     items: [
-      { text: 'Hoş Geldiniz', link: '/tr/v1/guide/welcome' },
+      { text: 'Hoş Geldiniz', link: '/tr/v1/guide/' },
       { text: 'Başlarken', link: '/tr/v1/guide/getting-started' },
     ],
   },
@@ -45,7 +45,7 @@ export const enSidebar = [
   {
     text: 'Introduction',
     items: [
-      { text: 'Welcome', link: '/en/v1/guide/welcome' },
+      { text: 'Welcome', link: '/en/v1/guide/' },
       { text: 'Getting Started', link: '/en/v1/guide/getting-started' },
     ],
   },

@@ -14,7 +14,7 @@ export default defineConfig({
   ],
   themeConfig,
   locales: {
-    root: trLocale,
+    tr: trLocale,
     en: enLocale,
   },
 });

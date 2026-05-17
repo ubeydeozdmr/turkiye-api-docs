@@ -1,6 +1,7 @@
 export const trNav = [
+  // { text: 'Rehber', link: '/tr/v2/guide/' },
+  // { text: 'API Referansı', link: '/tr/v2/api-reference/' },
   { text: 'Rehber', link: '/tr/v2/guide/' },
-  { text: 'API Referansı', link: '/tr/v2/api-reference/' },
   {
     text: 'Sürüm',
     items: [
@@ -27,8 +28,9 @@ export const trNav = [
 ];
 
 export const enNav = [
-  { text: 'Guide', link: '/en/v2/guide/' },
-  { text: 'API Reference', link: '/en/v2/api-reference/' },
+  // { text: 'Guide', link: '/en/v2/guide/' },
+  // { text: 'API Reference', link: '/en/v2/api-reference/' },
+  { text: 'Rehber', link: '/tr/v2/guide/' },
   {
     text: 'Version',
     items: [

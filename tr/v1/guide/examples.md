@@ -99,9 +99,7 @@ curl https://api.turkiyeapi.dev/v1/districts?minPopulation=100000&maxPopulation=
 ```
 
 ```javascript [fetch]
-fetch(
-  'https://api.turkiyeapi.dev/v1/districts?minPopulation=100000&maxPopulation=300000',
-)
+fetch('https://api.turkiyeapi.dev/v1/districts?minPopulation=100000&maxPopulation=300000')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -423,9 +421,7 @@ curl https://api.turkiyeapi.dev/v1/districts?name=i&minPopulation=100000&sort=na
 ```
 
 ```javascript [fetch]
-fetch(
-  'https://api.turkiyeapi.dev/v1/districts?name=i&minPopulation=100000&sort=name&offset=10&limit=20',
-)
+fetch('https://api.turkiyeapi.dev/v1/districts?name=i&minPopulation=100000&sort=name&offset=10&limit=20')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));

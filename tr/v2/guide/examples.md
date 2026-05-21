@@ -40,7 +40,7 @@ Parent filtresiyle birlikte `search`, `sort` veya nüfus filtreleri kullanmak is
 Kullanıcı bir belediye seçtiğinde mahalleleri `municipalityId` ile yükleyin.
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/neighborhoods?municipalityId=937&fields=id,name,postalCode&sort=name&limit=100"
+curl "https://api.turkiyeapi.dev/v2/neighborhoods?municipalityId=937&fields=id,name,postalCode,postalCodeStatus&sort=name&limit=100"
 ```
 
 Bu akış adres formları için kullanışlıdır:
@@ -52,7 +52,7 @@ Bu akış adres formları için kullanışlıdır:
 Zaten belediye detay sayfasındaysanız nested endpoint de kullanılabilir:
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/municipalities/937/neighborhoods?fields=id,name,postalCode"
+curl "https://api.turkiyeapi.dev/v2/municipalities/937/neighborhoods?fields=id,name,postalCode,postalCodeStatus"
 ```
 
 ## İl Seçici

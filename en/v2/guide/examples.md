@@ -40,7 +40,7 @@ Use the collection query when you want to combine parent filtering with `search`
 When a user selects a municipality, load neighborhoods with `municipalityId`.
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/neighborhoods?municipalityId=937&fields=id,name,postalCode&sort=name&limit=100"
+curl "https://api.turkiyeapi.dev/v2/neighborhoods?municipalityId=937&fields=id,name,postalCode,postalCodeStatus&sort=name&limit=100"
 ```
 
 This is useful for address forms:
@@ -52,7 +52,7 @@ Province -> District -> Municipality -> Neighborhood
 If you are already on a municipality detail page, the nested endpoint is also available:
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/municipalities/937/neighborhoods?fields=id,name,postalCode"
+curl "https://api.turkiyeapi.dev/v2/municipalities/937/neighborhoods?fields=id,name,postalCode,postalCodeStatus"
 ```
 
 ## Province Picker

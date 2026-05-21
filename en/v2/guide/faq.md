@@ -50,7 +50,9 @@ Use dataset files when you need the entire dataset locally, such as for analytic
 
 ## Why Is `postalCode` a String?
 
-Postal codes can start with `0`. If postal codes were returned as numbers, leading zeros would be lost. Some records can also have `null` postal codes.
+Postal codes can start with `0`. If postal codes were returned as numbers, leading zeros would be lost. In v2, `postalCode` is a five-digit string on neighborhood and village records.
+
+Use `postalCodeStatus` to understand how the value was assigned. Neighborhoods can return `official`, `derived`, or `estimated`; villages can return `official` or `estimated`.
 
 ## Why Does İstanbul Have Two Phone Area Codes?
 

@@ -67,9 +67,9 @@ Mahalle kayıtları şunları içerir:
 - `id`, `name`, `slug`
 - `provinceId`, `districtId`, `municipalityId`
 - `population`
-- `postalCode`
+- `postalCode`, `postalCodeStatus`
 
-`postalCode` string veya `null` olabilir. Türkiye'deki bazı posta kodları `0` ile başlayabildiği için string olarak döner; numeric saklama baştaki sıfırları kaybettirir.
+`postalCode` beş haneli string olarak döner. Türkiye'deki bazı posta kodları `0` ile başlayabildiği için numeric saklama baştaki sıfırları kaybettirir. `postalCodeStatus`, posta kodunun nasıl atandığını belirtir. Mahallelerde `official`, `derived` veya `estimated` değerleri kullanılabilir.
 
 ## Köy
 
@@ -80,7 +80,9 @@ Köy kayıtları şunları içerir:
 - `id`, `name`, `slug`
 - `provinceId`, `districtId`
 - `population`
-- `postalCode`
+- `postalCode`, `postalCodeStatus`
+
+Köylerde `postalCodeStatus` değeri `official` veya `estimated` olabilir.
 
 Kırsal yerleşim akışları ve ilçe kapsamındaki köy listeleri için köyleri kullanın.
 

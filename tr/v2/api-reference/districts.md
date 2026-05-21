@@ -59,7 +59,7 @@ Temel path:
   },
   "meta": {
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -123,7 +123,7 @@ curl "https://api.turkiyeapi.dev/v2/districts?provinceId=34&limit=2&fields=id,na
     "limit": 2,
     "offset": 0,
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -188,7 +188,7 @@ curl "https://api.turkiyeapi.dev/v2/districts/1103?include=province,neighborhood
   },
   "meta": {
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```

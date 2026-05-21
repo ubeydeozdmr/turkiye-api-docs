@@ -19,7 +19,7 @@ Liste endpoint'leri `data` dizisi ve `meta` objesi döndürür:
     "limit": 100,
     "offset": 0,
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -125,7 +125,7 @@ curl "https://api.turkiyeapi.dev/v2/villages?districtId=1105"
 Bu istek bir belediyedeki ilk 20 mahalleyi nüfusa göre sıralar ve yalnızca seçici için gereken alanları döndürür:
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/neighborhoods?municipalityId=937&fields=id,name,population,postalCode&sort=-population&limit=20&offset=0"
+curl "https://api.turkiyeapi.dev/v2/neighborhoods?municipalityId=937&fields=id,name,population,postalCode,postalCodeStatus&sort=-population&limit=20&offset=0"
 ```
 
 ## Validasyon

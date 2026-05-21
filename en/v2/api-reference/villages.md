@@ -21,22 +21,19 @@ Base path:
 
 ## Village Object
 
-| Field        | Type           | Description           |
-| ------------ | -------------- | --------------------- |
-| `id`         | integer        | Village ID            |
-| `name`       | string         | Village name          |
-| `slug`       | string         | URL-safe village name |
-| `provinceId` | integer        | Parent province ID    |
-| `districtId` | integer        | Parent district ID    |
-| `population` | integer        | Village population    |
-| `postalCode` | string \| null | Village postal code   |
+| Field              | Type    | Description                                               |
+| ------------------ | ------- | --------------------------------------------------------- |
+| `id`               | integer | Village ID                                                |
+| `name`             | string  | Village name                                              |
+| `slug`             | string  | URL-safe village name                                     |
+| `provinceId`       | integer | Parent province ID                                        |
+| `districtId`       | integer | Parent district ID                                        |
+| `population`       | integer | Village population                                        |
+| `postalCode`       | string  | Five-digit village postal code                            |
+| `postalCodeStatus` | string  | Postal code status: `official` or `estimated`             |
 
 ::: tip
-Despite postal codes being numeric, the `postalCode` field is a string because some postal codes in Turkey start with leading zeros, which would be lost if stored as integers.
-:::
-
-::: tip
-In rare cases, some villages may have a `null` value for `postalCode` if they do not have an assigned postal code.
+Despite postal codes being numeric, the `postalCode` field is a five-digit string because some postal codes in Turkey start with leading zeros, which would be lost if stored as integers.
 :::
 
 Example village:
@@ -49,7 +46,8 @@ Example village:
   "provinceId": 2,
   "districtId": 1105,
   "population": 344,
-  "postalCode": "02010"
+  "postalCode": "02010",
+  "postalCodeStatus": "official"
 }
 ```
 
@@ -78,7 +76,7 @@ Returns a paginated list of villages.
 ### Allowed Fields
 
 ```text
-id,name,slug,provinceId,districtId,population,postalCode
+id,name,slug,provinceId,districtId,population,postalCode,postalCodeStatus
 ```
 
 ### Request
@@ -111,7 +109,7 @@ curl "https://api.turkiyeapi.dev/v2/villages?districtId=1105&limit=2&fields=id,n
     "limit": 2,
     "offset": 0,
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -161,6 +159,7 @@ curl "https://api.turkiyeapi.dev/v2/villages/547?include=province,district"
     "districtId": 1105,
     "population": 344,
     "postalCode": "02010",
+    "postalCodeStatus": "official",
     "province": {
       "id": 2,
       "name": "Adıyaman",
@@ -211,7 +210,7 @@ curl "https://api.turkiyeapi.dev/v2/villages/547?include=province,district"
   },
   "meta": {
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```

@@ -17,7 +17,7 @@ Tekil kaynak endpoint'leri şu yapıyı döndürür:
   "data": {},
   "meta": {
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -35,7 +35,7 @@ Liste endpoint'leri şu yapıyı döndürür:
     "limit": 100,
     "offset": 0,
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -56,8 +56,8 @@ Liste endpoint'leri şu yapıyı döndürür:
 | `Province` | Coğrafya, bölge, koordinat ve toplu sayım alanları içeren il kaydı | [İller](./provinces.md) |
 | `District` | Bağlı il, alan, nüfus ve toplu sayım alanları içeren ilçe kaydı | [İlçeler](./districts.md) |
 | `Municipality` | Tip, bağlı kaynak ID'leri, nüfus ve mahalle sayısı içeren belediye kaydı | [Belediyeler](./municipalities.md) |
-| `Neighborhood` | Bağlı kaynak ID'leri, nüfus ve posta kodu içeren mahalle kaydı | [Mahalleler](./neighborhoods.md) |
-| `Village` | Bağlı kaynak ID'leri, nüfus ve posta kodu içeren köy kaydı | [Köyler](./villages.md) |
+| `Neighborhood` | Bağlı kaynak ID'leri, nüfus, posta kodu ve posta kodu durumu içeren mahalle kaydı | [Mahalleler](./neighborhoods.md) |
+| `Village` | Bağlı kaynak ID'leri, nüfus, posta kodu ve posta kodu durumu içeren köy kaydı | [Köyler](./villages.md) |
 
 ## Ortak Alan Tipleri
 
@@ -71,7 +71,8 @@ Liste endpoint'leri şu yapıyı döndürür:
 | `area.unit` | string | Her zaman `km2` |
 | `altitude.value` | number | Rakım değeri |
 | `altitude.unit` | string | Her zaman `m` |
-| `postalCode` | string \| null | Bazı kayıtlarda posta kodu null olabilir |
+| `postalCode` | string | Beş haneli posta kodu |
+| `postalCodeStatus` | string | Posta kodu durumu. Mahallelerde `official`, `derived` veya `estimated`; köylerde `official` veya `estimated` kullanılır |
 | `stats.*Count` | integer | Negatif olmayan toplu sayım değeri |
 
 ## Belediye Tipleri

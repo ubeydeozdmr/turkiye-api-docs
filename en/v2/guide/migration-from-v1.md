@@ -64,7 +64,7 @@ v2 successful responses use `data` and `meta`:
     "limit": 10,
     "offset": 0,
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -79,7 +79,7 @@ Single-resource endpoints also include dataset metadata:
   },
   "meta": {
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -259,12 +259,14 @@ v1 hid province and district postal codes unless `activatePostalCodes=true`, and
 
 v2 removes `activatePostalCodes`. Postal code data is modeled on neighborhood and village records:
 
-| Resource | v2 postal code field |
+| Resource | v2 postal code fields |
 | --- | --- |
 | Province | Not part of the province schema |
 | District | Not part of the district schema |
-| Neighborhood | `postalCode` |
-| Village | `postalCode` |
+| Neighborhood | `postalCode`, `postalCodeStatus` |
+| Village | `postalCode`, `postalCodeStatus` |
+
+`postalCode` is now a required five-digit string. `postalCodeStatus` is also required; neighborhoods can use `official`, `derived`, or `estimated`, while villages can use `official` or `estimated`.
 
 ## Dataset and Metadata
 
@@ -280,7 +282,7 @@ Current v2 dataset metadata includes:
 | --- | --- |
 | API version | `2.0.0` |
 | Dataset version | `2025` |
-| Last updated | `2026-05-10` |
+| Last updated | `2026-05-21` |
 | Provinces | `81` |
 | Districts | `973` |
 | Municipalities | `1377` |

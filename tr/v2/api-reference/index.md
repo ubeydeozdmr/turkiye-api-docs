@@ -93,7 +93,7 @@ Liste endpoint'leri şunu döndürür:
     "limit": 100,
     "offset": 0,
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -105,7 +105,7 @@ Tekil kaynak endpoint'leri şunu döndürür:
   "data": {},
   "meta": {
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```

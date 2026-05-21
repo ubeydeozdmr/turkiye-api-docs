@@ -50,7 +50,9 @@ Tüm veri setine yerelde ihtiyacınız varsa; örneğin analiz, arama indeksi, o
 
 ## `postalCode` Neden String?
 
-Posta kodları `0` ile başlayabilir. Posta kodları number olarak dönseydi baştaki sıfırlar kaybolurdu. Bazı kayıtlarda posta kodu `null` da olabilir.
+Posta kodları `0` ile başlayabilir. Posta kodları number olarak dönseydi baştaki sıfırlar kaybolurdu. v2'de `postalCode`, mahalle ve köy kayıtlarında beş haneli string olarak döner.
+
+Değerin nasıl atandığını anlamak için `postalCodeStatus` alanını kullanın. Mahallelerde `official`, `derived` veya `estimated`; köylerde `official` veya `estimated` dönebilir.
 
 ## İstanbul'da Neden İki Telefon Alan Kodu Var?
 

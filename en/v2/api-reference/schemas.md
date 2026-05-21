@@ -17,7 +17,7 @@ Single-resource endpoints return:
   "data": {},
   "meta": {
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -35,7 +35,7 @@ List endpoints return:
     "limit": 100,
     "offset": 0,
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -56,8 +56,8 @@ List endpoints return:
 | `Province` | Province record with geography, region, coordinates, and aggregate counts | [Provinces](./provinces.md) |
 | `District` | District record with parent province, area, population, and aggregate counts | [Districts](./districts.md) |
 | `Municipality` | Municipality record with type, parent IDs, population, and neighborhood count | [Municipalities](./municipalities.md) |
-| `Neighborhood` | Neighborhood record with parent IDs, population, and postal code | [Neighborhoods](./neighborhoods.md) |
-| `Village` | Village record with parent IDs, population, and postal code | [Villages](./villages.md) |
+| `Neighborhood` | Neighborhood record with parent IDs, population, postal code, and postal code status | [Neighborhoods](./neighborhoods.md) |
+| `Village` | Village record with parent IDs, population, postal code, and postal code status | [Villages](./villages.md) |
 
 ## Shared Field Types
 
@@ -71,7 +71,8 @@ List endpoints return:
 | `area.unit` | string | Always `km2` |
 | `altitude.value` | number | Altitude value |
 | `altitude.unit` | string | Always `m` |
-| `postalCode` | string \| null | Postal code can be null for some records |
+| `postalCode` | string | Five-digit postal code |
+| `postalCodeStatus` | string | Postal code status. Neighborhoods use `official`, `derived`, or `estimated`; villages use `official` or `estimated` |
 | `stats.*Count` | integer | Non-negative aggregate count |
 
 ## Municipality Types

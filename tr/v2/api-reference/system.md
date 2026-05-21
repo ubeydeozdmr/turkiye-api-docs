@@ -57,7 +57,7 @@ curl "https://api.turkiyeapi.dev/v2/meta"
   "data": {
     "apiVersion": "2.0.0",
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10",
+    "lastUpdated": "2026-05-21",
     "sources": [
       {
         "name": "TÜİK MEDAS",

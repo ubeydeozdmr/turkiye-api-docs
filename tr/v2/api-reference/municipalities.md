@@ -109,7 +109,7 @@ curl "https://api.turkiyeapi.dev/v2/municipalities?provinceId=1&limit=2&fields=i
     "limit": 2,
     "offset": 0,
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -213,7 +213,7 @@ curl "https://api.turkiyeapi.dev/v2/municipalities/926?include=province,district
   },
   "meta": {
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -245,7 +245,7 @@ Path parametresindeki `municipalityId` ile eşleşen mahalleleri döndürür.
 ### İzin Verilen Alanlar
 
 ```text
-id,name,slug,provinceId,districtId,municipalityId,population,postalCode
+id,name,slug,provinceId,districtId,municipalityId,population,postalCode,postalCodeStatus
 ```
 
 ### İstek

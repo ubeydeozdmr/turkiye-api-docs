@@ -21,23 +21,20 @@ Base path:
 
 ## Neighborhood Object
 
-| Field            | Type           | Description                |
-| ---------------- | -------------- | -------------------------- |
-| `id`             | integer        | Neighborhood ID            |
-| `name`           | string         | Neighborhood name          |
-| `slug`           | string         | URL-safe neighborhood name |
-| `provinceId`     | integer        | Parent province ID         |
-| `districtId`     | integer        | Parent district ID         |
-| `municipalityId` | integer        | Parent municipality ID     |
-| `population`     | integer        | Neighborhood population    |
-| `postalCode`     | string \| null | Neighborhood postal code   |
+| Field              | Type    | Description                                                  |
+| ------------------ | ------- | ------------------------------------------------------------ |
+| `id`               | integer | Neighborhood ID                                              |
+| `name`             | string  | Neighborhood name                                            |
+| `slug`             | string  | URL-safe neighborhood name                                   |
+| `provinceId`       | integer | Parent province ID                                           |
+| `districtId`       | integer | Parent district ID                                           |
+| `municipalityId`   | integer | Parent municipality ID                                       |
+| `population`       | integer | Neighborhood population                                      |
+| `postalCode`       | string  | Five-digit neighborhood postal code                          |
+| `postalCodeStatus` | string  | Postal code status: `official`, `derived`, or `estimated`    |
 
 ::: tip
-Despite postal codes being numeric, the `postalCode` field is a string because some postal codes in Turkey start with leading zeros, which would be lost if stored as integers.
-:::
-
-::: tip
-In rare cases, some neighborhoods may have a `null` value for `postalCode` if they do not have an assigned postal code.
+Despite postal codes being numeric, the `postalCode` field is a five-digit string because some postal codes in Turkey start with leading zeros, which would be lost if stored as integers.
 :::
 
 Example neighborhood:
@@ -51,7 +48,8 @@ Example neighborhood:
   "districtId": 1104,
   "municipalityId": 937,
   "population": 1116,
-  "postalCode": "01020"
+  "postalCode": "01020",
+  "postalCodeStatus": "official"
 }
 ```
 
@@ -81,13 +79,13 @@ Returns a paginated list of neighborhoods.
 ### Allowed Fields
 
 ```text
-id,name,slug,provinceId,districtId,municipalityId,population,postalCode
+id,name,slug,provinceId,districtId,municipalityId,population,postalCode,postalCodeStatus
 ```
 
 ### Request
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/neighborhoods?districtId=1104&limit=2&fields=id,name,postalCode"
+curl "https://api.turkiyeapi.dev/v2/neighborhoods?districtId=1104&limit=2&fields=id,name,postalCode,postalCodeStatus"
 ```
 
 ### Response
@@ -98,12 +96,14 @@ curl "https://api.turkiyeapi.dev/v2/neighborhoods?districtId=1104&limit=2&fields
     {
       "id": 1,
       "name": "Ahmet Remzi Yüreğir",
-      "postalCode": "01130"
+      "postalCode": "01130",
+      "postalCodeStatus": "official"
     },
     {
       "id": 2,
       "name": "Akkapı",
-      "postalCode": "01040"
+      "postalCode": "01040",
+      "postalCodeStatus": "official"
     }
   ],
   "meta": {
@@ -112,7 +112,7 @@ curl "https://api.turkiyeapi.dev/v2/neighborhoods?districtId=1104&limit=2&fields
     "limit": 2,
     "offset": 0,
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -163,6 +163,7 @@ curl "https://api.turkiyeapi.dev/v2/neighborhoods/3?include=province,district,mu
     "municipalityId": 937,
     "population": 1116,
     "postalCode": "01020",
+    "postalCodeStatus": "official",
     "province": {
       "id": 1,
       "name": "Adana",
@@ -225,7 +226,7 @@ curl "https://api.turkiyeapi.dev/v2/neighborhoods/3?include=province,district,mu
   },
   "meta": {
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```

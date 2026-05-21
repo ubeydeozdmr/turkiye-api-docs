@@ -94,7 +94,7 @@ Yanıt bir JSON envelope yapısıdır:
     "limit": 5,
     "offset": 0,
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```

@@ -21,23 +21,20 @@ Temel path:
 
 ## Mahalle Nesnesi
 
-| Alan             | Tip            | Açıklama                  |
-| ---------------- | -------------- | ------------------------- |
-| `id`             | integer        | Mahalle ID'si             |
-| `name`           | string         | Mahalle adı               |
-| `slug`           | string         | URL uyumlu mahalle adı    |
-| `provinceId`     | integer        | Bağlı olduğu il ID'si     |
-| `districtId`     | integer        | Bağlı olduğu ilçe ID'si   |
-| `municipalityId` | integer        | Bağlı olduğu belediye ID'si |
-| `population`     | integer        | Mahalle nüfusu            |
-| `postalCode`     | string \| null | Mahalle posta kodu        |
+| Alan               | Tip     | Açıklama                                                |
+| ------------------ | ------- | ------------------------------------------------------- |
+| `id`               | integer | Mahalle ID'si                                           |
+| `name`             | string  | Mahalle adı                                             |
+| `slug`             | string  | URL uyumlu mahalle adı                                  |
+| `provinceId`       | integer | Bağlı olduğu il ID'si                                   |
+| `districtId`       | integer | Bağlı olduğu ilçe ID'si                                 |
+| `municipalityId`   | integer | Bağlı olduğu belediye ID'si                             |
+| `population`       | integer | Mahalle nüfusu                                          |
+| `postalCode`       | string  | Beş haneli mahalle posta kodu                           |
+| `postalCodeStatus` | string  | Posta kodu durumu: `official`, `derived` veya `estimated` |
 
 ::: tip
-Posta kodları sayısal görünse de `postalCode` alanı string olarak döner. Türkiye'deki bazı posta kodları sıfır ile başlar ve integer olarak saklanırsa baştaki sıfır kaybolur.
-:::
-
-::: tip
-Nadir durumlarda bazı mahallelerde atanmış posta kodu bulunmayabilir. Bu durumda `postalCode` değeri `null` olabilir.
+Posta kodları sayısal görünse de `postalCode` alanı beş haneli string olarak döner. Türkiye'deki bazı posta kodları sıfır ile başlar ve integer olarak saklanırsa baştaki sıfır kaybolur.
 :::
 
 Örnek mahalle:
@@ -51,7 +48,8 @@ Nadir durumlarda bazı mahallelerde atanmış posta kodu bulunmayabilir. Bu duru
   "districtId": 1104,
   "municipalityId": 937,
   "population": 1116,
-  "postalCode": "01020"
+  "postalCode": "01020",
+  "postalCodeStatus": "official"
 }
 ```
 
@@ -81,13 +79,13 @@ Sayfalanmış mahalle listesi döndürür.
 ### İzin Verilen Alanlar
 
 ```text
-id,name,slug,provinceId,districtId,municipalityId,population,postalCode
+id,name,slug,provinceId,districtId,municipalityId,population,postalCode,postalCodeStatus
 ```
 
 ### İstek
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/neighborhoods?districtId=1104&limit=2&fields=id,name,postalCode"
+curl "https://api.turkiyeapi.dev/v2/neighborhoods?districtId=1104&limit=2&fields=id,name,postalCode,postalCodeStatus"
 ```
 
 ### Yanıt
@@ -98,12 +96,14 @@ curl "https://api.turkiyeapi.dev/v2/neighborhoods?districtId=1104&limit=2&fields
     {
       "id": 1,
       "name": "Ahmet Remzi Yüreğir",
-      "postalCode": "01130"
+      "postalCode": "01130",
+      "postalCodeStatus": "official"
     },
     {
       "id": 2,
       "name": "Akkapı",
-      "postalCode": "01040"
+      "postalCode": "01040",
+      "postalCodeStatus": "official"
     }
   ],
   "meta": {
@@ -112,7 +112,7 @@ curl "https://api.turkiyeapi.dev/v2/neighborhoods?districtId=1104&limit=2&fields
     "limit": 2,
     "offset": 0,
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -163,6 +163,7 @@ curl "https://api.turkiyeapi.dev/v2/neighborhoods/3?include=province,district,mu
     "municipalityId": 937,
     "population": 1116,
     "postalCode": "01020",
+    "postalCodeStatus": "official",
     "province": {
       "id": 1,
       "name": "Adana",
@@ -225,7 +226,7 @@ curl "https://api.turkiyeapi.dev/v2/neighborhoods/3?include=province,district,mu
   },
   "meta": {
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```

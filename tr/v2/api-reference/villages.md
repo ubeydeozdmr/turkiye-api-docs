@@ -21,22 +21,19 @@ Temel path:
 
 ## Köy Nesnesi
 
-| Alan         | Tip            | Açıklama                |
-| ------------ | -------------- | ----------------------- |
-| `id`         | integer        | Köy ID'si               |
-| `name`       | string         | Köy adı                 |
-| `slug`       | string         | URL uyumlu köy adı      |
-| `provinceId` | integer        | Bağlı olduğu il ID'si   |
-| `districtId` | integer        | Bağlı olduğu ilçe ID'si |
-| `population` | integer        | Köy nüfusu              |
-| `postalCode` | string \| null | Köy posta kodu          |
+| Alan               | Tip     | Açıklama                                  |
+| ------------------ | ------- | ----------------------------------------- |
+| `id`               | integer | Köy ID'si                                 |
+| `name`             | string  | Köy adı                                   |
+| `slug`             | string  | URL uyumlu köy adı                        |
+| `provinceId`       | integer | Bağlı olduğu il ID'si                     |
+| `districtId`       | integer | Bağlı olduğu ilçe ID'si                   |
+| `population`       | integer | Köy nüfusu                                |
+| `postalCode`       | string  | Beş haneli köy posta kodu                 |
+| `postalCodeStatus` | string  | Posta kodu durumu: `official` veya `estimated` |
 
 ::: tip
-Posta kodları sayısal görünse de `postalCode` alanı string olarak döner. Türkiye'deki bazı posta kodları sıfır ile başlar ve integer olarak saklanırsa baştaki sıfır kaybolur.
-:::
-
-::: tip
-Nadir durumlarda bazı köylerde atanmış posta kodu bulunmayabilir. Bu durumda `postalCode` değeri `null` olabilir.
+Posta kodları sayısal görünse de `postalCode` alanı beş haneli string olarak döner. Türkiye'deki bazı posta kodları sıfır ile başlar ve integer olarak saklanırsa baştaki sıfır kaybolur.
 :::
 
 Örnek köy:
@@ -49,7 +46,8 @@ Nadir durumlarda bazı köylerde atanmış posta kodu bulunmayabilir. Bu durumda
   "provinceId": 2,
   "districtId": 1105,
   "population": 344,
-  "postalCode": "02010"
+  "postalCode": "02010",
+  "postalCodeStatus": "official"
 }
 ```
 
@@ -78,7 +76,7 @@ Sayfalanmış köy listesi döndürür.
 ### İzin Verilen Alanlar
 
 ```text
-id,name,slug,provinceId,districtId,population,postalCode
+id,name,slug,provinceId,districtId,population,postalCode,postalCodeStatus
 ```
 
 ### İstek
@@ -111,7 +109,7 @@ curl "https://api.turkiyeapi.dev/v2/villages?districtId=1105&limit=2&fields=id,n
     "limit": 2,
     "offset": 0,
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -161,6 +159,7 @@ curl "https://api.turkiyeapi.dev/v2/villages/547?include=province,district"
     "districtId": 1105,
     "population": 344,
     "postalCode": "02010",
+    "postalCodeStatus": "official",
     "province": {
       "id": 2,
       "name": "Adıyaman",
@@ -211,7 +210,7 @@ curl "https://api.turkiyeapi.dev/v2/villages/547?include=province,district"
   },
   "meta": {
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```

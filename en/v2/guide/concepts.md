@@ -67,9 +67,9 @@ Neighborhood records include:
 - `id`, `name`, `slug`
 - `provinceId`, `districtId`, `municipalityId`
 - `population`
-- `postalCode`
+- `postalCode`, `postalCodeStatus`
 
-`postalCode` is a string or `null`. It is a string because Turkish postal codes can start with `0`, and numeric storage would remove leading zeros.
+`postalCode` is a five-digit string because Turkish postal codes can start with `0`, and numeric storage would remove leading zeros. `postalCodeStatus` indicates how the postal code was assigned. Neighborhood values can be `official`, `derived`, or `estimated`.
 
 ## Village
 
@@ -80,7 +80,9 @@ Village records include:
 - `id`, `name`, `slug`
 - `provinceId`, `districtId`
 - `population`
-- `postalCode`
+- `postalCode`, `postalCodeStatus`
+
+Village `postalCodeStatus` values can be `official` or `estimated`.
 
 Use villages for rural settlement workflows and district-scoped rural lists.
 

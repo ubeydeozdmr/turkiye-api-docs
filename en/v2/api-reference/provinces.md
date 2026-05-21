@@ -150,7 +150,7 @@ curl "https://api.turkiyeapi.dev/v2/provinces?search=istanbul&fields=id,name,pop
     "limit": 100,
     "offset": 0,
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -227,7 +227,7 @@ curl "https://api.turkiyeapi.dev/v2/provinces/34?include=districts,municipalitie
   },
   "meta": {
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -327,7 +327,7 @@ Returns neighborhoods whose `provinceId` matches the path parameter.
 ### Allowed Fields
 
 ```text
-id,name,slug,provinceId,districtId,municipalityId,population,postalCode
+id,name,slug,provinceId,districtId,municipalityId,population,postalCode,postalCodeStatus
 ```
 
 ### Request
@@ -361,7 +361,7 @@ Returns villages whose `provinceId` matches the path parameter.
 ### Allowed Fields
 
 ```text
-id,name,slug,provinceId,districtId,population,postalCode
+id,name,slug,provinceId,districtId,population,postalCode,postalCodeStatus
 ```
 
 ### Request

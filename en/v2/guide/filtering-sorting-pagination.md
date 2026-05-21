@@ -19,7 +19,7 @@ List endpoints return a `data` array and a `meta` object:
     "limit": 100,
     "offset": 0,
     "datasetVersion": "2025",
-    "lastUpdated": "2026-05-10"
+    "lastUpdated": "2026-05-21"
   }
 }
 ```
@@ -125,7 +125,7 @@ curl "https://api.turkiyeapi.dev/v2/villages?districtId=1105"
 This request lists the first 20 neighborhoods in a municipality, sorted by population, with only fields needed for a picker:
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/neighborhoods?municipalityId=937&fields=id,name,population,postalCode&sort=-population&limit=20&offset=0"
+curl "https://api.turkiyeapi.dev/v2/neighborhoods?municipalityId=937&fields=id,name,population,postalCode,postalCodeStatus&sort=-population&limit=20&offset=0"
 ```
 
 ## Validation

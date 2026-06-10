@@ -37,6 +37,27 @@ Temel path:
 Posta kodları sayısal görünse de `postalCode` alanı beş haneli string olarak döner. Türkiye'deki bazı posta kodları sıfır ile başlar ve integer olarak saklanırsa baştaki sıfır kaybolur.
 :::
 
+## Posta Kodu Durumu
+
+Posta kodunun nasıl belirlendiğini anlamak için `postalCodeStatus` alanını kullanın:
+
+| Değer | Anlamı |
+| ----- | ------ |
+| `official` | Posta kodu resmi PTT posta kodu verisinde bulunur ve doğrudan bu kaynaktan kullanılır. |
+| `derived` | Posta kodu mevcut mahalle için PTT verisinde yoktur; ancak mahalle daha önce posta kodu bilinen ve PTT verisinde yer alan bir köy ya da başka bir yerleşimin parçasıdır. Bu durumda önceki yerleşimin posta kodu kullanılır. |
+| `estimated` | Posta kodu PTT verisinde yoktur ve önceki bir yerleşimden türetilememiştir. Değer ek kamusal kaynaklardan, yakındaki yerleşimlerden, ilçe düzeyi posta kodu örüntülerinden veya belgelenmiş idari değişikliklerden çıkarılır. |
+
+Kesin resmi posta kodu verisine ihtiyaç duyan istemciler `postalCodeStatus` alanını kontrol etmelidir. Yalnızca resmi kullanım için `postalCodeStatus` değeri `official` olan kayıtları filtreleyin.
+
+Güncel mahalle durumu dağılımı:
+
+| Durum | Sayı |
+| ----- | ---- |
+| `official` | `32,142` |
+| `derived` | `76` |
+| `estimated` | `36` |
+| Toplam | `32,254` |
+
 Örnek mahalle:
 
 ```json

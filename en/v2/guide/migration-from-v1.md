@@ -268,6 +268,8 @@ v2 removes `activatePostalCodes`. Postal code data is modeled on neighborhood an
 
 `postalCode` is now a required five-digit string. `postalCodeStatus` is also required; neighborhoods can use `official`, `derived`, or `estimated`, while villages can use `official` or `estimated`.
 
+For official-only usage, filter records where `postalCodeStatus` is `official`. `derived` is used only for neighborhoods whose previous village or settlement postal code exists in official PTT data. `estimated` values improve searchability but should not be treated as official PTT records.
+
 ## Dataset and Metadata
 
 v2 exposes API and dataset metadata through:

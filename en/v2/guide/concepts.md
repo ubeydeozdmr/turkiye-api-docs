@@ -69,7 +69,13 @@ Neighborhood records include:
 - `population`
 - `postalCode`, `postalCodeStatus`
 
-`postalCode` is a five-digit string because Turkish postal codes can start with `0`, and numeric storage would remove leading zeros. `postalCodeStatus` indicates how the postal code was assigned. Neighborhood values can be `official`, `derived`, or `estimated`.
+`postalCode` is a five-digit string because Turkish postal codes can start with `0`, and numeric storage would remove leading zeros. `postalCodeStatus` indicates how the postal code was assigned:
+
+- `official`: available in official PTT postal code data and used directly.
+- `derived`: not available for the current neighborhood in PTT data, but derived from a previous village or settlement with a known PTT postal code. This status is used only for neighborhoods.
+- `estimated`: not available in PTT data and inferred from supplementary public sources, nearby settlements, district-level postal code patterns, or documented administrative changes.
+
+Clients that require strict official postal code data should filter records where `postalCodeStatus` is `official`. Current neighborhood records include `32,142` official, `76` derived, and `36` estimated postal codes.
 
 ## Village
 
@@ -82,7 +88,7 @@ Village records include:
 - `population`
 - `postalCode`, `postalCodeStatus`
 
-Village `postalCodeStatus` values can be `official` or `estimated`.
+Village `postalCodeStatus` values can be `official` or `estimated`. Current village records include `18,162` official and `21` estimated postal codes.
 
 Use villages for rural settlement workflows and district-scoped rural lists.
 

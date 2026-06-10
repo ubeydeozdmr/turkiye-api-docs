@@ -75,6 +75,8 @@ Liste endpoint'leri şu yapıyı döndürür:
 | `postalCodeStatus` | string | Posta kodu durumu. Mahallelerde `official`, `derived` veya `estimated`; köylerde `official` veya `estimated` kullanılır |
 | `stats.*Count` | integer | Negatif olmayan toplu sayım değeri |
 
+`postalCodeStatus`; resmi PTT posta kodu verisinden doğrudan kullanılan değerleri (`official`), PTT'de bilinen posta koduna sahip önceki bir yerleşimden türetilen yalnızca mahalleye özgü değerleri (`derived`) ve ek kamusal kaynaklardan, yakındaki yerleşimlerden, ilçe düzeyi örüntülerden veya idari değişiklik kayıtlarından çıkarılan değerleri (`estimated`) ayırt eder. Kesin resmi posta kodu verisine ihtiyaç duyan istemciler `postalCodeStatus` değeri `official` olan kayıtları filtrelemelidir.
+
 ## Belediye Tipleri
 
 | Değer | Anlamı |

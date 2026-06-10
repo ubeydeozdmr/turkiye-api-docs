@@ -52,7 +52,9 @@ Use dataset files when you need the entire dataset locally, such as for analytic
 
 Postal codes can start with `0`. If postal codes were returned as numbers, leading zeros would be lost. In v2, `postalCode` is a five-digit string on neighborhood and village records.
 
-Use `postalCodeStatus` to understand how the value was assigned. Neighborhoods can return `official`, `derived`, or `estimated`; villages can return `official` or `estimated`.
+Use `postalCodeStatus` to understand how the value was assigned. `official` values come directly from official PTT postal code data. `derived` values are used only for neighborhoods when the current neighborhood is missing from PTT data but can use a previous village or settlement postal code that exists in PTT data. `estimated` values are inferred from supplementary public sources, nearby settlements, district-level postal code patterns, or documented administrative changes.
+
+If your client requires strict official postal code data, filter records where `postalCodeStatus` is `official`.
 
 ## Why Does İstanbul Have Two Phone Area Codes?
 

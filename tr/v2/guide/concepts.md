@@ -69,7 +69,13 @@ Mahalle kayıtları şunları içerir:
 - `population`
 - `postalCode`, `postalCodeStatus`
 
-`postalCode` beş haneli string olarak döner. Türkiye'deki bazı posta kodları `0` ile başlayabildiği için numeric saklama baştaki sıfırları kaybettirir. `postalCodeStatus`, posta kodunun nasıl atandığını belirtir. Mahallelerde `official`, `derived` veya `estimated` değerleri kullanılabilir.
+`postalCode` beş haneli string olarak döner. Türkiye'deki bazı posta kodları `0` ile başlayabildiği için numeric saklama baştaki sıfırları kaybettirir. `postalCodeStatus`, posta kodunun nasıl belirlendiğini belirtir:
+
+- `official`: Resmi PTT posta kodu verisinde bulunur ve doğrudan kullanılır.
+- `derived`: Mevcut mahalle için PTT verisinde yoktur; ancak PTT'de bilinen posta koduna sahip önceki bir köy veya yerleşimden türetilir. Bu durum yalnızca mahallelerde kullanılır.
+- `estimated`: PTT verisinde yoktur ve ek kamusal kaynaklardan, yakındaki yerleşimlerden, ilçe düzeyi posta kodu örüntülerinden veya belgelenmiş idari değişikliklerden çıkarılır.
+
+Kesin resmi posta kodu verisine ihtiyaç duyan istemciler `postalCodeStatus` değeri `official` olan kayıtları filtrelemelidir. Güncel mahalle kayıtlarında `32,142` resmi, `76` türetilmiş ve `36` tahmini posta kodu bulunur.
 
 ## Köy
 
@@ -82,7 +88,7 @@ Köy kayıtları şunları içerir:
 - `population`
 - `postalCode`, `postalCodeStatus`
 
-Köylerde `postalCodeStatus` değeri `official` veya `estimated` olabilir.
+Köylerde `postalCodeStatus` değeri `official` veya `estimated` olabilir. Güncel köy kayıtlarında `18,162` resmi ve `21` tahmini posta kodu bulunur.
 
 Kırsal yerleşim akışları ve ilçe kapsamındaki köy listeleri için köyleri kullanın.
 

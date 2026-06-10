@@ -52,7 +52,9 @@ Tüm veri setine yerelde ihtiyacınız varsa; örneğin analiz, arama indeksi, o
 
 Posta kodları `0` ile başlayabilir. Posta kodları number olarak dönseydi baştaki sıfırlar kaybolurdu. v2'de `postalCode`, mahalle ve köy kayıtlarında beş haneli string olarak döner.
 
-Değerin nasıl atandığını anlamak için `postalCodeStatus` alanını kullanın. Mahallelerde `official`, `derived` veya `estimated`; köylerde `official` veya `estimated` dönebilir.
+Değerin nasıl belirlendiğini anlamak için `postalCodeStatus` alanını kullanın. `official` değerler resmi PTT posta kodu verisinden doğrudan gelir. `derived` yalnızca mevcut mahalle PTT verisinde yokken, PTT verisinde yer alan önceki köy veya yerleşim posta kodu kullanılabiliyorsa mahallelerde döner. `estimated` değerler ek kamusal kaynaklardan, yakındaki yerleşimlerden, ilçe düzeyi posta kodu örüntülerinden veya belgelenmiş idari değişikliklerden çıkarılır.
+
+İstemciniz kesin resmi posta kodu verisine ihtiyaç duyuyorsa `postalCodeStatus` değeri `official` olan kayıtları filtreleyin.
 
 ## İstanbul'da Neden İki Telefon Alan Kodu Var?
 

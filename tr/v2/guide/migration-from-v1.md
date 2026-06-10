@@ -268,6 +268,8 @@ v2 `activatePostalCodes` parametresini kaldırır. Posta kodu verisi mahalle ve 
 
 `postalCode` artık zorunlu beş haneli string olarak döner. `postalCodeStatus` da zorunludur; mahallelerde `official`, `derived` veya `estimated`, köylerde `official` veya `estimated` değerleri kullanılabilir.
 
+Yalnızca resmi kullanım için `postalCodeStatus` değeri `official` olan kayıtları filtreleyin. `derived`, yalnızca önceki köy veya yerleşim posta kodu resmi PTT verisinde bulunan mahallelerde kullanılır. `estimated` değerler arama yapılabilirliği artırır, ancak resmi PTT kaydı olarak değerlendirilmemelidir.
+
 ## Veri Seti ve Metadata
 
 v2 API ve veri seti metadata'sını şu endpoint ile sunar:

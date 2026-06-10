@@ -75,6 +75,8 @@ List endpoints return:
 | `postalCodeStatus` | string | Postal code status. Neighborhoods use `official`, `derived`, or `estimated`; villages use `official` or `estimated` |
 | `stats.*Count` | integer | Non-negative aggregate count |
 
+`postalCodeStatus` distinguishes values used directly from official PTT postal code data (`official`), neighborhood-only values derived from a previous settlement with a known PTT postal code (`derived`), and values inferred from supplementary public sources, nearby settlements, district-level patterns, or administrative-change records (`estimated`). Clients that require strict official postal code data should filter records where `postalCodeStatus` is `official`.
+
 ## Municipality Types
 
 | Value | Meaning |

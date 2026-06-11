@@ -120,6 +120,18 @@ curl "https://api.turkiyeapi.dev/v2/neighborhoods?municipalityId=937"
 curl "https://api.turkiyeapi.dev/v2/villages?districtId=1105"
 ```
 
+Hiyerarşik seçicilerde nested route'lar genellikle daha nettir:
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/provinces/34/districts?fields=id,name"
+```
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/districts/1104/neighborhoods?fields=id,name,postalCode,postalCodeStatus"
+```
+
+Arama, sıralama, sayfalama veya daha geniş kapsamlı tablo ihtiyacınız varsa filtreli collection endpoint'lerini kullanın. Senaryo bazlı yönlendirme için [Yaygın Kullanım Senaryoları](./common-use-cases.md) sayfasına bakın.
+
 ## Parametreleri Birleştirme
 
 Bu istek bir belediyedeki ilk 20 mahalleyi nüfusa göre sıralar ve yalnızca seçici için gereken alanları döndürür:

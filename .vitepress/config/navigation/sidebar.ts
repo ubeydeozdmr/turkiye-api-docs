@@ -50,6 +50,7 @@ const trV2GuideSidebar = [
     items: [
       { text: 'Kavramlar', link: '/tr/v2/guide/concepts' },
       { text: 'İdari Yapı', link: '/tr/v2/guide/administrative-structure' },
+      { text: 'Yaygın Kullanım Senaryoları', link: '/tr/v2/guide/common-use-cases' },
       {
         text: 'Filtreleme, Sıralama ve Sayfalama',
         link: '/tr/v2/guide/filtering-sorting-pagination',
@@ -146,6 +147,7 @@ const enV2GuideSidebar = [
     items: [
       { text: 'Concepts', link: '/en/v2/guide/concepts' },
       { text: 'Administrative Structure', link: '/en/v2/guide/administrative-structure' },
+      { text: 'Common Use Cases', link: '/en/v2/guide/common-use-cases' },
       {
         text: 'Filtering, Sorting and Pagination',
         link: '/en/v2/guide/filtering-sorting-pagination',

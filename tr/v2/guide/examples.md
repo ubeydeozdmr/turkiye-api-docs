@@ -6,6 +6,28 @@ outline: deep
 
 Bu sayfa pratik v2 kullanım akışlarını gösterir. Her örnek küçük bir yanıt yapısı kullanır; aynı kalıbı frontend formlarında, backend servislerinde, script'lerde veya veri pipeline'larında uyarlayabilirsiniz.
 
+## Hiyerarşik Adres Seçici
+
+İl -> ilçe -> mahalle formlarında her child koleksiyonu yalnızca kullanıcı parent kaydı seçtikten sonra yükleyin.
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/provinces?fields=id,name&sort=name"
+```
+
+Kullanıcı İstanbul'u (`34`) seçtikten sonra:
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/provinces/34/districts?fields=id,name"
+```
+
+Kullanıcı Adalar'ı (`1103`) seçtikten sonra:
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/districts/1103/neighborhoods?fields=id,name,postalCode,postalCodeStatus"
+```
+
+Dropdown ve adım adım seçiciler için bu nested kalıbı kullanın. Daha geniş bir sonuç kümesinde arama, filtreleme, sıralama veya sayfalama gerekiyorsa collection endpoint'lerini kullanın.
+
 ## İstanbul'un İlçeleri
 
 İstanbul'un il ID'si `34`'tür. İlçelerini listelemek için:
@@ -33,7 +55,7 @@ Nested endpoint de kullanılabilir:
 curl "https://api.turkiyeapi.dev/v2/provinces/34/districts?fields=id,name,population"
 ```
 
-Parent filtresiyle birlikte `search`, `sort` veya nüfus filtreleri kullanmak istiyorsanız collection query daha pratiktir.
+Kullanıcı az önce bir il seçtiyse nested endpoint'i tercih edin. Parent filtresiyle birlikte `search`, `sort`, sayfalama veya nüfus filtreleri kullanmak istiyorsanız collection query daha pratiktir.
 
 ## Belediyeye Göre Mahalleler
 
@@ -94,6 +116,8 @@ curl "https://api.turkiyeapi.dev/v2/neighborhoods/3?include=province,district,mu
 ```
 
 Bu istek mahalleyi; il, ilçe ve belediye bilgileriyle birlikte tek yanıtta döndürür.
+
+Liste ekranları ve dropdown'larda büyük ilişkili dizileri `include` ile yüklemek yerine parent filtrelerini veya nested child route'ları tercih edin.
 
 ## Statik Veri Seti İndirme
 

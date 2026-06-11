@@ -120,6 +120,18 @@ curl "https://api.turkiyeapi.dev/v2/neighborhoods?municipalityId=937"
 curl "https://api.turkiyeapi.dev/v2/villages?districtId=1105"
 ```
 
+For hierarchical selectors, the nested routes are usually clearer:
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/provinces/34/districts?fields=id,name"
+```
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/districts/1104/neighborhoods?fields=id,name,postalCode,postalCodeStatus"
+```
+
+Use filtered collection endpoints when you need search, sorting, pagination, or a table that spans a broader scope. See [Common Use Cases](./common-use-cases.md) for scenario-based guidance.
+
 ## Combining Parameters
 
 This request lists the first 20 neighborhoods in a municipality, sorted by population, with only fields needed for a picker:

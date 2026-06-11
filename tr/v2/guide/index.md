@@ -14,9 +14,11 @@ API; adres formları, konum seçiciler, raporlama araçları, dashboard'lar, aç
 
 Yaygın kullanım akışları:
 
+- İl -> ilçe -> mahalle adres formları geliştirmek.
 - Seçilen bir ilin ilçelerini listelemek.
 - Bir ilçe içindeki belediyeleri bulmak.
 - Bir belediyeye bağlı mahalleleri yüklemek.
+- Daha geniş kapsamda mahalle aramak.
 - Yerleşimleri nüfusa göre filtrelemek.
 - Tüm veri setini offline işleme için indirmek.
 
@@ -27,6 +29,7 @@ Yaygın kullanım akışları:
 | [Başlarken](./getting-started.md) | Base URL, v2 prefix'i, auth gerektirmeyen erişim, ilk istek ve yanıt yapısı |
 | [Kavramlar](./concepts.md) | İl, ilçe, belediye, mahalle, köy, ID'ler, slug'lar ve parent ID'ler |
 | [İdari Yapı](./administrative-structure.md) | Türkiye idari hiyerarşisinin API'de nasıl temsil edildiği |
+| [Yaygın Kullanım Senaryoları](./common-use-cases.md) | Seçiciler, arama ekranları, detay sayfaları ve bulk veri için hangi endpoint yaklaşımının kullanılacağı |
 | [Filtreleme, Sıralama ve Sayfalama](./filtering-sorting-pagination.md) | Liste endpoint'lerindeki ortak sorgu parametreleri ve örnekler |
 | [Veri Setleri](./datasets.md) | Canlı API endpoint'leri ile statik veri seti dosyalarının ne zaman kullanılacağı |
 | [Örnekler](./examples.md) | İstanbul'un ilçeleri ve belediyeye göre mahalleler gibi gerçek kullanım akışları |

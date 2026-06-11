@@ -6,6 +6,28 @@ outline: deep
 
 This page shows practical v2 workflows. Each example uses a small response shape so you can adapt the same pattern in frontend forms, backend services, scripts, or data pipelines.
 
+## Hierarchical Address Selector
+
+For province -> district -> neighborhood forms, load each child collection only after the user selects its parent.
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/provinces?fields=id,name&sort=name"
+```
+
+After the user selects İstanbul (`34`):
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/provinces/34/districts?fields=id,name"
+```
+
+After the user selects Adalar (`1103`):
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/districts/1103/neighborhoods?fields=id,name,postalCode,postalCodeStatus"
+```
+
+Use this nested pattern for dropdowns and step-by-step selectors. Use collection endpoints when you need search, filtering, sorting, or pagination across a broader result set.
+
 ## Districts of İstanbul
 
 İstanbul's province ID is `34`. To list its districts:
@@ -33,7 +55,7 @@ You can also use the nested endpoint:
 curl "https://api.turkiyeapi.dev/v2/provinces/34/districts?fields=id,name,population"
 ```
 
-Use the collection query when you want to combine parent filtering with `search`, `sort`, or population filters.
+Prefer the nested endpoint when the user has just selected a province. Use the collection query when you want to combine parent filtering with `search`, `sort`, pagination, or population filters.
 
 ## Neighborhoods by Municipality
 
@@ -94,6 +116,8 @@ curl "https://api.turkiyeapi.dev/v2/neighborhoods/3?include=province,district,mu
 ```
 
 This returns the neighborhood plus its province, district, and municipality in one response.
+
+For list screens and dropdowns, prefer parent filters or nested child routes instead of loading large related arrays with `include`.
 
 ## Download a Static Dataset
 

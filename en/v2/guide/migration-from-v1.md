@@ -111,32 +111,32 @@ Validation problems are reported as `400 Bad Request`. Missing resources are rep
 
 ## Endpoint Mapping
 
-| v1 | v2 |
-| --- | --- |
-| `GET /` | Use documentation or `GET /v2/meta` for API metadata |
-| `GET /provinces` | `GET /v2/provinces` |
-| `GET /provinces/:id` | `GET /v2/provinces/{provinceId}` |
-| Province districts embedded by default | `GET /v2/provinces/{provinceId}?include=districts` or `GET /v2/provinces/{provinceId}/districts` |
-| Province neighborhoods via `extend=true` | `GET /v2/provinces/{provinceId}?include=neighborhoods` or `GET /v2/provinces/{provinceId}/neighborhoods` |
-| Province villages via `extend=true` | `GET /v2/provinces/{provinceId}?include=villages` or `GET /v2/provinces/{provinceId}/villages` |
-| `GET /districts` | `GET /v2/districts` |
-| `GET /districts/:id` | `GET /v2/districts/{districtId}` |
+| v1                                         | v2                                                                                                       |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| `GET /`                                    | Use documentation or `GET /v2/meta` for API metadata                                                     |
+| `GET /provinces`                           | `GET /v2/provinces`                                                                                      |
+| `GET /provinces/:id`                       | `GET /v2/provinces/{provinceId}`                                                                         |
+| Province districts embedded by default     | `GET /v2/provinces/{provinceId}?include=districts` or `GET /v2/provinces/{provinceId}/districts`         |
+| Province neighborhoods via `extend=true`   | `GET /v2/provinces/{provinceId}?include=neighborhoods` or `GET /v2/provinces/{provinceId}/neighborhoods` |
+| Province villages via `extend=true`        | `GET /v2/provinces/{provinceId}?include=villages` or `GET /v2/provinces/{provinceId}/villages`           |
+| `GET /districts`                           | `GET /v2/districts`                                                                                      |
+| `GET /districts/:id`                       | `GET /v2/districts/{districtId}`                                                                         |
 | District neighborhoods embedded by default | `GET /v2/districts/{districtId}?include=neighborhoods` or `GET /v2/districts/{districtId}/neighborhoods` |
-| District villages embedded by default | `GET /v2/districts/{districtId}?include=villages` or `GET /v2/districts/{districtId}/villages` |
-| `GET /neighborhoods` | `GET /v2/neighborhoods` |
-| `GET /neighborhoods/:id` | `GET /v2/neighborhoods/{neighborhoodId}` |
-| `GET /villages` | `GET /v2/villages` |
-| `GET /villages/:id` | `GET /v2/villages/{villageId}` |
-| `GET /towns` | `GET /v2/municipalities?type=town` |
-| `GET /towns/:id` | `GET /v2/municipalities/{municipalityId}` |
-| `GET /swagger` | `GET /v2/openapi.json` for the OpenAPI document |
+| District villages embedded by default      | `GET /v2/districts/{districtId}?include=villages` or `GET /v2/districts/{districtId}/villages`           |
+| `GET /neighborhoods`                       | `GET /v2/neighborhoods`                                                                                  |
+| `GET /neighborhoods/:id`                   | `GET /v2/neighborhoods/{neighborhoodId}`                                                                 |
+| `GET /villages`                            | `GET /v2/villages`                                                                                       |
+| `GET /villages/:id`                        | `GET /v2/villages/{villageId}`                                                                           |
+| `GET /towns`                               | `GET /v2/municipalities?type=town`                                                                       |
+| `GET /towns/:id`                           | `GET /v2/municipalities/{municipalityId}`                                                                |
+| `GET /swagger`                             | `GET /v2/openapi.json` for the OpenAPI document                                                          |
 
 v2 also adds nested municipality routes:
 
-| Route | Purpose |
-| --- | --- |
-| `GET /v2/provinces/{provinceId}/municipalities` | List municipalities in a province |
-| `GET /v2/districts/{districtId}/municipalities` | List municipalities in a district |
+| Route                                                   | Purpose                              |
+| ------------------------------------------------------- | ------------------------------------ |
+| `GET /v2/provinces/{provinceId}/municipalities`         | List municipalities in a province    |
+| `GET /v2/districts/{districtId}/municipalities`         | List municipalities in a district    |
 | `GET /v2/municipalities/{municipalityId}/neighborhoods` | List neighborhoods in a municipality |
 
 ## Query Parameter Changes
@@ -165,12 +165,12 @@ v1 defaults varied by resource. Provinces and districts could effectively return
 
 v2 uses the same pagination model across list endpoints:
 
-| Parameter | v2 behavior |
-| --- | --- |
-| `limit` | Default `100`, minimum `1`, maximum `1000` |
-| `offset` | Default `0`, minimum `0` |
-| `meta.count` | Number of records in this response |
-| `meta.total` | Number of records matching the filters |
+| Parameter    | v2 behavior                                |
+| ------------ | ------------------------------------------ |
+| `limit`      | Default `100`, minimum `1`, maximum `1000` |
+| `offset`     | Default `0`, minimum `0`                   |
+| `meta.count` | Number of records in this response         |
+| `meta.total` | Number of records matching the filters     |
 
 ### Sorting
 
@@ -178,13 +178,13 @@ v1 accepted comma-separated multi-field sorts and attempted to support any field
 
 v2 accepts one sort value:
 
-| Value | Meaning |
-| --- | --- |
-| `id` | ID ascending |
-| `-id` | ID descending |
-| `name` | Name ascending |
-| `-name` | Name descending |
-| `population` | Population ascending |
+| Value         | Meaning               |
+| ------------- | --------------------- |
+| `id`          | ID ascending          |
+| `-id`         | ID descending         |
+| `name`        | Name ascending        |
+| `-name`       | Name descending       |
+| `population`  | Population ascending  |
 | `-population` | Population descending |
 
 ### Field Selection
@@ -199,14 +199,14 @@ curl "https://api.turkiyeapi.dev/v2/provinces?fields=id,name,population"
 
 Important field changes:
 
-| v1 | v2 |
-| --- | --- |
-| `area` as a number | `area.value` and `area.unit` inside an `area` object |
-| `altitude` as a number | `altitude.value` and `altitude.unit` inside an `altitude` object |
-| `areaCode` | `phoneAreaCodes` |
-| `nuts` | Not part of the v2 province schema |
-| `maps` | Not part of the v2 province schema |
-| Computed fields added automatically | Use `include` or nested routes |
+| v1                                  | v2                                                               |
+| ----------------------------------- | ---------------------------------------------------------------- |
+| `area` as a number                  | `area.value` and `area.unit` inside an `area` object             |
+| `altitude` as a number              | `altitude.value` and `altitude.unit` inside an `altitude` object |
+| `areaCode`                          | `phoneAreaCodes`                                                 |
+| `nuts`                              | Not part of the v2 province schema                               |
+| `maps`                              | Not part of the v2 province schema                               |
+| Computed fields added automatically | Use `include` or nested routes                                   |
 
 ### Includes
 
@@ -225,31 +225,31 @@ curl "https://api.turkiyeapi.dev/v2/districts/1103?include=province,neighborhood
 
 Supported includes:
 
-| Endpoint | Supported `include` values |
-| --- | --- |
-| `/v2/provinces/{provinceId}` | `districts`, `municipalities`, `neighborhoods`, `villages` |
-| `/v2/districts/{districtId}` | `province`, `municipalities`, `neighborhoods`, `villages` |
-| `/v2/municipalities/{municipalityId}` | `province`, `district`, `neighborhoods` |
-| `/v2/neighborhoods/{neighborhoodId}` | `province`, `district`, `municipality` |
-| `/v2/villages/{villageId}` | `province`, `district` |
+| Endpoint                              | Supported `include` values                                 |
+| ------------------------------------- | ---------------------------------------------------------- |
+| `/v2/provinces/{provinceId}`          | `districts`, `municipalities`, `neighborhoods`, `villages` |
+| `/v2/districts/{districtId}`          | `province`, `municipalities`, `neighborhoods`, `villages`  |
+| `/v2/municipalities/{municipalityId}` | `province`, `district`, `neighborhoods`                    |
+| `/v2/neighborhoods/{neighborhoodId}`  | `province`, `district`, `municipality`                     |
+| `/v2/villages/{villageId}`            | `province`, `district`                                     |
 
 ## Towns Are Now Municipalities
 
 v1 had separate `towns` endpoints. In v2, towns are represented as municipalities with a `type` field.
 
-| v1 town concept | v2 municipality concept |
-| --- | --- |
-| `/towns` | `/v2/municipalities?type=town` |
-| `/towns/:id` | `/v2/municipalities/{municipalityId}` |
-| Town record | Municipality record with `type: "town"` |
+| v1 town concept | v2 municipality concept                 |
+| --------------- | --------------------------------------- |
+| `/towns`        | `/v2/municipalities?type=town`          |
+| `/towns/:id`    | `/v2/municipalities/{municipalityId}`   |
+| Town record     | Municipality record with `type: "town"` |
 
 The v2 municipality type can be:
 
-| Type | Meaning |
-| --- | --- |
+| Type              | Meaning                      |
+| ----------------- | ---------------------------- |
 | `province_center` | Province center municipality |
 | `district_center` | District center municipality |
-| `town` | Town municipality |
+| `town`            | Town municipality            |
 
 This is the largest model change from v1. If your v1 integration only used towns, filter v2 municipalities by `type=town`. If your integration needs all local municipalities, use `/v2/municipalities` without the type filter.
 
@@ -259,12 +259,12 @@ v1 hid province and district postal codes unless `activatePostalCodes=true`, and
 
 v2 removes `activatePostalCodes`. Postal code data is modeled on neighborhood and village records:
 
-| Resource | v2 postal code fields |
-| --- | --- |
-| Province | Not part of the province schema |
-| District | Not part of the district schema |
+| Resource     | v2 postal code fields            |
+| ------------ | -------------------------------- |
+| Province     | Not part of the province schema  |
+| District     | Not part of the district schema  |
 | Neighborhood | `postalCode`, `postalCodeStatus` |
-| Village | `postalCode`, `postalCodeStatus` |
+| Village      | `postalCode`, `postalCodeStatus` |
 
 `postalCode` is now a required five-digit string. `postalCodeStatus` is also required; neighborhoods can use `official`, `derived`, or `estimated`, while villages can use `official` or `estimated`.
 
@@ -280,16 +280,18 @@ curl "https://api.turkiyeapi.dev/v2/meta"
 
 Current v2 dataset metadata includes:
 
-| Field | Value |
-| --- | --- |
-| API version | `2.0.0` |
-| Dataset version | `2025` |
-| Last updated | `2026-05-21` |
-| Provinces | `81` |
-| Districts | `973` |
-| Municipalities | `1377` |
-| Neighborhoods | `32254` |
-| Villages | `18183` |
+| Field           | Value        |
+| --------------- | ------------ |
+| API version     | `2.0.0`      |
+| Dataset version | `2025`       |
+| Last updated    | `2026-05-21` |
+| Provinces       | `81`         |
+| Districts       | `973`        |
+| Municipalities  | `1377`       |
+| Neighborhoods   | `32254`      |
+| Villages        | `18183`      |
+
+The metadata counts are derived from the datasets loaded by the API, so they match the records served by list endpoints and static dataset downloads.
 
 v2 also adds static dataset downloads:
 

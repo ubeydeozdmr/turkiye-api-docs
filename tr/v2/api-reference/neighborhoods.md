@@ -14,23 +14,23 @@ Temel path:
 
 ## Endpoint'ler
 
-| Method | Path                                 | Açıklama                |
-| ------ | ------------------------------------ | ----------------------- |
-| `GET`  | `/v2/neighborhoods`                  | Mahalleleri listeler    |
+| Method | Path                                 | Açıklama                   |
+| ------ | ------------------------------------ | -------------------------- |
+| `GET`  | `/v2/neighborhoods`                  | Mahalleleri listeler       |
 | `GET`  | `/v2/neighborhoods/{neighborhoodId}` | ID ile tek mahalle getirir |
 
 ## Mahalle Nesnesi
 
-| Alan               | Tip     | Açıklama                                                |
-| ------------------ | ------- | ------------------------------------------------------- |
-| `id`               | integer | Mahalle ID'si                                           |
-| `name`             | string  | Mahalle adı                                             |
-| `slug`             | string  | URL uyumlu mahalle adı                                  |
-| `provinceId`       | integer | Bağlı olduğu il ID'si                                   |
-| `districtId`       | integer | Bağlı olduğu ilçe ID'si                                 |
-| `municipalityId`   | integer | Bağlı olduğu belediye ID'si                             |
-| `population`       | integer | Mahalle nüfusu                                          |
-| `postalCode`       | string  | Beş haneli mahalle posta kodu                           |
+| Alan               | Tip     | Açıklama                                                  |
+| ------------------ | ------- | --------------------------------------------------------- |
+| `id`               | integer | Mahalle ID'si                                             |
+| `name`             | string  | Mahalle adı                                               |
+| `slug`             | string  | URL uyumlu mahalle adı                                    |
+| `provinceId`       | integer | Bağlı olduğu il ID'si                                     |
+| `districtId`       | integer | Bağlı olduğu ilçe ID'si                                   |
+| `municipalityId`   | integer | Bağlı olduğu belediye ID'si                               |
+| `population`       | integer | Mahalle nüfusu                                            |
+| `postalCode`       | string  | Beş haneli mahalle posta kodu                             |
 | `postalCodeStatus` | string  | Posta kodu durumu: `official`, `derived` veya `estimated` |
 
 ::: tip
@@ -41,22 +41,22 @@ Posta kodları sayısal görünse de `postalCode` alanı beş haneli string olar
 
 Posta kodunun nasıl belirlendiğini anlamak için `postalCodeStatus` alanını kullanın:
 
-| Değer | Anlamı |
-| ----- | ------ |
-| `official` | Posta kodu resmi PTT posta kodu verisinde bulunur ve doğrudan bu kaynaktan kullanılır. |
-| `derived` | Posta kodu mevcut mahalle için PTT verisinde yoktur; ancak mahalle daha önce posta kodu bilinen ve PTT verisinde yer alan bir köy ya da başka bir yerleşimin parçasıdır. Bu durumda önceki yerleşimin posta kodu kullanılır. |
+| Değer       | Anlamı                                                                                                                                                                                                                        |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `official`  | Posta kodu resmi PTT posta kodu verisinde bulunur ve doğrudan bu kaynaktan kullanılır.                                                                                                                                        |
+| `derived`   | Posta kodu mevcut mahalle için PTT verisinde yoktur; ancak mahalle daha önce posta kodu bilinen ve PTT verisinde yer alan bir köy ya da başka bir yerleşimin parçasıdır. Bu durumda önceki yerleşimin posta kodu kullanılır.  |
 | `estimated` | Posta kodu PTT verisinde yoktur ve önceki bir yerleşimden türetilememiştir. Değer ek kamusal kaynaklardan, yakındaki yerleşimlerden, ilçe düzeyi posta kodu örüntülerinden veya belgelenmiş idari değişikliklerden çıkarılır. |
 
 Kesin resmi posta kodu verisine ihtiyaç duyan istemciler `postalCodeStatus` alanını kontrol etmelidir. Yalnızca resmi kullanım için `postalCodeStatus` değeri `official` olan kayıtları filtreleyin.
 
 Güncel mahalle durumu dağılımı:
 
-| Durum | Sayı |
-| ----- | ---- |
-| `official` | `32,142` |
-| `derived` | `76` |
-| `estimated` | `36` |
-| Toplam | `32,254` |
+| Durum       | Sayı     |
+| ----------- | -------- |
+| `official`  | `32,142` |
+| `derived`   | `76`     |
+| `estimated` | `36`     |
+| Toplam      | `32,254` |
 
 Örnek mahalle:
 
@@ -148,9 +148,9 @@ Sayısal mahalle ID'si ile tek mahalle döndürür.
 
 ### Path Parametreleri
 
-| Parametre        | Tip     | Açıklama       |
-| ---------------- | ------- | -------------- |
-| `neighborhoodId` | integer | Mahalle ID'si  |
+| Parametre        | Tip     | Açıklama      |
+| ---------------- | ------- | ------------- |
+| `neighborhoodId` | integer | Mahalle ID'si |
 
 ### Sorgu Parametreleri
 

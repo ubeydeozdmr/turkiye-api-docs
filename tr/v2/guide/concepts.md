@@ -50,11 +50,11 @@ Belediye kayıtları şunları içerir:
 
 İzin verilen belediye tipleri:
 
-| Tip | Anlamı |
-| --- | ------ |
-| `province_center` | İl merkezi belediyesi |
+| Tip               | Anlamı                  |
+| ----------------- | ----------------------- |
+| `province_center` | İl merkezi belediyesi   |
 | `district_center` | İlçe merkezi belediyesi |
-| `town` | Belde belediyesi |
+| `town`            | Belde belediyesi        |
 
 Özellikle `municipalityId` ile mahalleleri yüklemeden önce yerel yönetim seviyesine ihtiyaç duyduğunuzda belediye kayıtlarını kullanın.
 
@@ -107,12 +107,12 @@ GET /v2/districts/1103
 
 Child kaynaklar parent ID'leri taşır. Böylece nested yanıt almadan kayıtları filtreleyebilir ve ilişkilendirebilirsiniz:
 
-| Kaynak | Parent alanları |
-| ------ | --------------- |
-| İlçe | `provinceId` |
-| Belediye | `provinceId`, `districtId` |
-| Mahalle | `provinceId`, `districtId`, `municipalityId` |
-| Köy | `provinceId`, `districtId` |
+| Kaynak   | Parent alanları                              |
+| -------- | -------------------------------------------- |
+| İlçe     | `provinceId`                                 |
+| Belediye | `provinceId`, `districtId`                   |
+| Mahalle  | `provinceId`, `districtId`, `municipalityId` |
+| Köy      | `provinceId`, `districtId`                   |
 
 Örneğin İstanbul'daki tüm ilçeler:
 

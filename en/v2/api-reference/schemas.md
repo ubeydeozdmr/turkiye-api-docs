@@ -40,66 +40,68 @@ List endpoints return:
 }
 ```
 
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| `meta.count` | integer | Number of records in the current response |
-| `meta.total` | integer | Number of records matching the filters |
-| `meta.limit` | integer | Requested page size |
-| `meta.offset` | integer | Requested offset |
-| `meta.datasetVersion` | string | Dataset version used by the response |
-| `meta.lastUpdated` | string | Dataset update date |
+| Field                 | Type    | Description                               |
+| --------------------- | ------- | ----------------------------------------- |
+| `meta.count`          | integer | Number of records in the current response |
+| `meta.total`          | integer | Number of records matching the filters    |
+| `meta.limit`          | integer | Requested page size                       |
+| `meta.offset`         | integer | Requested offset                          |
+| `meta.datasetVersion` | string  | Dataset version used by the response      |
+| `meta.lastUpdated`    | string  | Dataset update date                       |
 
 ## Resource Schemas
 
-| Schema | Description | Reference |
-| ------ | ----------- | --------- |
-| `Province` | Province record with geography, region, coordinates, and aggregate counts | [Provinces](./provinces.md) |
-| `District` | District record with parent province, area, population, and aggregate counts | [Districts](./districts.md) |
-| `Municipality` | Municipality record with type, parent IDs, population, and neighborhood count | [Municipalities](./municipalities.md) |
-| `Neighborhood` | Neighborhood record with parent IDs, population, postal code, and postal code status | [Neighborhoods](./neighborhoods.md) |
-| `Village` | Village record with parent IDs, population, postal code, and postal code status | [Villages](./villages.md) |
+| Schema         | Description                                                                          | Reference                             |
+| -------------- | ------------------------------------------------------------------------------------ | ------------------------------------- |
+| `Province`     | Province record with geography, region, coordinates, and aggregate counts            | [Provinces](./provinces.md)           |
+| `District`     | District record with parent province, area, population, and aggregate counts         | [Districts](./districts.md)           |
+| `Municipality` | Municipality record with type, parent IDs, population, and neighborhood count        | [Municipalities](./municipalities.md) |
+| `Neighborhood` | Neighborhood record with parent IDs, population, postal code, and postal code status | [Neighborhoods](./neighborhoods.md)   |
+| `Village`      | Village record with parent IDs, population, postal code, and postal code status      | [Villages](./villages.md)             |
 
 ## Shared Field Types
 
-| Field pattern | Type | Notes |
-| ------------- | ---- | ----- |
-| `id` | integer | Positive resource ID |
-| `name` | string | Human-readable Turkish name |
-| `slug` | string | URL-safe resource name |
-| `population` | integer | Non-negative population |
-| `area.value` | number | Area value |
-| `area.unit` | string | Always `km2` |
-| `altitude.value` | number | Altitude value |
-| `altitude.unit` | string | Always `m` |
-| `postalCode` | string | Five-digit postal code |
-| `postalCodeStatus` | string | Postal code status. Neighborhoods use `official`, `derived`, or `estimated`; villages use `official` or `estimated` |
-| `stats.*Count` | integer | Non-negative aggregate count |
+| Field pattern      | Type    | Notes                                                                                                               |
+| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------- |
+| `id`               | integer | Positive resource ID                                                                                                |
+| `name`             | string  | Human-readable Turkish name                                                                                         |
+| `slug`             | string  | URL-safe resource name                                                                                              |
+| `population`       | integer | Non-negative population                                                                                             |
+| `area.value`       | number  | Area value                                                                                                          |
+| `area.unit`        | string  | Always `km2`                                                                                                        |
+| `altitude.value`   | number  | Altitude value                                                                                                      |
+| `altitude.unit`    | string  | Always `m`                                                                                                          |
+| `postalCode`       | string  | Five-digit postal code                                                                                              |
+| `postalCodeStatus` | string  | Postal code status. Neighborhoods use `official`, `derived`, or `estimated`; villages use `official` or `estimated` |
+| `stats.*Count`     | integer | Non-negative aggregate count                                                                                        |
 
 `postalCodeStatus` distinguishes values used directly from official PTT postal code data (`official`), neighborhood-only values derived from a previous settlement with a known PTT postal code (`derived`), and values inferred from supplementary public sources, nearby settlements, district-level patterns, or administrative-change records (`estimated`). Clients that require strict official postal code data should filter records where `postalCodeStatus` is `official`.
 
 ## Municipality Types
 
-| Value | Meaning |
-| ----- | ------- |
+| Value             | Meaning                      |
+| ----------------- | ---------------------------- |
 | `province_center` | Province center municipality |
 | `district_center` | District center municipality |
-| `town` | Town municipality |
+| `town`            | Town municipality            |
 
 ## Meta Schema
 
 `GET /v2/meta` returns:
 
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| `apiVersion` | string | API version |
-| `datasetVersion` | string | Dataset version |
-| `lastUpdated` | string | Dataset update date |
-| `sources` | array | Dataset source list |
-| `counts.provinces` | integer | Province count |
-| `counts.districts` | integer | District count |
-| `counts.municipalities` | integer | Municipality count |
-| `counts.neighborhoods` | integer | Neighborhood count |
-| `counts.villages` | integer | Village count |
+| Field                   | Type    | Description         |
+| ----------------------- | ------- | ------------------- |
+| `apiVersion`            | string  | API version         |
+| `datasetVersion`        | string  | Dataset version     |
+| `lastUpdated`           | string  | Dataset update date |
+| `sources`               | array   | Dataset source list |
+| `counts.provinces`      | integer | Province count      |
+| `counts.districts`      | integer | District count      |
+| `counts.municipalities` | integer | Municipality count  |
+| `counts.neighborhoods`  | integer | Neighborhood count  |
+| `counts.villages`       | integer | Village count       |
+
+The `counts.*` values are derived from the loaded dataset records.
 
 ## Error Schema
 

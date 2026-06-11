@@ -8,26 +8,26 @@ TurkiyeAPI v2 hem canlı API endpoint'leri hem de statik JSON veri seti dosyalar
 
 ## API mi Statik Dosya mı?
 
-| Kullanım | Önerilen seçenek |
-| -------- | ---------------- |
-| Kullanıcı bir il seçer ve ilçeleri yüklersiniz | API endpoint'i |
-| Görünür UI verisini arama, filtreleme, sıralama ve sayfalama | API endpoint'i |
-| Bilinen tek bir kaynak için server-side doğrulama | API endpoint'i |
-| Yerel arama indeksi oluşturma | Statik veri seti dosyası |
-| Offline analiz veya batch işleme | Statik veri seti dosyası |
-| Tüm mahalleleri veya köyleri tekrar tekrar senkronize etme | Statik veri seti dosyası |
+| Kullanım                                                     | Önerilen seçenek         |
+| ------------------------------------------------------------ | ------------------------ |
+| Kullanıcı bir il seçer ve ilçeleri yüklersiniz               | API endpoint'i           |
+| Görünür UI verisini arama, filtreleme, sıralama ve sayfalama | API endpoint'i           |
+| Bilinen tek bir kaynak için server-side doğrulama            | API endpoint'i           |
+| Yerel arama indeksi oluşturma                                | Statik veri seti dosyası |
+| Offline analiz veya batch işleme                             | Statik veri seti dosyası |
+| Tüm mahalleleri veya köyleri tekrar tekrar senkronize etme   | Statik veri seti dosyası |
 
 ## Kullanılabilir Dosyalar
 
 Veri seti endpoint'i her kaynak tipi için bir JSON dosyası sunar:
 
-| Dosya | İçerik |
-| ----- | ------ |
-| `provinces.json` | İl kayıtları |
-| `districts.json` | İlçe kayıtları |
+| Dosya                 | İçerik             |
+| --------------------- | ------------------ |
+| `provinces.json`      | İl kayıtları       |
+| `districts.json`      | İlçe kayıtları     |
 | `municipalities.json` | Belediye kayıtları |
-| `neighborhoods.json` | Mahalle kayıtları |
-| `villages.json` | Köy kayıtları |
+| `neighborhoods.json`  | Mahalle kayıtları  |
+| `villages.json`       | Köy kayıtları      |
 
 ## Güncel Veriyi İndirme
 

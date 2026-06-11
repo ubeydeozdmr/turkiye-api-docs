@@ -8,26 +8,26 @@ TurkiyeAPI v2 provides both live API endpoints and static JSON dataset files. Us
 
 ## API vs Static Files
 
-| Use case | Recommended option |
-| -------- | ------------------ |
-| User selects a province and you load its districts | API endpoint |
-| Search, filter, sort, and paginate visible UI data | API endpoint |
-| Server-side validation for one known resource | API endpoint |
-| Building a local search index | Static dataset file |
-| Offline analytics or batch processing | Static dataset file |
-| Repeatedly syncing all neighborhoods or villages | Static dataset file |
+| Use case                                           | Recommended option  |
+| -------------------------------------------------- | ------------------- |
+| User selects a province and you load its districts | API endpoint        |
+| Search, filter, sort, and paginate visible UI data | API endpoint        |
+| Server-side validation for one known resource      | API endpoint        |
+| Building a local search index                      | Static dataset file |
+| Offline analytics or batch processing              | Static dataset file |
+| Repeatedly syncing all neighborhoods or villages   | Static dataset file |
 
 ## Available Files
 
 The dataset endpoint exposes one JSON file per resource type:
 
-| File | Contains |
-| ---- | -------- |
-| `provinces.json` | Province records |
-| `districts.json` | District records |
+| File                  | Contains             |
+| --------------------- | -------------------- |
+| `provinces.json`      | Province records     |
+| `districts.json`      | District records     |
 | `municipalities.json` | Municipality records |
-| `neighborhoods.json` | Neighborhood records |
-| `villages.json` | Village records |
+| `neighborhoods.json`  | Neighborhood records |
+| `villages.json`       | Village records      |
 
 ## Download Latest Data
 

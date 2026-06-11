@@ -24,17 +24,17 @@ Common workflows include:
 
 ## Guide Sections
 
-| Section | What it explains |
-| ------- | ---------------- |
-| [Getting Started](./getting-started.md) | Base URL, v2 prefix, no-auth access, first request, and response shape |
-| [Concepts](./concepts.md) | Province, district, municipality, neighborhood, village, IDs, slugs, and parent IDs |
-| [Administrative Structure](./administrative-structure.md) | How Türkiye's administrative hierarchy is represented in the API |
-| [Common Use Cases](./common-use-cases.md) | Which endpoint pattern to use for selectors, search screens, detail pages, and bulk data |
-| [Filtering, Sorting and Pagination](./filtering-sorting-pagination.md) | Shared query parameters and examples for list endpoints |
-| [Datasets](./datasets.md) | When to use live API endpoints and when to download static dataset files |
-| [Examples](./examples.md) | Real workflows such as districts of İstanbul and neighborhoods by municipality |
-| [Migration from v1](./migration-from-v1.md) | v1 to v2 differences for existing integrations |
-| [FAQ](./faq.md) | Non-reference answers about access, metadata, datasets, and support |
+| Section                                                                | What it explains                                                                         |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| [Getting Started](./getting-started.md)                                | Base URL, v2 prefix, no-auth access, first request, and response shape                   |
+| [Concepts](./concepts.md)                                              | Province, district, municipality, neighborhood, village, IDs, slugs, and parent IDs      |
+| [Administrative Structure](./administrative-structure.md)              | How Türkiye's administrative hierarchy is represented in the API                         |
+| [Common Use Cases](./common-use-cases.md)                              | Which endpoint pattern to use for selectors, search screens, detail pages, and bulk data |
+| [Filtering, Sorting and Pagination](./filtering-sorting-pagination.md) | Shared query parameters and examples for list endpoints                                  |
+| [Datasets](./datasets.md)                                              | When to use live API endpoints and when to download static dataset files                 |
+| [Examples](./examples.md)                                              | Real workflows such as districts of İstanbul and neighborhoods by municipality           |
+| [Migration from v1](./migration-from-v1.md)                            | v1 to v2 differences for existing integrations                                           |
+| [FAQ](./faq.md)                                                        | Non-reference answers about access, metadata, datasets, and support                      |
 
 ## API Shape
 

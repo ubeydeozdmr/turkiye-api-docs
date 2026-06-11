@@ -21,17 +21,17 @@ Base path:
 
 ## Neighborhood Object
 
-| Field              | Type    | Description                                                  |
-| ------------------ | ------- | ------------------------------------------------------------ |
-| `id`               | integer | Neighborhood ID                                              |
-| `name`             | string  | Neighborhood name                                            |
-| `slug`             | string  | URL-safe neighborhood name                                   |
-| `provinceId`       | integer | Parent province ID                                           |
-| `districtId`       | integer | Parent district ID                                           |
-| `municipalityId`   | integer | Parent municipality ID                                       |
-| `population`       | integer | Neighborhood population                                      |
-| `postalCode`       | string  | Five-digit neighborhood postal code                          |
-| `postalCodeStatus` | string  | Postal code status: `official`, `derived`, or `estimated`    |
+| Field              | Type    | Description                                               |
+| ------------------ | ------- | --------------------------------------------------------- |
+| `id`               | integer | Neighborhood ID                                           |
+| `name`             | string  | Neighborhood name                                         |
+| `slug`             | string  | URL-safe neighborhood name                                |
+| `provinceId`       | integer | Parent province ID                                        |
+| `districtId`       | integer | Parent district ID                                        |
+| `municipalityId`   | integer | Parent municipality ID                                    |
+| `population`       | integer | Neighborhood population                                   |
+| `postalCode`       | string  | Five-digit neighborhood postal code                       |
+| `postalCodeStatus` | string  | Postal code status: `official`, `derived`, or `estimated` |
 
 ::: tip
 Despite postal codes being numeric, the `postalCode` field is a five-digit string because some postal codes in Turkey start with leading zeros, which would be lost if stored as integers.
@@ -41,22 +41,22 @@ Despite postal codes being numeric, the `postalCode` field is a five-digit strin
 
 Use `postalCodeStatus` to understand how the postal code was determined:
 
-| Value | Meaning |
-| ----- | ------- |
-| `official` | The postal code is available in the official PTT postal code data and is used directly from that source. |
-| `derived` | The postal code is not available for the current neighborhood in the PTT data, but the neighborhood was previously a village or part of another settlement with a known postal code that exists in PTT data. The previous settlement's postal code is used. |
+| Value       | Meaning                                                                                                                                                                                                                                                       |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `official`  | The postal code is available in the official PTT postal code data and is used directly from that source.                                                                                                                                                      |
+| `derived`   | The postal code is not available for the current neighborhood in the PTT data, but the neighborhood was previously a village or part of another settlement with a known postal code that exists in PTT data. The previous settlement's postal code is used.   |
 | `estimated` | The postal code is not available in the PTT data and could not be derived from a previous settlement. The value is inferred from supplementary public sources, nearby settlements, district-level postal code patterns, or documented administrative changes. |
 
 Clients that require strict official postal code data should check `postalCodeStatus`. For official-only usage, filter records where `postalCodeStatus` is `official`.
 
 Current neighborhood status distribution:
 
-| Status | Count |
-| ------ | ----- |
-| `official` | `32,142` |
-| `derived` | `76` |
-| `estimated` | `36` |
-| Total | `32,254` |
+| Status      | Count    |
+| ----------- | -------- |
+| `official`  | `32,142` |
+| `derived`   | `76`     |
+| `estimated` | `36`     |
+| Total       | `32,254` |
 
 Example neighborhood:
 

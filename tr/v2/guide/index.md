@@ -24,17 +24,17 @@ Yaygın kullanım akışları:
 
 ## Rehber Bölümleri
 
-| Bölüm | Ne açıklar? |
-| ----- | ----------- |
-| [Başlarken](./getting-started.md) | Base URL, v2 prefix'i, auth gerektirmeyen erişim, ilk istek ve yanıt yapısı |
-| [Kavramlar](./concepts.md) | İl, ilçe, belediye, mahalle, köy, ID'ler, slug'lar ve parent ID'ler |
-| [İdari Yapı](./administrative-structure.md) | Türkiye idari hiyerarşisinin API'de nasıl temsil edildiği |
-| [Yaygın Kullanım Senaryoları](./common-use-cases.md) | Seçiciler, arama ekranları, detay sayfaları ve bulk veri için hangi endpoint yaklaşımının kullanılacağı |
-| [Filtreleme, Sıralama ve Sayfalama](./filtering-sorting-pagination.md) | Liste endpoint'lerindeki ortak sorgu parametreleri ve örnekler |
-| [Veri Setleri](./datasets.md) | Canlı API endpoint'leri ile statik veri seti dosyalarının ne zaman kullanılacağı |
-| [Örnekler](./examples.md) | İstanbul'un ilçeleri ve belediyeye göre mahalleler gibi gerçek kullanım akışları |
-| [v1'den v2'ye Geçiş](./migration-from-v1.md) | Mevcut entegrasyonlar için v1 ve v2 farkları |
-| [SSS](./faq.md) | Erişim, metadata, veri setleri ve destek hakkında referans dışı yanıtlar |
+| Bölüm                                                                  | Ne açıklar?                                                                                             |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| [Başlarken](./getting-started.md)                                      | Base URL, v2 prefix'i, auth gerektirmeyen erişim, ilk istek ve yanıt yapısı                             |
+| [Kavramlar](./concepts.md)                                             | İl, ilçe, belediye, mahalle, köy, ID'ler, slug'lar ve parent ID'ler                                     |
+| [İdari Yapı](./administrative-structure.md)                            | Türkiye idari hiyerarşisinin API'de nasıl temsil edildiği                                               |
+| [Yaygın Kullanım Senaryoları](./common-use-cases.md)                   | Seçiciler, arama ekranları, detay sayfaları ve bulk veri için hangi endpoint yaklaşımının kullanılacağı |
+| [Filtreleme, Sıralama ve Sayfalama](./filtering-sorting-pagination.md) | Liste endpoint'lerindeki ortak sorgu parametreleri ve örnekler                                          |
+| [Veri Setleri](./datasets.md)                                          | Canlı API endpoint'leri ile statik veri seti dosyalarının ne zaman kullanılacağı                        |
+| [Örnekler](./examples.md)                                              | İstanbul'un ilçeleri ve belediyeye göre mahalleler gibi gerçek kullanım akışları                        |
+| [v1'den v2'ye Geçiş](./migration-from-v1.md)                           | Mevcut entegrasyonlar için v1 ve v2 farkları                                                            |
+| [SSS](./faq.md)                                                        | Erişim, metadata, veri setleri ve destek hakkında referans dışı yanıtlar                                |
 
 ## API Yapısı
 

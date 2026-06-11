@@ -50,11 +50,11 @@ Municipality records include:
 
 Allowed municipality types are:
 
-| Type | Meaning |
-| ---- | ------- |
+| Type              | Meaning                      |
+| ----------------- | ---------------------------- |
 | `province_center` | Province center municipality |
 | `district_center` | District center municipality |
-| `town` | Town municipality |
+| `town`            | Town municipality            |
 
 Use municipalities when your workflow needs the local government level, especially before loading neighborhoods by `municipalityId`.
 
@@ -107,12 +107,12 @@ GET /v2/districts/1103
 
 Child resources carry parent IDs so you can filter and join records without nested responses:
 
-| Resource | Parent fields |
-| -------- | ------------- |
-| District | `provinceId` |
-| Municipality | `provinceId`, `districtId` |
+| Resource     | Parent fields                                |
+| ------------ | -------------------------------------------- |
+| District     | `provinceId`                                 |
+| Municipality | `provinceId`, `districtId`                   |
 | Neighborhood | `provinceId`, `districtId`, `municipalityId` |
-| Village | `provinceId`, `districtId` |
+| Village      | `provinceId`, `districtId`                   |
 
 For example, all districts in İstanbul can be requested with:
 

@@ -20,63 +20,63 @@ v2 API prefix:
 
 ## Reference Sections
 
-| Section | Description |
-| ------- | ----------- |
-| [System](./system.md) | Health, metadata, and OpenAPI endpoints |
-| [Datasets](./datasets.md) | Static dataset downloads |
-| [Provinces](./provinces.md) | Province resources and province-scoped collections |
-| [Districts](./districts.md) | District resources and district-scoped collections |
+| Section                               | Description                                                |
+| ------------------------------------- | ---------------------------------------------------------- |
+| [System](./system.md)                 | Health, metadata, and OpenAPI endpoints                    |
+| [Datasets](./datasets.md)             | Static dataset downloads                                   |
+| [Provinces](./provinces.md)           | Province resources and province-scoped collections         |
+| [Districts](./districts.md)           | District resources and district-scoped collections         |
 | [Municipalities](./municipalities.md) | Municipality resources and municipality-scoped collections |
-| [Neighborhoods](./neighborhoods.md) | Neighborhood resources |
-| [Villages](./villages.md) | Village resources |
-| [Errors](./errors.md) | Error envelope, status codes, and error codes |
-| [Schemas](./schemas.md) | Shared response envelopes and schema summaries |
+| [Neighborhoods](./neighborhoods.md)   | Neighborhood resources                                     |
+| [Villages](./villages.md)             | Village resources                                          |
+| [Errors](./errors.md)                 | Error envelope, status codes, and error codes              |
+| [Schemas](./schemas.md)               | Shared response envelopes and schema summaries             |
 
 ## Endpoint Groups
 
 ### System
 
-| Method | Path | Description |
-| ------ | ---- | ----------- |
-| `GET` | `/health` | Check service health |
-| `GET` | `/v2/meta` | Get API and dataset metadata |
-| `GET` | `/v2/openapi.json` | Get OpenAPI document |
+| Method | Path               | Description                  |
+| ------ | ------------------ | ---------------------------- |
+| `GET`  | `/health`          | Check service health         |
+| `GET`  | `/v2/meta`         | Get API and dataset metadata |
+| `GET`  | `/v2/openapi.json` | Get OpenAPI document         |
 
 ### Datasets
 
-| Method | Path | Description |
-| ------ | ---- | ----------- |
-| `GET` | `/v2/datasets/{datasetFile}` | Download latest dataset file |
-| `GET` | `/v2/datasets/{datasetVersion}/{datasetFile}` | Download versioned dataset file |
+| Method | Path                                          | Description                     |
+| ------ | --------------------------------------------- | ------------------------------- |
+| `GET`  | `/v2/datasets/{datasetFile}`                  | Download latest dataset file    |
+| `GET`  | `/v2/datasets/{datasetVersion}/{datasetFile}` | Download versioned dataset file |
 
 ### Settlement Resources
 
-| Method | Path | Description |
-| ------ | ---- | ----------- |
-| `GET` | `/v2/provinces` | List provinces |
-| `GET` | `/v2/provinces/{provinceId}` | Get one province |
-| `GET` | `/v2/districts` | List districts |
-| `GET` | `/v2/districts/{districtId}` | Get one district |
-| `GET` | `/v2/municipalities` | List municipalities |
-| `GET` | `/v2/municipalities/{municipalityId}` | Get one municipality |
-| `GET` | `/v2/neighborhoods` | List neighborhoods |
-| `GET` | `/v2/neighborhoods/{neighborhoodId}` | Get one neighborhood |
-| `GET` | `/v2/villages` | List villages |
-| `GET` | `/v2/villages/{villageId}` | Get one village |
+| Method | Path                                  | Description          |
+| ------ | ------------------------------------- | -------------------- |
+| `GET`  | `/v2/provinces`                       | List provinces       |
+| `GET`  | `/v2/provinces/{provinceId}`          | Get one province     |
+| `GET`  | `/v2/districts`                       | List districts       |
+| `GET`  | `/v2/districts/{districtId}`          | Get one district     |
+| `GET`  | `/v2/municipalities`                  | List municipalities  |
+| `GET`  | `/v2/municipalities/{municipalityId}` | Get one municipality |
+| `GET`  | `/v2/neighborhoods`                   | List neighborhoods   |
+| `GET`  | `/v2/neighborhoods/{neighborhoodId}`  | Get one neighborhood |
+| `GET`  | `/v2/villages`                        | List villages        |
+| `GET`  | `/v2/villages/{villageId}`            | Get one village      |
 
 ## Common Query Parameters
 
 Most list endpoints support:
 
-| Parameter | Description |
-| --------- | ----------- |
-| `search` | Filters by resource name |
-| `fields` | Comma-separated fields to include |
-| `sort` | Sort value: `id`, `-id`, `name`, `-name`, `population`, `-population` |
-| `limit` | Page size, from `1` to `1000` |
-| `offset` | Number of records to skip |
-| `minPopulation` | Minimum population |
-| `maxPopulation` | Maximum population |
+| Parameter       | Description                                                           |
+| --------------- | --------------------------------------------------------------------- |
+| `search`        | Filters by resource name                                              |
+| `fields`        | Comma-separated fields to include                                     |
+| `sort`          | Sort value: `id`, `-id`, `name`, `-name`, `population`, `-population` |
+| `limit`         | Page size, from `1` to `1000`                                         |
+| `offset`        | Number of records to skip                                             |
+| `minPopulation` | Minimum population                                                    |
+| `maxPopulation` | Maximum population                                                    |
 
 Resource-specific filters are documented on each resource page.
 

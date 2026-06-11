@@ -87,6 +87,8 @@ Sayfalanmış ilçe listesi döndürür.
 | `maxArea`       | number  | -          | Kilometrekare cinsinden maksimum alan                                      |
 | `provinceId`    | integer | -          | Bağlı olduğu il ID'sine göre filtreler                                     |
 
+Minimum ve maksimum aralık filtreleri birlikte verildiğinde minimum değer maksimum değerden küçük veya ona eşit olmalıdır. Bu kural nüfus ve alan aralıkları için geçerlidir.
+
 ### İzin Verilen Alanlar
 
 ```text
@@ -239,16 +241,19 @@ Path parametresindeki `districtId` ile eşleşen mahalleleri döndürür.
 
 ### Sorgu Parametreleri
 
-| Parametre | Tip     | Varsayılan | Açıklama                                                   |
-| --------- | ------- | ---------- | ---------------------------------------------------------- |
-| `fields`  | string  | -          | Döndürülecek mahalle alanlarının virgülle ayrılmış listesi |
-| `limit`   | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası            |
-| `offset`  | integer | `0`        | Atlanacak kayıt sayısı                                     |
+| Parametre          | Tip     | Varsayılan | Açıklama                                                         |
+| ------------------ | ------- | ---------- | ---------------------------------------------------------------- |
+| `fields`           | string  | -          | Döndürülecek mahalle alanlarının virgülle ayrılmış listesi       |
+| `postalCode`       | string  | -          | Tam beş haneli posta koduna göre filtreler                       |
+| `postalCodePrefix` | string  | -          | Bir ile beş hane arasındaki posta kodu prefix'ine göre filtreler |
+| `postalCodeStatus` | string  | -          | Virgülle ayrılmış posta kodu durumu filtresi                     |
+| `limit`            | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası                  |
+| `offset`           | integer | `0`        | Atlanacak kayıt sayısı                                           |
 
 ### İstek
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/districts/1103/neighborhoods?fields=id,name,population"
+curl "https://api.turkiyeapi.dev/v2/districts/1103/neighborhoods?postalCodePrefix=34&fields=id,name,population,postalCode"
 ```
 
 ## İlçedeki Köyleri Listeleme
@@ -267,28 +272,32 @@ Path parametresindeki `districtId` ile eşleşen köyleri döndürür.
 
 ### Sorgu Parametreleri
 
-| Parametre | Tip     | Varsayılan | Açıklama                                               |
-| --------- | ------- | ---------- | ------------------------------------------------------ |
-| `fields`  | string  | -          | Döndürülecek köy alanlarının virgülle ayrılmış listesi |
-| `limit`   | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası        |
-| `offset`  | integer | `0`        | Atlanacak kayıt sayısı                                 |
+| Parametre          | Tip     | Varsayılan | Açıklama                                                         |
+| ------------------ | ------- | ---------- | ---------------------------------------------------------------- |
+| `fields`           | string  | -          | Döndürülecek köy alanlarının virgülle ayrılmış listesi           |
+| `postalCode`       | string  | -          | Tam beş haneli posta koduna göre filtreler                       |
+| `postalCodePrefix` | string  | -          | Bir ile beş hane arasındaki posta kodu prefix'ine göre filtreler |
+| `postalCodeStatus` | string  | -          | Virgülle ayrılmış posta kodu durumu filtresi                     |
+| `limit`            | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası                  |
+| `offset`           | integer | `0`        | Atlanacak kayıt sayısı                                           |
 
 ### İstek
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/districts/1103/villages"
+curl "https://api.turkiyeapi.dev/v2/districts/1105/villages?postalCodeStatus=official"
 ```
 
 ## Yaygın Hatalar
 
-| Status | Kod                     | Ne zaman oluşur                                              |
-| ------ | ----------------------- | ------------------------------------------------------------ |
-| `400`  | `BAD_REQUEST`           | Sorgu veya path parametresi doğrulaması başarısız olduğunda  |
-| `400`  | `INVALID_FIELDS`        | `fields` istenen kaynak için bilinmeyen bir alan içerdiğinde |
-| `400`  | `INVALID_INCLUDE`       | `include` desteklenmeyen bir ilişki içerdiğinde              |
-| `404`  | `DISTRICT_NOT_FOUND`    | İstenen ilçe bulunamadığında                                 |
-| `429`  | -                       | Rate limit aşıldığında                                       |
-| `500`  | `INTERNAL_SERVER_ERROR` | Beklenmeyen sunucu hatasında                                 |
+| Status | Kod                     | Ne zaman oluşur                                                       |
+| ------ | ----------------------- | --------------------------------------------------------------------- |
+| `400`  | `BAD_REQUEST`           | Sorgu veya path parametresi doğrulaması başarısız olduğunda           |
+| `400`  | `INVALID_RANGE_FILTER`  | Bir minimum aralık filtresi eşleşen maksimum değerden büyük olduğunda |
+| `400`  | `INVALID_FIELDS`        | `fields` istenen kaynak için bilinmeyen bir alan içerdiğinde          |
+| `400`  | `INVALID_INCLUDE`       | `include` desteklenmeyen bir ilişki içerdiğinde                       |
+| `404`  | `DISTRICT_NOT_FOUND`    | İstenen ilçe bulunamadığında                                          |
+| `429`  | -                       | Rate limit aşıldığında                                                |
+| `500`  | `INTERNAL_SERVER_ERROR` | Beklenmeyen sunucu hatasında                                          |
 
 Hata yanıtı:
 

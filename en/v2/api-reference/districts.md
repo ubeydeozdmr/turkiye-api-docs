@@ -89,6 +89,8 @@ Returns a paginated list of districts.
 | `maxArea`       | number  | -       | Maximum area in square kilometers                                     |
 | `provinceId`    | integer | -       | Filters districts by parent province ID                               |
 
+If both minimum and maximum range filters are provided, the minimum must be less than or equal to the maximum. This applies to population and area ranges.
+
 ### Allowed Fields
 
 ```text
@@ -241,16 +243,19 @@ Returns neighborhoods whose `districtId` matches the path parameter.
 
 ### Query Parameters
 
-| Parameter | Type    | Default | Description                                     |
-| --------- | ------- | ------- | ----------------------------------------------- |
-| `fields`  | string  | -       | Comma-separated neighborhood fields to include  |
-| `limit`   | integer | `100`   | Number of records to return, from `1` to `1000` |
-| `offset`  | integer | `0`     | Number of records to skip                       |
+| Parameter          | Type    | Default | Description                                     |
+| ------------------ | ------- | ------- | ----------------------------------------------- |
+| `fields`           | string  | -       | Comma-separated neighborhood fields to include  |
+| `postalCode`       | string  | -       | Filters by exact five-digit postal code         |
+| `postalCodePrefix` | string  | -       | Filters by one-to-five digit postal code prefix |
+| `postalCodeStatus` | string  | -       | Comma-separated postal code status filter       |
+| `limit`            | integer | `100`   | Number of records to return, from `1` to `1000` |
+| `offset`           | integer | `0`     | Number of records to skip                       |
 
 ### Request
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/districts/1103/neighborhoods?fields=id,name,population"
+curl "https://api.turkiyeapi.dev/v2/districts/1103/neighborhoods?postalCodePrefix=34&fields=id,name,population,postalCode"
 ```
 
 ## List Villages in a District
@@ -269,16 +274,19 @@ Returns villages whose `districtId` matches the path parameter.
 
 ### Query Parameters
 
-| Parameter | Type    | Default | Description                                     |
-| --------- | ------- | ------- | ----------------------------------------------- |
-| `fields`  | string  | -       | Comma-separated village fields to include       |
-| `limit`   | integer | `100`   | Number of records to return, from `1` to `1000` |
-| `offset`  | integer | `0`     | Number of records to skip                       |
+| Parameter          | Type    | Default | Description                                     |
+| ------------------ | ------- | ------- | ----------------------------------------------- |
+| `fields`           | string  | -       | Comma-separated village fields to include       |
+| `postalCode`       | string  | -       | Filters by exact five-digit postal code         |
+| `postalCodePrefix` | string  | -       | Filters by one-to-five digit postal code prefix |
+| `postalCodeStatus` | string  | -       | Comma-separated postal code status filter       |
+| `limit`            | integer | `100`   | Number of records to return, from `1` to `1000` |
+| `offset`           | integer | `0`     | Number of records to skip                       |
 
 ### Request
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/districts/1103/villages"
+curl "https://api.turkiyeapi.dev/v2/districts/1105/villages?postalCodeStatus=official"
 ```
 
 ## Common Errors
@@ -286,6 +294,7 @@ curl "https://api.turkiyeapi.dev/v2/districts/1103/villages"
 | Status | Code                    | When it happens                                               |
 | ------ | ----------------------- | ------------------------------------------------------------- |
 | `400`  | `BAD_REQUEST`           | Query or path parameter validation fails                      |
+| `400`  | `INVALID_RANGE_FILTER`  | A minimum range filter is greater than its matching maximum   |
 | `400`  | `INVALID_FIELDS`        | `fields` contains an unknown field for the requested resource |
 | `400`  | `INVALID_INCLUDE`       | `include` contains an unsupported relation                    |
 | `404`  | `DISTRICT_NOT_FOUND`    | The requested district does not exist                         |

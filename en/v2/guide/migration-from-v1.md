@@ -270,6 +270,8 @@ v2 removes `activatePostalCodes`. Postal code data is modeled on neighborhood an
 
 For official-only usage, filter records where `postalCodeStatus` is `official`. `derived` is used only for neighborhoods whose previous village or settlement postal code exists in official PTT data. `estimated` values improve searchability but should not be treated as official PTT records.
 
+Neighborhood and village list endpoints also support `postalCode`, `postalCodePrefix`, and `postalCodeStatus` query filters. These filters are available on both top-level collection endpoints and nested neighborhood/village routes.
+
 ## Dataset and Metadata
 
 v2 exposes API and dataset metadata through:
@@ -390,5 +392,7 @@ curl "https://api.turkiyeapi.dev/v2/districts/1103/neighborhoods"
 - v2 list responses are paginated by default with `limit=100`.
 - v2 does not add nested children by default.
 - v2 rejects unknown fields and unknown includes with `400 Bad Request`.
+- v2 rejects contradictory range filters with `INVALID_RANGE_FILTER`.
+- v2 rejects contradictory parent ID filters with `INVALID_HIERARCHY_FILTER`.
 - v2 has a stricter OpenAPI 3.1 contract available at `/v2/openapi.json`.
 - v2 normalizes Turkish text for `search`; v1 name matching had more compatibility quirks.

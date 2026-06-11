@@ -8,11 +8,11 @@ System endpoints expose service health, dataset metadata, and the OpenAPI docume
 
 ## Endpoints
 
-| Method | Path | Description |
-| ------ | ---- | ----------- |
-| `GET` | `/health` | Check service health |
-| `GET` | `/v2/meta` | Get API and dataset metadata |
-| `GET` | `/v2/openapi.json` | Get the OpenAPI document |
+| Method | Path               | Description                  |
+| ------ | ------------------ | ---------------------------- |
+| `GET`  | `/health`          | Check service health         |
+| `GET`  | `/v2/meta`         | Get API and dataset metadata |
+| `GET`  | `/v2/openapi.json` | Get the OpenAPI document     |
 
 ## Health Check
 
@@ -43,6 +43,8 @@ GET /v2/meta
 ```
 
 Returns API version, dataset version, update date, data sources, and record counts.
+
+The `counts` values are derived from the datasets loaded by the API, so they reflect the same records served by list endpoints and dataset downloads.
 
 ### Request
 
@@ -99,8 +101,8 @@ The response is a JSON OpenAPI document with `openapi`, `info`, `servers`, `tags
 
 ## Common Errors
 
-| Status | Code | When it happens |
-| ------ | ---- | --------------- |
-| `400` | `BAD_REQUEST` | Request validation fails |
-| `429` | - | Rate limit exceeded |
-| `500` | `INTERNAL_SERVER_ERROR` | Unexpected server error |
+| Status | Code                    | When it happens          |
+| ------ | ----------------------- | ------------------------ |
+| `400`  | `BAD_REQUEST`           | Request validation fails |
+| `429`  | -                       | Rate limit exceeded      |
+| `500`  | `INTERNAL_SERVER_ERROR` | Unexpected server error  |

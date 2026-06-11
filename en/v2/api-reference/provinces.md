@@ -113,6 +113,8 @@ Returns a paginated list of provinces.
 | `isCoastal`      | string  | -       | Filters coastal provinces. Allowed values: `true`, `false`            |
 | `isMetropolitan` | string  | -       | Filters metropolitan provinces. Allowed values: `true`, `false`       |
 
+If both minimum and maximum range filters are provided, the minimum must be less than or equal to the maximum. This applies to population, area, and altitude ranges.
+
 ::: tip
 `isCoastal` and `isMetropolitan` accept string values `true` and `false` for ease of use in query parameters. They look like boolean values, but they are sent as strings in the query string.
 :::
@@ -318,11 +320,14 @@ Returns neighborhoods whose `provinceId` matches the path parameter.
 
 ### Query Parameters
 
-| Parameter | Type    | Default | Description                                     |
-| --------- | ------- | ------- | ----------------------------------------------- |
-| `fields`  | string  | -       | Comma-separated neighborhood fields to include  |
-| `limit`   | integer | `100`   | Number of records to return, from `1` to `1000` |
-| `offset`  | integer | `0`     | Number of records to skip                       |
+| Parameter          | Type    | Default | Description                                     |
+| ------------------ | ------- | ------- | ----------------------------------------------- |
+| `fields`           | string  | -       | Comma-separated neighborhood fields to include  |
+| `postalCode`       | string  | -       | Filters by exact five-digit postal code         |
+| `postalCodePrefix` | string  | -       | Filters by one-to-five digit postal code prefix |
+| `postalCodeStatus` | string  | -       | Comma-separated postal code status filter       |
+| `limit`            | integer | `100`   | Number of records to return, from `1` to `1000` |
+| `offset`           | integer | `0`     | Number of records to skip                       |
 
 ### Allowed Fields
 
@@ -333,7 +338,7 @@ id,name,slug,provinceId,districtId,municipalityId,population,postalCode,postalCo
 ### Request
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/provinces/34/neighborhoods?fields=id,name,population"
+curl "https://api.turkiyeapi.dev/v2/provinces/34/neighborhoods?postalCodePrefix=34&fields=id,name,population,postalCode"
 ```
 
 ## List Villages in a Province
@@ -352,11 +357,14 @@ Returns villages whose `provinceId` matches the path parameter.
 
 ### Query Parameters
 
-| Parameter | Type    | Default | Description                                     |
-| --------- | ------- | ------- | ----------------------------------------------- |
-| `fields`  | string  | -       | Comma-separated village fields to include       |
-| `limit`   | integer | `100`   | Number of records to return, from `1` to `1000` |
-| `offset`  | integer | `0`     | Number of records to skip                       |
+| Parameter          | Type    | Default | Description                                     |
+| ------------------ | ------- | ------- | ----------------------------------------------- |
+| `fields`           | string  | -       | Comma-separated village fields to include       |
+| `postalCode`       | string  | -       | Filters by exact five-digit postal code         |
+| `postalCodePrefix` | string  | -       | Filters by one-to-five digit postal code prefix |
+| `postalCodeStatus` | string  | -       | Comma-separated postal code status filter       |
+| `limit`            | integer | `100`   | Number of records to return, from `1` to `1000` |
+| `offset`           | integer | `0`     | Number of records to skip                       |
 
 ### Allowed Fields
 
@@ -367,7 +375,7 @@ id,name,slug,provinceId,districtId,population,postalCode,postalCodeStatus
 ### Request
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/provinces/34/villages"
+curl "https://api.turkiyeapi.dev/v2/provinces/2/villages?postalCodePrefix=02"
 ```
 
 ## Common Errors
@@ -375,6 +383,7 @@ curl "https://api.turkiyeapi.dev/v2/provinces/34/villages"
 | Status | Code                    | When it happens                                               |
 | ------ | ----------------------- | ------------------------------------------------------------- |
 | `400`  | `BAD_REQUEST`           | Query or path parameter validation fails                      |
+| `400`  | `INVALID_RANGE_FILTER`  | A minimum range filter is greater than its matching maximum   |
 | `400`  | `INVALID_FIELDS`        | `fields` contains an unknown field for the requested resource |
 | `400`  | `INVALID_INCLUDE`       | `include` contains an unsupported relation                    |
 | `404`  | `PROVINCE_NOT_FOUND`    | The requested province does not exist                         |

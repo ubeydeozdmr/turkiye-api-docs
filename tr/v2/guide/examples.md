@@ -40,7 +40,7 @@ curl "https://api.turkiyeapi.dev/v2/districts?provinceId=34&fields=id,name,popul
 
 ```javascript [fetch]
 const response = await fetch(
-  'https://api.turkiyeapi.dev/v2/districts?provinceId=34&fields=id,name,population&sort=name'
+  'https://api.turkiyeapi.dev/v2/districts?provinceId=34&fields=id,name,population&sort=name',
 );
 
 const { data } = await response.json();
@@ -96,6 +96,24 @@ curl "https://api.turkiyeapi.dev/v2/districts?provinceId=34&minPopulation=100000
 ```
 
 Bu kalıp dashboard ve raporlama araçları için kullanışlıdır.
+
+Minimum değer maksimum değerden büyükse API `400 INVALID_RANGE_FILTER` döndürür.
+
+## Posta Kodu Filtreleme
+
+Tam posta koduyla kayıt bulmak için:
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/neighborhoods?postalCode=01020&fields=id,name,provinceId,districtId,postalCode"
+```
+
+Kısmi posta kodu girişini desteklemek için:
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/villages?postalCodePrefix=020&fields=id,name,provinceId,districtId,postalCode"
+```
+
+Yalnızca resmi PTT posta kodu verisine dayanan kayıtları istiyorsanız `postalCodeStatus=official` ekleyin.
 
 ## Tipe Göre Belediyeler
 

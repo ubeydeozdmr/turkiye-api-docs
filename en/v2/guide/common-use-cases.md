@@ -8,17 +8,18 @@ This page helps you choose the right v2 endpoint pattern for common integration 
 
 ## Recommended Patterns
 
-| Scenario | Recommended pattern |
-| -------- | ------------------- |
-| Province -> district -> neighborhood address form | Nested endpoints |
-| Compact province selector | `/v2/provinces?fields=id,name` |
-| Districts after a province is selected | `/v2/provinces/{provinceId}/districts?fields=id,name` |
-| Neighborhoods after a district is selected | `/v2/districts/{districtId}/neighborhoods?fields=id,name,postalCode,postalCodeStatus` |
-| Neighborhood search or autocomplete | `/v2/neighborhoods?search=...&fields=id,name,districtId,provinceId,postalCode` |
-| Municipality or village table | Collection endpoint with filters, sorting, and pagination |
-| One known record by ID | Single-resource endpoint |
-| Related data in one detail response | `include`, used intentionally |
-| Full import, offline use, or build-time data | Dataset endpoints |
+| Scenario                                          | Recommended pattern                                                                   |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Province -> district -> neighborhood address form | Nested endpoints                                                                      |
+| Compact province selector                         | `/v2/provinces?fields=id,name`                                                        |
+| Districts after a province is selected            | `/v2/provinces/{provinceId}/districts?fields=id,name`                                 |
+| Neighborhoods after a district is selected        | `/v2/districts/{districtId}/neighborhoods?fields=id,name,postalCode,postalCodeStatus` |
+| Neighborhood search or autocomplete               | `/v2/neighborhoods?search=...&fields=id,name,districtId,provinceId,postalCode`        |
+| Postal-code lookup                                | `/v2/neighborhoods?postalCode=01020` or `/v2/villages?postalCodePrefix=020`           |
+| Municipality or village table                     | Collection endpoint with filters, sorting, and pagination                             |
+| One known record by ID                            | Single-resource endpoint                                                              |
+| Related data in one detail response               | `include`, used intentionally                                                         |
+| Full import, offline use, or build-time data      | Dataset endpoints                                                                     |
 
 ## Address Forms and Hierarchical Selectors
 
@@ -119,3 +120,19 @@ GET /v2/datasets/2025/neighborhoods.json
 ```
 
 Use live API endpoints for interactive user workflows. Use dataset endpoints for bulk or offline workflows.
+
+## Postal Code Lookup
+
+Use `postalCode` for an exact neighborhood or village postal-code match:
+
+```http
+GET /v2/neighborhoods?postalCode=01020&fields=id,name,provinceId,districtId,postalCode
+```
+
+Use `postalCodePrefix` when the UI accepts partial postal codes:
+
+```http
+GET /v2/villages?postalCodePrefix=020&fields=id,name,provinceId,districtId,postalCode
+```
+
+When strict official postal data is required, add `postalCodeStatus=official`.

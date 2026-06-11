@@ -28,17 +28,17 @@ List endpoints return a `data` array and a `meta` object:
 
 ## Common Parameters
 
-| Parameter | Purpose |
-| --------- | ------- |
-| `search` | Filters by resource name |
-| `fields` | Limits the response to selected fields |
-| `sort` | Sorts by supported fields |
-| `limit` | Sets page size, from `1` to `1000` |
-| `offset` | Skips records before returning the page |
+| Parameter       | Purpose                                                            |
+| --------------- | ------------------------------------------------------------------ |
+| `search`        | Filters by resource name                                           |
+| `fields`        | Limits the response to selected fields                             |
+| `sort`          | Sorts by supported fields                                          |
+| `limit`         | Sets page size, from `1` to `1000`                                 |
+| `offset`        | Skips records before returning the page                            |
 | `minPopulation` | Filters records with population greater than or equal to the value |
-| `maxPopulation` | Filters records with population less than or equal to the value |
+| `maxPopulation` | Filters records with population less than or equal to the value    |
 
-Resource-specific parameters include `provinceId`, `districtId`, `municipalityId`, `type`, `minArea`, `maxArea`, `minAltitude`, `maxAltitude`, `isCoastal`, and `isMetropolitan`, depending on the endpoint.
+Resource-specific parameters include `provinceId`, `districtId`, `municipalityId`, `type`, `postalCode`, `postalCodePrefix`, `postalCodeStatus`, `minArea`, `maxArea`, `minAltitude`, `maxAltitude`, `isCoastal`, and `isMetropolitan`, depending on the endpoint.
 
 ## Search
 
@@ -104,6 +104,14 @@ curl "https://api.turkiyeapi.dev/v2/districts?provinceId=34&minPopulation=100000
 
 This returns İstanbul districts whose population is between `100000` and `500000`.
 
+Range filters are validated as pairs. If a minimum value is greater than the matching maximum value, the API returns `400 INVALID_RANGE_FILTER`.
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/provinces?minArea=10000&maxArea=1000"
+```
+
+The same rule applies to supported population, area, and altitude ranges.
+
 ## Location Filters
 
 Use parent IDs to scope child collections:
@@ -132,6 +140,30 @@ curl "https://api.turkiyeapi.dev/v2/districts/1104/neighborhoods?fields=id,name,
 
 Use filtered collection endpoints when you need search, sorting, pagination, or a table that spans a broader scope. See [Common Use Cases](./common-use-cases.md) for scenario-based guidance.
 
+When you combine parent ID filters on collection endpoints, they must match the same administrative chain. For example, a `districtId` must belong to the given `provinceId`, and a `municipalityId` must match the given `provinceId` or `districtId`. Contradictory combinations return `400 INVALID_HIERARCHY_FILTER`.
+
+## Postal Code Filters
+
+Neighborhood and village list endpoints support postal-code filters:
+
+| Parameter          | Purpose                                                                 |
+| ------------------ | ----------------------------------------------------------------------- |
+| `postalCode`       | Exact five-digit postal code match                                      |
+| `postalCodePrefix` | Prefix match using one to five digits                                   |
+| `postalCodeStatus` | Comma-separated status filter, such as `official` or `official,derived` |
+
+Examples:
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/neighborhoods?postalCode=01020&fields=id,name,postalCode"
+```
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/villages?provinceId=2&postalCodePrefix=020&fields=id,name,postalCode"
+```
+
+The same filters are available on nested neighborhood and village routes, such as `/v2/districts/{districtId}/neighborhoods` and `/v2/provinces/{provinceId}/villages`.
+
 ## Combining Parameters
 
 This request lists the first 20 neighborhoods in a municipality, sorted by population, with only fields needed for a picker:
@@ -149,3 +181,5 @@ Invalid query values return `400 Bad Request`. Common causes include:
 - Unsupported `sort` values.
 - Unknown `fields`.
 - Query parameters with the wrong type.
+- Contradictory range filters, such as `minPopulation > maxPopulation`.
+- Contradictory hierarchy filters, such as a `districtId` that belongs to a different `provinceId`.

@@ -270,6 +270,8 @@ v2 `activatePostalCodes` parametresini kaldırır. Posta kodu verisi mahalle ve 
 
 Yalnızca resmi kullanım için `postalCodeStatus` değeri `official` olan kayıtları filtreleyin. `derived`, yalnızca önceki köy veya yerleşim posta kodu resmi PTT verisinde bulunan mahallelerde kullanılır. `estimated` değerler arama yapılabilirliği artırır, ancak resmi PTT kaydı olarak değerlendirilmemelidir.
 
+Mahalle ve köy liste endpoint'leri ayrıca `postalCode`, `postalCodePrefix` ve `postalCodeStatus` sorgu filtrelerini destekler. Bu filtreler hem top-level collection endpoint'lerinde hem de nested mahalle/köy route'larında kullanılabilir.
+
 ## Veri Seti ve Metadata
 
 v2 API ve veri seti metadata'sını şu endpoint ile sunar:
@@ -390,5 +392,7 @@ curl "https://api.turkiyeapi.dev/v2/districts/1103/neighborhoods"
 - v2 liste yanıtları varsayılan olarak `limit=100` ile sayfalanır.
 - v2 iç içe alt kaynakları varsayılan olarak eklemez.
 - v2 bilinmeyen alanları ve bilinmeyen include değerlerini `400 Bad Request` ile reddeder.
+- v2 çelişkili aralık filtrelerini `INVALID_RANGE_FILTER` ile reddeder.
+- v2 çelişkili parent ID filtrelerini `INVALID_HIERARCHY_FILTER` ile reddeder.
 - v2 için daha sıkı OpenAPI 3.1 sözleşmesi `/v2/openapi.json` üzerinde bulunur.
 - v2 `search` için Türkçe metin normalizasyonu yapar; v1 ad eşleştirmesinde daha fazla uyumluluk kusuru vardı.

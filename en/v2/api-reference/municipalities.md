@@ -73,6 +73,8 @@ Returns a paginated list of municipalities.
 | `districtId`    | integer | -       | Filters municipalities by parent district ID                                                             |
 | `type`          | string  | -       | Filters by municipality type. Allowed values: `province_center`, `district_center`, `town`               |
 
+If both `minPopulation` and `maxPopulation` are provided, `minPopulation` must be less than or equal to `maxPopulation`. When combining `provinceId` and `districtId`, the district must belong to the selected province.
+
 ### Allowed Fields
 
 ```text
@@ -236,11 +238,14 @@ Returns neighborhoods whose `municipalityId` matches the path parameter.
 
 ### Query Parameters
 
-| Parameter | Type    | Default | Description                                     |
-| --------- | ------- | ------- | ----------------------------------------------- |
-| `fields`  | string  | -       | Comma-separated neighborhood fields to include  |
-| `limit`   | integer | `100`   | Number of records to return, from `1` to `1000` |
-| `offset`  | integer | `0`     | Number of records to skip                       |
+| Parameter          | Type    | Default | Description                                     |
+| ------------------ | ------- | ------- | ----------------------------------------------- |
+| `fields`           | string  | -       | Comma-separated neighborhood fields to include  |
+| `postalCode`       | string  | -       | Filters by exact five-digit postal code         |
+| `postalCodePrefix` | string  | -       | Filters by one-to-five digit postal code prefix |
+| `postalCodeStatus` | string  | -       | Comma-separated postal code status filter       |
+| `limit`            | integer | `100`   | Number of records to return, from `1` to `1000` |
+| `offset`           | integer | `0`     | Number of records to skip                       |
 
 ### Allowed Fields
 
@@ -251,19 +256,21 @@ id,name,slug,provinceId,districtId,municipalityId,population,postalCode,postalCo
 ### Request
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/municipalities/926/neighborhoods"
+curl "https://api.turkiyeapi.dev/v2/municipalities/926/neighborhoods?postalCodeStatus=official"
 ```
 
 ## Common Errors
 
-| Status | Code                     | When it happens                                               |
-| ------ | ------------------------ | ------------------------------------------------------------- |
-| `400`  | `BAD_REQUEST`            | Query or path parameter validation fails                      |
-| `400`  | `INVALID_FIELDS`         | `fields` contains an unknown field for the requested resource |
-| `400`  | `INVALID_INCLUDE`        | `include` contains an unsupported relation                    |
-| `404`  | `MUNICIPALITY_NOT_FOUND` | The requested municipality does not exist                     |
-| `429`  | -                        | Rate limit exceeded                                           |
-| `500`  | `INTERNAL_SERVER_ERROR`  | Unexpected server error                                       |
+| Status | Code                       | When it happens                                                  |
+| ------ | -------------------------- | ---------------------------------------------------------------- |
+| `400`  | `BAD_REQUEST`              | Query or path parameter validation fails                         |
+| `400`  | `INVALID_RANGE_FILTER`     | `minPopulation` is greater than `maxPopulation`                  |
+| `400`  | `INVALID_HIERARCHY_FILTER` | `provinceId` and `districtId` do not describe the same hierarchy |
+| `400`  | `INVALID_FIELDS`           | `fields` contains an unknown field for the requested resource    |
+| `400`  | `INVALID_INCLUDE`          | `include` contains an unsupported relation                       |
+| `404`  | `MUNICIPALITY_NOT_FOUND`   | The requested municipality does not exist                        |
+| `429`  | -                          | Rate limit exceeded                                              |
+| `500`  | `INTERNAL_SERVER_ERROR`    | Unexpected server error                                          |
 
 Error response:
 

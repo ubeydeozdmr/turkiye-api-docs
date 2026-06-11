@@ -25,27 +25,27 @@ Temel path:
 
 ## İl Nesnesi
 
-| Alan                      | Tip       | Açıklama                     |
-| ------------------------- | --------- | ---------------------------- |
-| `id`                      | integer   | İl ID'si                     |
-| `name`                    | string    | İl adı                       |
-| `slug`                    | string    | URL uyumlu il adı            |
-| `population`              | integer   | İl nüfusu                    |
-| `area.value`              | number    | İl alan değeri               |
-| `area.unit`               | string    | Alan birimi, her zaman `km2` |
-| `altitude.value`          | number    | Metre cinsinden il rakımı    |
-| `altitude.unit`           | string    | Rakım birimi, her zaman `m`  |
-| `phoneAreaCodes`          | integer[] | İl telefon alan kodları      |
-| `isCoastal`               | boolean   | İlin kıyı ili olup olmadığı  |
+| Alan                      | Tip       | Açıklama                      |
+| ------------------------- | --------- | ----------------------------- |
+| `id`                      | integer   | İl ID'si                      |
+| `name`                    | string    | İl adı                        |
+| `slug`                    | string    | URL uyumlu il adı             |
+| `population`              | integer   | İl nüfusu                     |
+| `area.value`              | number    | İl alan değeri                |
+| `area.unit`               | string    | Alan birimi, her zaman `km2`  |
+| `altitude.value`          | number    | Metre cinsinden il rakımı     |
+| `altitude.unit`           | string    | Rakım birimi, her zaman `m`   |
+| `phoneAreaCodes`          | integer[] | İl telefon alan kodları       |
+| `isCoastal`               | boolean   | İlin kıyı ili olup olmadığı   |
 | `isMetropolitan`          | boolean   | İlin büyükşehir olup olmadığı |
-| `region.tr`               | string    | İlin Türkçe bölge adı        |
-| `region.en`               | string    | İlin İngilizce bölge adı     |
-| `coordinates.latitude`    | number    | İl enlemi                    |
-| `coordinates.longitude`   | number    | İl boylamı                   |
-| `stats.districtCount`     | integer   | İldeki ilçe sayısı           |
-| `stats.municipalityCount` | integer   | İldeki belediye sayısı       |
-| `stats.neighborhoodCount` | integer   | İldeki mahalle sayısı        |
-| `stats.villageCount`      | integer   | İldeki köy sayısı            |
+| `region.tr`               | string    | İlin Türkçe bölge adı         |
+| `region.en`               | string    | İlin İngilizce bölge adı      |
+| `coordinates.latitude`    | number    | İl enlemi                     |
+| `coordinates.longitude`   | number    | İl boylamı                    |
+| `stats.districtCount`     | integer   | İldeki ilçe sayısı            |
+| `stats.municipalityCount` | integer   | İldeki belediye sayısı        |
+| `stats.neighborhoodCount` | integer   | İldeki mahalle sayısı         |
+| `stats.villageCount`      | integer   | İldeki köy sayısı             |
 
 ::: tip
 İstanbul ili, Boğaz'ın iki yakasında yer aldığı için iki telefon alan koduna sahiptir. Avrupa yakası 212 alan kodunu, Anadolu yakası ise 216 alan kodunu kullanır. Türkiye'deki diğer illerin tamamında yalnızca bir alan kodu vardır. Bu nedenle `phoneAreaCodes`, çoğu ilde tek eleman içerse de bir dizi olarak döner.
@@ -97,21 +97,23 @@ Sayfalanmış il listesi döndürür.
 
 ### Sorgu Parametreleri
 
-| Parametre        | Tip     | Varsayılan | Açıklama                                                                 |
-| ---------------- | ------- | ---------- | ------------------------------------------------------------------------ |
-| `search`         | string  | -          | İl adına göre filtreler                                                  |
-| `fields`         | string  | -          | Döndürülecek il alanlarının virgülle ayrılmış listesi                    |
+| Parametre        | Tip     | Varsayılan | Açıklama                                                                   |
+| ---------------- | ------- | ---------- | -------------------------------------------------------------------------- |
+| `search`         | string  | -          | İl adına göre filtreler                                                    |
+| `fields`         | string  | -          | Döndürülecek il alanlarının virgülle ayrılmış listesi                      |
 | `sort`           | string  | `id`       | Sıralama değeri: `id`, `-id`, `name`, `-name`, `population`, `-population` |
-| `limit`          | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası                          |
-| `offset`         | integer | `0`        | Atlanacak kayıt sayısı                                                   |
-| `minPopulation`  | integer | -          | Minimum nüfus                                                            |
-| `maxPopulation`  | integer | -          | Maksimum nüfus                                                           |
-| `minArea`        | number  | -          | Kilometrekare cinsinden minimum alan                                     |
-| `maxArea`        | number  | -          | Kilometrekare cinsinden maksimum alan                                    |
-| `minAltitude`    | number  | -          | Metre cinsinden minimum rakım                                            |
-| `maxAltitude`    | number  | -          | Metre cinsinden maksimum rakım                                           |
-| `isCoastal`      | string  | -          | Kıyı illerini filtreler. İzin verilen değerler: `true`, `false`          |
-| `isMetropolitan` | string  | -          | Büyükşehirleri filtreler. İzin verilen değerler: `true`, `false`         |
+| `limit`          | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası                            |
+| `offset`         | integer | `0`        | Atlanacak kayıt sayısı                                                     |
+| `minPopulation`  | integer | -          | Minimum nüfus                                                              |
+| `maxPopulation`  | integer | -          | Maksimum nüfus                                                             |
+| `minArea`        | number  | -          | Kilometrekare cinsinden minimum alan                                       |
+| `maxArea`        | number  | -          | Kilometrekare cinsinden maksimum alan                                      |
+| `minAltitude`    | number  | -          | Metre cinsinden minimum rakım                                              |
+| `maxAltitude`    | number  | -          | Metre cinsinden maksimum rakım                                             |
+| `isCoastal`      | string  | -          | Kıyı illerini filtreler. İzin verilen değerler: `true`, `false`            |
+| `isMetropolitan` | string  | -          | Büyükşehirleri filtreler. İzin verilen değerler: `true`, `false`           |
+
+Minimum ve maksimum aralık filtreleri birlikte verildiğinde minimum değer maksimum değerden küçük veya ona eşit olmalıdır. Bu kural nüfus, alan ve rakım aralıkları için geçerlidir.
 
 ::: tip
 `isCoastal` ve `isMetropolitan`, sorgu parametrelerinde kolay kullanım için `true` ve `false` string değerlerini kabul eder. Boolean gibi görünseler de query string içinde string olarak gönderilirler.
@@ -171,10 +173,10 @@ Sayısal il ID'si ile tek il döndürür.
 
 ### Sorgu Parametreleri
 
-| Parametre | Tip    | Varsayılan | Açıklama                                                         |
-| --------- | ------ | ---------- | ---------------------------------------------------------------- |
-| `fields`  | string | -          | Döndürülecek il alanlarının virgülle ayrılmış listesi            |
-| `include` | string | -          | Dahil edilecek ilişkili kaynakların virgülle ayrılmış listesi    |
+| Parametre | Tip    | Varsayılan | Açıklama                                                      |
+| --------- | ------ | ---------- | ------------------------------------------------------------- |
+| `fields`  | string | -          | Döndürülecek il alanlarının virgülle ayrılmış listesi         |
+| `include` | string | -          | Dahil edilecek ilişkili kaynakların virgülle ayrılmış listesi |
 
 ### Include Değerleri
 
@@ -250,11 +252,11 @@ Path parametresindeki `provinceId` ile eşleşen ilçeleri döndürür.
 
 ### Sorgu Parametreleri
 
-| Parametre | Tip     | Varsayılan | Açıklama                                        |
-| --------- | ------- | ---------- | ----------------------------------------------- |
+| Parametre | Tip     | Varsayılan | Açıklama                                                |
+| --------- | ------- | ---------- | ------------------------------------------------------- |
 | `fields`  | string  | -          | Döndürülecek ilçe alanlarının virgülle ayrılmış listesi |
-| `limit`   | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası |
-| `offset`  | integer | `0`        | Atlanacak kayıt sayısı                          |
+| `limit`   | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası         |
+| `offset`  | integer | `0`        | Atlanacak kayıt sayısı                                  |
 
 ### İzin Verilen Alanlar
 
@@ -284,11 +286,11 @@ Path parametresindeki `provinceId` ile eşleşen belediyeleri döndürür.
 
 ### Sorgu Parametreleri
 
-| Parametre | Tip     | Varsayılan | Açıklama                                          |
-| --------- | ------- | ---------- | ------------------------------------------------- |
+| Parametre | Tip     | Varsayılan | Açıklama                                                    |
+| --------- | ------- | ---------- | ----------------------------------------------------------- |
 | `fields`  | string  | -          | Döndürülecek belediye alanlarının virgülle ayrılmış listesi |
-| `limit`   | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası   |
-| `offset`  | integer | `0`        | Atlanacak kayıt sayısı                            |
+| `limit`   | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası             |
+| `offset`  | integer | `0`        | Atlanacak kayıt sayısı                                      |
 
 ### İzin Verilen Alanlar
 
@@ -318,11 +320,14 @@ Path parametresindeki `provinceId` ile eşleşen mahalleleri döndürür.
 
 ### Sorgu Parametreleri
 
-| Parametre | Tip     | Varsayılan | Açıklama                                          |
-| --------- | ------- | ---------- | ------------------------------------------------- |
-| `fields`  | string  | -          | Döndürülecek mahalle alanlarının virgülle ayrılmış listesi |
-| `limit`   | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası   |
-| `offset`  | integer | `0`        | Atlanacak kayıt sayısı                            |
+| Parametre          | Tip     | Varsayılan | Açıklama                                                         |
+| ------------------ | ------- | ---------- | ---------------------------------------------------------------- |
+| `fields`           | string  | -          | Döndürülecek mahalle alanlarının virgülle ayrılmış listesi       |
+| `postalCode`       | string  | -          | Tam beş haneli posta koduna göre filtreler                       |
+| `postalCodePrefix` | string  | -          | Bir ile beş hane arasındaki posta kodu prefix'ine göre filtreler |
+| `postalCodeStatus` | string  | -          | Virgülle ayrılmış posta kodu durumu filtresi                     |
+| `limit`            | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası                  |
+| `offset`           | integer | `0`        | Atlanacak kayıt sayısı                                           |
 
 ### İzin Verilen Alanlar
 
@@ -333,7 +338,7 @@ id,name,slug,provinceId,districtId,municipalityId,population,postalCode,postalCo
 ### İstek
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/provinces/34/neighborhoods?fields=id,name,population"
+curl "https://api.turkiyeapi.dev/v2/provinces/34/neighborhoods?postalCodePrefix=34&fields=id,name,population,postalCode"
 ```
 
 ## İldeki Köyleri Listeleme
@@ -352,11 +357,14 @@ Path parametresindeki `provinceId` ile eşleşen köyleri döndürür.
 
 ### Sorgu Parametreleri
 
-| Parametre | Tip     | Varsayılan | Açıklama                                      |
-| --------- | ------- | ---------- | --------------------------------------------- |
-| `fields`  | string  | -          | Döndürülecek köy alanlarının virgülle ayrılmış listesi |
-| `limit`   | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası |
-| `offset`  | integer | `0`        | Atlanacak kayıt sayısı                        |
+| Parametre          | Tip     | Varsayılan | Açıklama                                                         |
+| ------------------ | ------- | ---------- | ---------------------------------------------------------------- |
+| `fields`           | string  | -          | Döndürülecek köy alanlarının virgülle ayrılmış listesi           |
+| `postalCode`       | string  | -          | Tam beş haneli posta koduna göre filtreler                       |
+| `postalCodePrefix` | string  | -          | Bir ile beş hane arasındaki posta kodu prefix'ine göre filtreler |
+| `postalCodeStatus` | string  | -          | Virgülle ayrılmış posta kodu durumu filtresi                     |
+| `limit`            | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası                  |
+| `offset`           | integer | `0`        | Atlanacak kayıt sayısı                                           |
 
 ### İzin Verilen Alanlar
 
@@ -367,19 +375,20 @@ id,name,slug,provinceId,districtId,population,postalCode,postalCodeStatus
 ### İstek
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/provinces/34/villages"
+curl "https://api.turkiyeapi.dev/v2/provinces/2/villages?postalCodePrefix=02"
 ```
 
 ## Yaygın Hatalar
 
-| Status | Kod                     | Ne zaman oluşur                                        |
-| ------ | ----------------------- | ------------------------------------------------------ |
-| `400`  | `BAD_REQUEST`           | Sorgu veya path parametresi doğrulaması başarısız olduğunda |
-| `400`  | `INVALID_FIELDS`        | `fields` istenen kaynak için bilinmeyen bir alan içerdiğinde |
-| `400`  | `INVALID_INCLUDE`       | `include` desteklenmeyen bir ilişki içerdiğinde       |
-| `404`  | `PROVINCE_NOT_FOUND`    | İstenen il bulunamadığında                            |
-| `429`  | -                       | Rate limit aşıldığında                                |
-| `500`  | `INTERNAL_SERVER_ERROR` | Beklenmeyen sunucu hatasında                          |
+| Status | Kod                     | Ne zaman oluşur                                                       |
+| ------ | ----------------------- | --------------------------------------------------------------------- |
+| `400`  | `BAD_REQUEST`           | Sorgu veya path parametresi doğrulaması başarısız olduğunda           |
+| `400`  | `INVALID_RANGE_FILTER`  | Bir minimum aralık filtresi eşleşen maksimum değerden büyük olduğunda |
+| `400`  | `INVALID_FIELDS`        | `fields` istenen kaynak için bilinmeyen bir alan içerdiğinde          |
+| `400`  | `INVALID_INCLUDE`       | `include` desteklenmeyen bir ilişki içerdiğinde                       |
+| `404`  | `PROVINCE_NOT_FOUND`    | İstenen il bulunamadığında                                            |
+| `429`  | -                       | Rate limit aşıldığında                                                |
+| `500`  | `INTERNAL_SERVER_ERROR` | Beklenmeyen sunucu hatasında                                          |
 
 Hata yanıtı:
 

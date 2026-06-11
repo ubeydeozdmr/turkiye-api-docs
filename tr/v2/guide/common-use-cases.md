@@ -8,17 +8,18 @@ Bu sayfa, yaygın entegrasyon senaryoları için doğru v2 endpoint yaklaşımı
 
 ## Önerilen Kalıplar
 
-| Senaryo | Önerilen yaklaşım |
-| ------- | ----------------- |
-| İl -> ilçe -> mahalle adres formu | Nested endpoint'ler |
-| Kompakt il seçici | `/v2/provinces?fields=id,name` |
-| İl seçildikten sonra ilçeler | `/v2/provinces/{provinceId}/districts?fields=id,name` |
-| İlçe seçildikten sonra mahalleler | `/v2/districts/{districtId}/neighborhoods?fields=id,name,postalCode,postalCodeStatus` |
-| Mahalle arama veya autocomplete | `/v2/neighborhoods?search=...&fields=id,name,districtId,provinceId,postalCode` |
-| Belediye veya köy tablosu | Filtreleme, sıralama ve sayfalama içeren collection endpoint |
-| ID'si bilinen tek kayıt | Tekil kaynak endpoint'i |
-| Detay yanıtında ilişkili veri | Bilinçli kullanılan `include` |
-| Tam import, offline kullanım veya build-time veri | Veri seti endpoint'leri |
+| Senaryo                                           | Önerilen yaklaşım                                                                     |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| İl -> ilçe -> mahalle adres formu                 | Nested endpoint'ler                                                                   |
+| Kompakt il seçici                                 | `/v2/provinces?fields=id,name`                                                        |
+| İl seçildikten sonra ilçeler                      | `/v2/provinces/{provinceId}/districts?fields=id,name`                                 |
+| İlçe seçildikten sonra mahalleler                 | `/v2/districts/{districtId}/neighborhoods?fields=id,name,postalCode,postalCodeStatus` |
+| Mahalle arama veya autocomplete                   | `/v2/neighborhoods?search=...&fields=id,name,districtId,provinceId,postalCode`        |
+| Posta kodu arama                                  | `/v2/neighborhoods?postalCode=01020` veya `/v2/villages?postalCodePrefix=020`         |
+| Belediye veya köy tablosu                         | Filtreleme, sıralama ve sayfalama içeren collection endpoint                          |
+| ID'si bilinen tek kayıt                           | Tekil kaynak endpoint'i                                                               |
+| Detay yanıtında ilişkili veri                     | Bilinçli kullanılan `include`                                                         |
+| Tam import, offline kullanım veya build-time veri | Veri seti endpoint'leri                                                               |
 
 ## Adres Formları ve Hiyerarşik Seçiciler
 
@@ -119,3 +120,19 @@ GET /v2/datasets/2025/neighborhoods.json
 ```
 
 Canlı API endpoint'lerini interaktif kullanıcı akışları için kullanın. Bulk veya offline akışlar için veri seti endpoint'lerini kullanın.
+
+## Posta Kodu Arama
+
+Tam mahalle veya köy posta kodu eşleşmesi için `postalCode` kullanın:
+
+```http
+GET /v2/neighborhoods?postalCode=01020&fields=id,name,provinceId,districtId,postalCode
+```
+
+Arayüz kısmi posta kodu kabul ediyorsa `postalCodePrefix` kullanın:
+
+```http
+GET /v2/villages?postalCodePrefix=020&fields=id,name,provinceId,districtId,postalCode
+```
+
+Kesin resmi posta kodu verisi gerektiğinde `postalCodeStatus=official` ekleyin.

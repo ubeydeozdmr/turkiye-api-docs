@@ -77,6 +77,8 @@ Liste endpoint'leri şu yapıyı döndürür:
 
 `postalCodeStatus`; resmi PTT posta kodu verisinden doğrudan kullanılan değerleri (`official`), PTT'de bilinen posta koduna sahip önceki bir yerleşimden türetilen yalnızca mahalleye özgü değerleri (`derived`) ve ek kamusal kaynaklardan, yakındaki yerleşimlerden, ilçe düzeyi örüntülerden veya idari değişiklik kayıtlarından çıkarılan değerleri (`estimated`) ayırt eder. Kesin resmi posta kodu verisine ihtiyaç duyan istemciler `postalCodeStatus` değeri `official` olan kayıtları filtrelemelidir.
 
+`stats.*Count` değerleri, yüklenen veri setindeki indekslenmiş ilişkilerden türetilir. Karşılık gelen nested collection endpoint'lerinin sunduğu child kayıtlarla eşleşir.
+
 ## Belediye Tipleri
 
 | Değer             | Anlamı                  |

@@ -14,10 +14,10 @@ Temel path:
 
 ## Endpoint'ler
 
-| Method | Path                                                | Açıklama                             |
-| ------ | --------------------------------------------------- | ------------------------------------ |
-| `GET`  | `/v2/municipalities`                                | Belediyeleri listeler                |
-| `GET`  | `/v2/municipalities/{municipalityId}`               | ID ile tek belediye getirir          |
+| Method | Path                                                | Açıklama                              |
+| ------ | --------------------------------------------------- | ------------------------------------- |
+| `GET`  | `/v2/municipalities`                                | Belediyeleri listeler                 |
+| `GET`  | `/v2/municipalities/{municipalityId}`               | ID ile tek belediye getirir           |
 | `GET`  | `/v2/municipalities/{municipalityId}/neighborhoods` | Bir belediyedeki mahalleleri listeler |
 
 ## Belediye Nesnesi
@@ -60,18 +60,20 @@ Sayfalanmış belediye listesi döndürür.
 
 ### Sorgu Parametreleri
 
-| Parametre       | Tip     | Varsayılan | Açıklama                                                                 |
-| --------------- | ------- | ---------- | ------------------------------------------------------------------------ |
-| `search`        | string  | -          | Belediye adına göre filtreler                                            |
-| `fields`        | string  | -          | Döndürülecek belediye alanlarının virgülle ayrılmış listesi              |
-| `sort`          | string  | `id`       | Sıralama değeri: `id`, `-id`, `name`, `-name`, `population`, `-population` |
-| `limit`         | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası                          |
-| `offset`        | integer | `0`        | Atlanacak kayıt sayısı                                                   |
-| `minPopulation` | integer | -          | Minimum nüfus                                                            |
-| `maxPopulation` | integer | -          | Maksimum nüfus                                                           |
-| `provinceId`    | integer | -          | Bağlı olduğu il ID'sine göre filtreler                                   |
-| `districtId`    | integer | -          | Bağlı olduğu ilçe ID'sine göre filtreler                                 |
+| Parametre       | Tip     | Varsayılan | Açıklama                                                                                            |
+| --------------- | ------- | ---------- | --------------------------------------------------------------------------------------------------- |
+| `search`        | string  | -          | Belediye adına göre filtreler                                                                       |
+| `fields`        | string  | -          | Döndürülecek belediye alanlarının virgülle ayrılmış listesi                                         |
+| `sort`          | string  | `id`       | Sıralama değeri: `id`, `-id`, `name`, `-name`, `population`, `-population`                          |
+| `limit`         | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası                                                     |
+| `offset`        | integer | `0`        | Atlanacak kayıt sayısı                                                                              |
+| `minPopulation` | integer | -          | Minimum nüfus                                                                                       |
+| `maxPopulation` | integer | -          | Maksimum nüfus                                                                                      |
+| `provinceId`    | integer | -          | Bağlı olduğu il ID'sine göre filtreler                                                              |
+| `districtId`    | integer | -          | Bağlı olduğu ilçe ID'sine göre filtreler                                                            |
 | `type`          | string  | -          | Belediye tipine göre filtreler. İzin verilen değerler: `province_center`, `district_center`, `town` |
+
+`minPopulation` ve `maxPopulation` birlikte verildiğinde `minPopulation`, `maxPopulation` değerinden küçük veya ona eşit olmalıdır. `provinceId` ve `districtId` birlikte kullanıldığında ilçe seçilen ile ait olmalıdır.
 
 ### İzin Verilen Alanlar
 
@@ -124,8 +126,8 @@ Sayısal belediye ID'si ile tek belediye döndürür.
 
 ### Path Parametreleri
 
-| Parametre        | Tip     | Açıklama      |
-| ---------------- | ------- | ------------- |
+| Parametre        | Tip     | Açıklama       |
+| ---------------- | ------- | -------------- |
 | `municipalityId` | integer | Belediye ID'si |
 
 ### Sorgu Parametreleri
@@ -230,17 +232,20 @@ Path parametresindeki `municipalityId` ile eşleşen mahalleleri döndürür.
 
 ### Path Parametreleri
 
-| Parametre        | Tip     | Açıklama      |
-| ---------------- | ------- | ------------- |
+| Parametre        | Tip     | Açıklama       |
+| ---------------- | ------- | -------------- |
 | `municipalityId` | integer | Belediye ID'si |
 
 ### Sorgu Parametreleri
 
-| Parametre | Tip     | Varsayılan | Açıklama                                          |
-| --------- | ------- | ---------- | ------------------------------------------------- |
-| `fields`  | string  | -          | Döndürülecek mahalle alanlarının virgülle ayrılmış listesi |
-| `limit`   | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası   |
-| `offset`  | integer | `0`        | Atlanacak kayıt sayısı                            |
+| Parametre          | Tip     | Varsayılan | Açıklama                                                         |
+| ------------------ | ------- | ---------- | ---------------------------------------------------------------- |
+| `fields`           | string  | -          | Döndürülecek mahalle alanlarının virgülle ayrılmış listesi       |
+| `postalCode`       | string  | -          | Tam beş haneli posta koduna göre filtreler                       |
+| `postalCodePrefix` | string  | -          | Bir ile beş hane arasındaki posta kodu prefix'ine göre filtreler |
+| `postalCodeStatus` | string  | -          | Virgülle ayrılmış posta kodu durumu filtresi                     |
+| `limit`            | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası                  |
+| `offset`           | integer | `0`        | Atlanacak kayıt sayısı                                           |
 
 ### İzin Verilen Alanlar
 
@@ -251,19 +256,21 @@ id,name,slug,provinceId,districtId,municipalityId,population,postalCode,postalCo
 ### İstek
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/municipalities/926/neighborhoods"
+curl "https://api.turkiyeapi.dev/v2/municipalities/926/neighborhoods?postalCodeStatus=official"
 ```
 
 ## Yaygın Hatalar
 
-| Status | Kod                      | Ne zaman oluşur                                        |
-| ------ | ------------------------ | ------------------------------------------------------ |
-| `400`  | `BAD_REQUEST`            | Sorgu veya path parametresi doğrulaması başarısız olduğunda |
-| `400`  | `INVALID_FIELDS`         | `fields` istenen kaynak için bilinmeyen bir alan içerdiğinde |
-| `400`  | `INVALID_INCLUDE`        | `include` desteklenmeyen bir ilişki içerdiğinde       |
-| `404`  | `MUNICIPALITY_NOT_FOUND` | İstenen belediye bulunamadığında                      |
-| `429`  | -                        | Rate limit aşıldığında                                |
-| `500`  | `INTERNAL_SERVER_ERROR`  | Beklenmeyen sunucu hatasında                          |
+| Status | Kod                        | Ne zaman oluşur                                               |
+| ------ | -------------------------- | ------------------------------------------------------------- |
+| `400`  | `BAD_REQUEST`              | Sorgu veya path parametresi doğrulaması başarısız olduğunda   |
+| `400`  | `INVALID_RANGE_FILTER`     | `minPopulation`, `maxPopulation` değerinden büyük olduğunda   |
+| `400`  | `INVALID_HIERARCHY_FILTER` | `provinceId` ve `districtId` aynı hiyerarşiyi göstermediğinde |
+| `400`  | `INVALID_FIELDS`           | `fields` istenen kaynak için bilinmeyen bir alan içerdiğinde  |
+| `400`  | `INVALID_INCLUDE`          | `include` desteklenmeyen bir ilişki içerdiğinde               |
+| `404`  | `MUNICIPALITY_NOT_FOUND`   | İstenen belediye bulunamadığında                              |
+| `429`  | -                          | Rate limit aşıldığında                                        |
+| `500`  | `INTERNAL_SERVER_ERROR`    | Beklenmeyen sunucu hatasında                                  |
 
 Hata yanıtı:
 

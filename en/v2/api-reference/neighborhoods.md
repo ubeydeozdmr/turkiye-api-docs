@@ -84,18 +84,23 @@ Returns a paginated list of neighborhoods.
 
 ### Query Parameters
 
-| Parameter        | Type    | Default | Description                                                                                              |
-| ---------------- | ------- | ------- | -------------------------------------------------------------------------------------------------------- |
-| `search`         | string  | -       | Filters by neighborhood name                                                                             |
-| `fields`         | string  | -       | Comma-separated list of fields to include                                                                |
-| `sort`           | string  | `id`    | Sorts by a neighborhood field. Allowed values: `id`, `-id`, `name`, `-name`, `population`, `-population` |
-| `limit`          | integer | `100`   | Number of records to return, from `1` to `1000`                                                          |
-| `offset`         | integer | `0`     | Number of records to skip                                                                                |
-| `minPopulation`  | integer | -       | Minimum population                                                                                       |
-| `maxPopulation`  | integer | -       | Maximum population                                                                                       |
-| `provinceId`     | integer | -       | Filters neighborhoods by parent province ID                                                              |
-| `districtId`     | integer | -       | Filters neighborhoods by parent district ID                                                              |
-| `municipalityId` | integer | -       | Filters neighborhoods by parent municipality ID                                                          |
+| Parameter          | Type    | Default | Description                                                                                              |
+| ------------------ | ------- | ------- | -------------------------------------------------------------------------------------------------------- |
+| `search`           | string  | -       | Filters by neighborhood name                                                                             |
+| `fields`           | string  | -       | Comma-separated list of fields to include                                                                |
+| `sort`             | string  | `id`    | Sorts by a neighborhood field. Allowed values: `id`, `-id`, `name`, `-name`, `population`, `-population` |
+| `limit`            | integer | `100`   | Number of records to return, from `1` to `1000`                                                          |
+| `offset`           | integer | `0`     | Number of records to skip                                                                                |
+| `minPopulation`    | integer | -       | Minimum population                                                                                       |
+| `maxPopulation`    | integer | -       | Maximum population                                                                                       |
+| `provinceId`       | integer | -       | Filters neighborhoods by parent province ID                                                              |
+| `districtId`       | integer | -       | Filters neighborhoods by parent district ID                                                              |
+| `municipalityId`   | integer | -       | Filters neighborhoods by parent municipality ID                                                          |
+| `postalCode`       | string  | -       | Filters by exact five-digit postal code                                                                  |
+| `postalCodePrefix` | string  | -       | Filters by one-to-five digit postal code prefix                                                          |
+| `postalCodeStatus` | string  | -       | Comma-separated postal code status filter: `official`, `derived`, `estimated`                            |
+
+If both `minPopulation` and `maxPopulation` are provided, `minPopulation` must be less than or equal to `maxPopulation`. When combining `provinceId`, `districtId`, and `municipalityId`, the IDs must belong to the same administrative chain.
 
 ### Allowed Fields
 
@@ -106,7 +111,7 @@ id,name,slug,provinceId,districtId,municipalityId,population,postalCode,postalCo
 ### Request
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/neighborhoods?districtId=1104&limit=2&fields=id,name,postalCode,postalCodeStatus"
+curl "https://api.turkiyeapi.dev/v2/neighborhoods?districtId=1104&postalCodePrefix=010&limit=2&fields=id,name,postalCode,postalCodeStatus"
 ```
 
 ### Response
@@ -254,14 +259,16 @@ curl "https://api.turkiyeapi.dev/v2/neighborhoods/3?include=province,district,mu
 
 ## Common Errors
 
-| Status | Code                     | When it happens                                               |
-| ------ | ------------------------ | ------------------------------------------------------------- |
-| `400`  | `BAD_REQUEST`            | Query or path parameter validation fails                      |
-| `400`  | `INVALID_FIELDS`         | `fields` contains an unknown field for the requested resource |
-| `400`  | `INVALID_INCLUDE`        | `include` contains an unsupported relation                    |
-| `404`  | `NEIGHBORHOOD_NOT_FOUND` | The requested neighborhood does not exist                     |
-| `429`  | -                        | Rate limit exceeded                                           |
-| `500`  | `INTERNAL_SERVER_ERROR`  | Unexpected server error                                       |
+| Status | Code                       | When it happens                                                                     |
+| ------ | -------------------------- | ----------------------------------------------------------------------------------- |
+| `400`  | `BAD_REQUEST`              | Query or path parameter validation fails                                            |
+| `400`  | `INVALID_RANGE_FILTER`     | `minPopulation` is greater than `maxPopulation`                                     |
+| `400`  | `INVALID_HIERARCHY_FILTER` | `provinceId`, `districtId`, and `municipalityId` do not describe the same hierarchy |
+| `400`  | `INVALID_FIELDS`           | `fields` contains an unknown field for the requested resource                       |
+| `400`  | `INVALID_INCLUDE`          | `include` contains an unsupported relation                                          |
+| `404`  | `NEIGHBORHOOD_NOT_FOUND`   | The requested neighborhood does not exist                                           |
+| `429`  | -                          | Rate limit exceeded                                                                 |
+| `500`  | `INTERNAL_SERVER_ERROR`    | Unexpected server error                                                             |
 
 Error response:
 

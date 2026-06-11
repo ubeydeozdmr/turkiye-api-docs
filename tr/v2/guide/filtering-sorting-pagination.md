@@ -28,17 +28,17 @@ Liste endpoint'leri `data` dizisi ve `meta` objesi döndürür:
 
 ## Ortak Parametreler
 
-| Parametre | Amaç |
-| --------- | ---- |
-| `search` | Kaynak adına göre filtreler |
-| `fields` | Yanıtı seçilen alanlarla sınırlar |
-| `sort` | Desteklenen alanlara göre sıralar |
-| `limit` | Sayfa boyutunu belirler, `1` ile `1000` arası |
-| `offset` | Sayfa döndürmeden önce kayıt atlar |
+| Parametre       | Amaç                                                   |
+| --------------- | ------------------------------------------------------ |
+| `search`        | Kaynak adına göre filtreler                            |
+| `fields`        | Yanıtı seçilen alanlarla sınırlar                      |
+| `sort`          | Desteklenen alanlara göre sıralar                      |
+| `limit`         | Sayfa boyutunu belirler, `1` ile `1000` arası          |
+| `offset`        | Sayfa döndürmeden önce kayıt atlar                     |
 | `minPopulation` | Nüfusu değere eşit veya daha büyük kayıtları filtreler |
 | `maxPopulation` | Nüfusu değere eşit veya daha küçük kayıtları filtreler |
 
-Kaynağa özel parametreler endpoint'e göre `provinceId`, `districtId`, `municipalityId`, `type`, `minArea`, `maxArea`, `minAltitude`, `maxAltitude`, `isCoastal` ve `isMetropolitan` olabilir.
+Kaynağa özel parametreler endpoint'e göre `provinceId`, `districtId`, `municipalityId`, `type`, `postalCode`, `postalCodePrefix`, `postalCodeStatus`, `minArea`, `maxArea`, `minAltitude`, `maxAltitude`, `isCoastal` ve `isMetropolitan` olabilir.
 
 ## Arama
 
@@ -104,6 +104,14 @@ curl "https://api.turkiyeapi.dev/v2/districts?provinceId=34&minPopulation=100000
 
 Bu istek, İstanbul'da nüfusu `100000` ile `500000` arasında olan ilçeleri döndürür.
 
+Aralık filtreleri çift olarak doğrulanır. Minimum değer eşleşen maksimum değerden büyükse API `400 INVALID_RANGE_FILTER` döndürür.
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/provinces?minArea=10000&maxArea=1000"
+```
+
+Aynı kural desteklenen nüfus, alan ve rakım aralıkları için geçerlidir.
+
 ## Konum Filtreleri
 
 Child koleksiyonları sınırlandırmak için parent ID'leri kullanın:
@@ -132,6 +140,30 @@ curl "https://api.turkiyeapi.dev/v2/districts/1104/neighborhoods?fields=id,name,
 
 Arama, sıralama, sayfalama veya daha geniş kapsamlı tablo ihtiyacınız varsa filtreli collection endpoint'lerini kullanın. Senaryo bazlı yönlendirme için [Yaygın Kullanım Senaryoları](./common-use-cases.md) sayfasına bakın.
 
+Collection endpoint'lerinde parent ID filtrelerini birlikte kullandığınızda aynı idari zinciri göstermeleri gerekir. Örneğin `districtId` verilen `provinceId` değerine ait olmalı, `municipalityId` de verilen `provinceId` veya `districtId` ile eşleşmelidir. Çelişkili kombinasyonlar `400 INVALID_HIERARCHY_FILTER` döndürür.
+
+## Posta Kodu Filtreleri
+
+Mahalle ve köy liste endpoint'leri posta kodu filtrelerini destekler:
+
+| Parametre          | Amaç                                                                     |
+| ------------------ | ------------------------------------------------------------------------ |
+| `postalCode`       | Tam beş haneli posta kodu eşleşmesi                                      |
+| `postalCodePrefix` | Bir ile beş hane arasında prefix eşleşmesi                               |
+| `postalCodeStatus` | `official` veya `official,derived` gibi virgülle ayrılmış durum filtresi |
+
+Örnekler:
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/neighborhoods?postalCode=01020&fields=id,name,postalCode"
+```
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/villages?provinceId=2&postalCodePrefix=020&fields=id,name,postalCode"
+```
+
+Aynı filtreler `/v2/districts/{districtId}/neighborhoods` ve `/v2/provinces/{provinceId}/villages` gibi nested mahalle ve köy route'larında da kullanılabilir.
+
 ## Parametreleri Birleştirme
 
 Bu istek bir belediyedeki ilk 20 mahalleyi nüfusa göre sıralar ve yalnızca seçici için gereken alanları döndürür:
@@ -149,3 +181,5 @@ Geçersiz sorgu değerleri `400 Bad Request` döndürür. Yaygın nedenler:
 - Desteklenmeyen `sort` değerleri.
 - Bilinmeyen `fields` alanları.
 - Yanlış tipte sorgu parametreleri.
+- `minPopulation > maxPopulation` gibi çelişkili aralık filtreleri.
+- Farklı bir `provinceId` değerine bağlı `districtId` gibi çelişkili hiyerarşi filtreleri.

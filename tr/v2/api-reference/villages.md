@@ -14,22 +14,22 @@ Temel path:
 
 ## Endpoint'ler
 
-| Method | Path                       | Açıklama              |
-| ------ | -------------------------- | --------------------- |
-| `GET`  | `/v2/villages`             | Köyleri listeler      |
+| Method | Path                       | Açıklama               |
+| ------ | -------------------------- | ---------------------- |
+| `GET`  | `/v2/villages`             | Köyleri listeler       |
 | `GET`  | `/v2/villages/{villageId}` | ID ile tek köy getirir |
 
 ## Köy Nesnesi
 
-| Alan               | Tip     | Açıklama                                  |
-| ------------------ | ------- | ----------------------------------------- |
-| `id`               | integer | Köy ID'si                                 |
-| `name`             | string  | Köy adı                                   |
-| `slug`             | string  | URL uyumlu köy adı                        |
-| `provinceId`       | integer | Bağlı olduğu il ID'si                     |
-| `districtId`       | integer | Bağlı olduğu ilçe ID'si                   |
-| `population`       | integer | Köy nüfusu                                |
-| `postalCode`       | string  | Beş haneli köy posta kodu                 |
+| Alan               | Tip     | Açıklama                                       |
+| ------------------ | ------- | ---------------------------------------------- |
+| `id`               | integer | Köy ID'si                                      |
+| `name`             | string  | Köy adı                                        |
+| `slug`             | string  | URL uyumlu köy adı                             |
+| `provinceId`       | integer | Bağlı olduğu il ID'si                          |
+| `districtId`       | integer | Bağlı olduğu ilçe ID'si                        |
+| `population`       | integer | Köy nüfusu                                     |
+| `postalCode`       | string  | Beş haneli köy posta kodu                      |
 | `postalCodeStatus` | string  | Posta kodu durumu: `official` veya `estimated` |
 
 ::: tip
@@ -40,9 +40,9 @@ Posta kodları sayısal görünse de `postalCode` alanı beş haneli string olar
 
 Posta kodunun nasıl belirlendiğini anlamak için `postalCodeStatus` alanını kullanın:
 
-| Değer | Anlamı |
-| ----- | ------ |
-| `official` | Posta kodu resmi PTT posta kodu verisinde bulunur ve doğrudan bu kaynaktan kullanılır. |
+| Değer       | Anlamı                                                                                                                                                                             |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `official`  | Posta kodu resmi PTT posta kodu verisinde bulunur ve doğrudan bu kaynaktan kullanılır.                                                                                             |
 | `estimated` | Posta kodu PTT verisinde yoktur. Değer ek kamusal kaynaklardan, yakındaki yerleşimlerden, ilçe düzeyi posta kodu örüntülerinden veya belgelenmiş idari değişikliklerden çıkarılır. |
 
 `derived` yalnızca mahallelerde kullanılır; köylerde kullanılmaz.
@@ -51,11 +51,11 @@ Kesin resmi posta kodu verisine ihtiyaç duyan istemciler `postalCodeStatus` ala
 
 Güncel köy durumu dağılımı:
 
-| Durum | Sayı |
-| ----- | ---- |
-| `official` | `18,162` |
-| `estimated` | `21` |
-| Toplam | `18,183` |
+| Durum       | Sayı     |
+| ----------- | -------- |
+| `official`  | `18,162` |
+| `estimated` | `21`     |
+| Toplam      | `18,183` |
 
 Örnek köy:
 
@@ -82,17 +82,22 @@ Sayfalanmış köy listesi döndürür.
 
 ### Sorgu Parametreleri
 
-| Parametre       | Tip     | Varsayılan | Açıklama                                                                 |
-| --------------- | ------- | ---------- | ------------------------------------------------------------------------ |
-| `search`        | string  | -          | Köy adına göre filtreler                                                 |
-| `fields`        | string  | -          | Döndürülecek köy alanlarının virgülle ayrılmış listesi                   |
-| `sort`          | string  | `id`       | Sıralama değeri: `id`, `-id`, `name`, `-name`, `population`, `-population` |
-| `limit`         | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası                          |
-| `offset`        | integer | `0`        | Atlanacak kayıt sayısı                                                   |
-| `minPopulation` | integer | -          | Minimum nüfus                                                            |
-| `maxPopulation` | integer | -          | Maksimum nüfus                                                           |
-| `provinceId`    | integer | -          | Bağlı olduğu il ID'sine göre filtreler                                   |
-| `districtId`    | integer | -          | Bağlı olduğu ilçe ID'sine göre filtreler                                 |
+| Parametre          | Tip     | Varsayılan | Açıklama                                                                   |
+| ------------------ | ------- | ---------- | -------------------------------------------------------------------------- |
+| `search`           | string  | -          | Köy adına göre filtreler                                                   |
+| `fields`           | string  | -          | Döndürülecek köy alanlarının virgülle ayrılmış listesi                     |
+| `sort`             | string  | `id`       | Sıralama değeri: `id`, `-id`, `name`, `-name`, `population`, `-population` |
+| `limit`            | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası                            |
+| `offset`           | integer | `0`        | Atlanacak kayıt sayısı                                                     |
+| `minPopulation`    | integer | -          | Minimum nüfus                                                              |
+| `maxPopulation`    | integer | -          | Maksimum nüfus                                                             |
+| `provinceId`       | integer | -          | Bağlı olduğu il ID'sine göre filtreler                                     |
+| `districtId`       | integer | -          | Bağlı olduğu ilçe ID'sine göre filtreler                                   |
+| `postalCode`       | string  | -          | Tam beş haneli posta koduna göre filtreler                                 |
+| `postalCodePrefix` | string  | -          | Bir ile beş hane arasındaki posta kodu prefix'ine göre filtreler           |
+| `postalCodeStatus` | string  | -          | Virgülle ayrılmış posta kodu durumu filtresi: `official`, `estimated`      |
+
+`minPopulation` ve `maxPopulation` birlikte verildiğinde `minPopulation`, `maxPopulation` değerinden küçük veya ona eşit olmalıdır. `provinceId` ve `districtId` birlikte kullanıldığında ilçe seçilen ile ait olmalıdır.
 
 ### İzin Verilen Alanlar
 
@@ -103,7 +108,7 @@ id,name,slug,provinceId,districtId,population,postalCode,postalCodeStatus
 ### İstek
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/villages?districtId=1105&limit=2&fields=id,name,provinceId,population"
+curl "https://api.turkiyeapi.dev/v2/villages?districtId=1105&postalCodePrefix=020&limit=2&fields=id,name,provinceId,population,postalCode"
 ```
 
 ### Yanıt
@@ -238,14 +243,16 @@ curl "https://api.turkiyeapi.dev/v2/villages/547?include=province,district"
 
 ## Yaygın Hatalar
 
-| Status | Kod                     | Ne zaman oluşur                                        |
-| ------ | ----------------------- | ------------------------------------------------------ |
-| `400`  | `BAD_REQUEST`           | Sorgu veya path parametresi doğrulaması başarısız olduğunda |
-| `400`  | `INVALID_FIELDS`        | `fields` istenen kaynak için bilinmeyen bir alan içerdiğinde |
-| `400`  | `INVALID_INCLUDE`       | `include` desteklenmeyen bir ilişki içerdiğinde       |
-| `404`  | `VILLAGE_NOT_FOUND`     | İstenen köy bulunamadığında                           |
-| `429`  | -                       | Rate limit aşıldığında                                |
-| `500`  | `INTERNAL_SERVER_ERROR` | Beklenmeyen sunucu hatasında                          |
+| Status | Kod                        | Ne zaman oluşur                                               |
+| ------ | -------------------------- | ------------------------------------------------------------- |
+| `400`  | `BAD_REQUEST`              | Sorgu veya path parametresi doğrulaması başarısız olduğunda   |
+| `400`  | `INVALID_RANGE_FILTER`     | `minPopulation`, `maxPopulation` değerinden büyük olduğunda   |
+| `400`  | `INVALID_HIERARCHY_FILTER` | `provinceId` ve `districtId` aynı hiyerarşiyi göstermediğinde |
+| `400`  | `INVALID_FIELDS`           | `fields` istenen kaynak için bilinmeyen bir alan içerdiğinde  |
+| `400`  | `INVALID_INCLUDE`          | `include` desteklenmeyen bir ilişki içerdiğinde               |
+| `404`  | `VILLAGE_NOT_FOUND`        | İstenen köy bulunamadığında                                   |
+| `429`  | -                          | Rate limit aşıldığında                                        |
+| `500`  | `INTERNAL_SERVER_ERROR`    | Beklenmeyen sunucu hatasında                                  |
 
 Hata yanıtı:
 

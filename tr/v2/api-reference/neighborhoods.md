@@ -84,18 +84,23 @@ Sayfalanmış mahalle listesi döndürür.
 
 ### Sorgu Parametreleri
 
-| Parametre        | Tip     | Varsayılan | Açıklama                                                                 |
-| ---------------- | ------- | ---------- | ------------------------------------------------------------------------ |
-| `search`         | string  | -          | Mahalle adına göre filtreler                                             |
-| `fields`         | string  | -          | Döndürülecek alanların virgülle ayrılmış listesi                         |
-| `sort`           | string  | `id`       | Sıralama değeri: `id`, `-id`, `name`, `-name`, `population`, `-population` |
-| `limit`          | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası                          |
-| `offset`         | integer | `0`        | Atlanacak kayıt sayısı                                                   |
-| `minPopulation`  | integer | -          | Minimum nüfus                                                            |
-| `maxPopulation`  | integer | -          | Maksimum nüfus                                                           |
-| `provinceId`     | integer | -          | Bağlı olduğu il ID'sine göre filtreler                                   |
-| `districtId`     | integer | -          | Bağlı olduğu ilçe ID'sine göre filtreler                                 |
-| `municipalityId` | integer | -          | Bağlı olduğu belediye ID'sine göre filtreler                             |
+| Parametre          | Tip     | Varsayılan | Açıklama                                                                         |
+| ------------------ | ------- | ---------- | -------------------------------------------------------------------------------- |
+| `search`           | string  | -          | Mahalle adına göre filtreler                                                     |
+| `fields`           | string  | -          | Döndürülecek alanların virgülle ayrılmış listesi                                 |
+| `sort`             | string  | `id`       | Sıralama değeri: `id`, `-id`, `name`, `-name`, `population`, `-population`       |
+| `limit`            | integer | `100`      | Döndürülecek kayıt sayısı, `1` ile `1000` arası                                  |
+| `offset`           | integer | `0`        | Atlanacak kayıt sayısı                                                           |
+| `minPopulation`    | integer | -          | Minimum nüfus                                                                    |
+| `maxPopulation`    | integer | -          | Maksimum nüfus                                                                   |
+| `provinceId`       | integer | -          | Bağlı olduğu il ID'sine göre filtreler                                           |
+| `districtId`       | integer | -          | Bağlı olduğu ilçe ID'sine göre filtreler                                         |
+| `municipalityId`   | integer | -          | Bağlı olduğu belediye ID'sine göre filtreler                                     |
+| `postalCode`       | string  | -          | Tam beş haneli posta koduna göre filtreler                                       |
+| `postalCodePrefix` | string  | -          | Bir ile beş hane arasındaki posta kodu prefix'ine göre filtreler                 |
+| `postalCodeStatus` | string  | -          | Virgülle ayrılmış posta kodu durumu filtresi: `official`, `derived`, `estimated` |
+
+`minPopulation` ve `maxPopulation` birlikte verildiğinde `minPopulation`, `maxPopulation` değerinden küçük veya ona eşit olmalıdır. `provinceId`, `districtId` ve `municipalityId` birlikte kullanıldığında ID'ler aynı idari zincire ait olmalıdır.
 
 ### İzin Verilen Alanlar
 
@@ -106,7 +111,7 @@ id,name,slug,provinceId,districtId,municipalityId,population,postalCode,postalCo
 ### İstek
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/neighborhoods?districtId=1104&limit=2&fields=id,name,postalCode,postalCodeStatus"
+curl "https://api.turkiyeapi.dev/v2/neighborhoods?districtId=1104&postalCodePrefix=010&limit=2&fields=id,name,postalCode,postalCodeStatus"
 ```
 
 ### Yanıt
@@ -254,14 +259,16 @@ curl "https://api.turkiyeapi.dev/v2/neighborhoods/3?include=province,district,mu
 
 ## Yaygın Hatalar
 
-| Status | Kod                      | Ne zaman oluşur                                        |
-| ------ | ------------------------ | ------------------------------------------------------ |
-| `400`  | `BAD_REQUEST`            | Sorgu veya path parametresi doğrulaması başarısız olduğunda |
-| `400`  | `INVALID_FIELDS`         | `fields` istenen kaynak için bilinmeyen bir alan içerdiğinde |
-| `400`  | `INVALID_INCLUDE`        | `include` desteklenmeyen bir ilişki içerdiğinde       |
-| `404`  | `NEIGHBORHOOD_NOT_FOUND` | İstenen mahalle bulunamadığında                       |
-| `429`  | -                        | Rate limit aşıldığında                                |
-| `500`  | `INTERNAL_SERVER_ERROR`  | Beklenmeyen sunucu hatasında                          |
+| Status | Kod                        | Ne zaman oluşur                                                                 |
+| ------ | -------------------------- | ------------------------------------------------------------------------------- |
+| `400`  | `BAD_REQUEST`              | Sorgu veya path parametresi doğrulaması başarısız olduğunda                     |
+| `400`  | `INVALID_RANGE_FILTER`     | `minPopulation`, `maxPopulation` değerinden büyük olduğunda                     |
+| `400`  | `INVALID_HIERARCHY_FILTER` | `provinceId`, `districtId` ve `municipalityId` aynı hiyerarşiyi göstermediğinde |
+| `400`  | `INVALID_FIELDS`           | `fields` istenen kaynak için bilinmeyen bir alan içerdiğinde                    |
+| `400`  | `INVALID_INCLUDE`          | `include` desteklenmeyen bir ilişki içerdiğinde                                 |
+| `404`  | `NEIGHBORHOOD_NOT_FOUND`   | İstenen mahalle bulunamadığında                                                 |
+| `429`  | -                          | Rate limit aşıldığında                                                          |
+| `500`  | `INTERNAL_SERVER_ERROR`    | Beklenmeyen sunucu hatasında                                                    |
 
 Hata yanıtı:
 

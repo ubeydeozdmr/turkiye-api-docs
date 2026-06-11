@@ -40,7 +40,7 @@ curl "https://api.turkiyeapi.dev/v2/districts?provinceId=34&fields=id,name,popul
 
 ```javascript [fetch]
 const response = await fetch(
-  'https://api.turkiyeapi.dev/v2/districts?provinceId=34&fields=id,name,population&sort=name'
+  'https://api.turkiyeapi.dev/v2/districts?provinceId=34&fields=id,name,population&sort=name',
 );
 
 const { data } = await response.json();
@@ -96,6 +96,24 @@ curl "https://api.turkiyeapi.dev/v2/districts?provinceId=34&minPopulation=100000
 ```
 
 This pattern is useful for dashboards and reporting tools.
+
+If the minimum value is greater than the maximum value, the API returns `400 INVALID_RANGE_FILTER`.
+
+## Postal Code Filtering
+
+To find records by exact postal code:
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/neighborhoods?postalCode=01020&fields=id,name,provinceId,districtId,postalCode"
+```
+
+To support partial postal-code input:
+
+```bash
+curl "https://api.turkiyeapi.dev/v2/villages?postalCodePrefix=020&fields=id,name,provinceId,districtId,postalCode"
+```
+
+Add `postalCodeStatus=official` when you only want records backed by official PTT postal code data.
 
 ## Municipalities by Type
 

@@ -8,11 +8,11 @@ Sistem endpoint'leri servis sağlık durumunu, veri seti metadata'sını ve Open
 
 ## Endpoint'ler
 
-| Method | Path | Açıklama |
-| ------ | ---- | -------- |
-| `GET` | `/health` | Servis sağlık durumunu kontrol eder |
-| `GET` | `/v2/meta` | API ve veri seti metadata'sını getirir |
-| `GET` | `/v2/openapi.json` | OpenAPI dokümanını getirir |
+| Method | Path               | Açıklama                               |
+| ------ | ------------------ | -------------------------------------- |
+| `GET`  | `/health`          | Servis sağlık durumunu kontrol eder    |
+| `GET`  | `/v2/meta`         | API ve veri seti metadata'sını getirir |
+| `GET`  | `/v2/openapi.json` | OpenAPI dokümanını getirir             |
 
 ## Sağlık Kontrolü
 
@@ -43,6 +43,8 @@ GET /v2/meta
 ```
 
 API sürümünü, veri seti sürümünü, güncelleme tarihini, veri kaynaklarını ve kayıt sayılarını döndürür.
+
+`counts` değerleri API'nin yüklediği veri setlerinden türetilir; bu nedenle liste endpoint'leri ve veri seti indirmeleriyle sunulan kayıtlarla aynı kaynağı yansıtır.
 
 ### İstek
 
@@ -99,8 +101,8 @@ Yanıt; `openapi`, `info`, `servers`, `tags`, `paths` ve `components` alanların
 
 ## Yaygın Hatalar
 
-| Status | Kod | Ne zaman oluşur |
-| ------ | --- | --------------- |
-| `400` | `BAD_REQUEST` | İstek doğrulaması başarısız olduğunda |
-| `429` | - | Rate limit aşıldığında |
-| `500` | `INTERNAL_SERVER_ERROR` | Beklenmeyen sunucu hatasında |
+| Status | Kod                     | Ne zaman oluşur                       |
+| ------ | ----------------------- | ------------------------------------- |
+| `400`  | `BAD_REQUEST`           | İstek doğrulaması başarısız olduğunda |
+| `429`  | -                       | Rate limit aşıldığında                |
+| `500`  | `INTERNAL_SERVER_ERROR` | Beklenmeyen sunucu hatasında          |

@@ -21,16 +21,16 @@ Base path:
 
 ## Village Object
 
-| Field              | Type    | Description                                               |
-| ------------------ | ------- | --------------------------------------------------------- |
-| `id`               | integer | Village ID                                                |
-| `name`             | string  | Village name                                              |
-| `slug`             | string  | URL-safe village name                                     |
-| `provinceId`       | integer | Parent province ID                                        |
-| `districtId`       | integer | Parent district ID                                        |
-| `population`       | integer | Village population                                        |
-| `postalCode`       | string  | Five-digit village postal code                            |
-| `postalCodeStatus` | string  | Postal code status: `official` or `estimated`             |
+| Field              | Type    | Description                                   |
+| ------------------ | ------- | --------------------------------------------- |
+| `id`               | integer | Village ID                                    |
+| `name`             | string  | Village name                                  |
+| `slug`             | string  | URL-safe village name                         |
+| `provinceId`       | integer | Parent province ID                            |
+| `districtId`       | integer | Parent district ID                            |
+| `population`       | integer | Village population                            |
+| `postalCode`       | string  | Five-digit village postal code                |
+| `postalCodeStatus` | string  | Postal code status: `official` or `estimated` |
 
 ::: tip
 Despite postal codes being numeric, the `postalCode` field is a five-digit string because some postal codes in Turkey start with leading zeros, which would be lost if stored as integers.
@@ -40,9 +40,9 @@ Despite postal codes being numeric, the `postalCode` field is a five-digit strin
 
 Use `postalCodeStatus` to understand how the postal code was determined:
 
-| Value | Meaning |
-| ----- | ------- |
-| `official` | The postal code is available in the official PTT postal code data and is used directly from that source. |
+| Value       | Meaning                                                                                                                                                                                                   |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `official`  | The postal code is available in the official PTT postal code data and is used directly from that source.                                                                                                  |
 | `estimated` | The postal code is not available in the PTT data. The value is inferred from supplementary public sources, nearby settlements, district-level postal code patterns, or documented administrative changes. |
 
 `derived` is used only for neighborhoods, not villages.
@@ -51,11 +51,11 @@ Clients that require strict official postal code data should check `postalCodeSt
 
 Current village status distribution:
 
-| Status | Count |
-| ------ | ----- |
-| `official` | `18,162` |
-| `estimated` | `21` |
-| Total | `18,183` |
+| Status      | Count    |
+| ----------- | -------- |
+| `official`  | `18,162` |
+| `estimated` | `21`     |
+| Total       | `18,183` |
 
 Example village:
 
@@ -82,17 +82,22 @@ Returns a paginated list of villages.
 
 ### Query Parameters
 
-| Parameter       | Type    | Default | Description                                                                                         |
-| --------------- | ------- | ------- | --------------------------------------------------------------------------------------------------- |
-| `search`        | string  | -       | Filters by village name                                                                             |
-| `fields`        | string  | -       | Comma-separated village fields to include                                                           |
-| `sort`          | string  | `id`    | Sorts by a village field. Allowed values: `id`, `-id`, `name`, `-name`, `population`, `-population` |
-| `limit`         | integer | `100`   | Number of records to return, from `1` to `1000`                                                     |
-| `offset`        | integer | `0`     | Number of records to skip                                                                           |
-| `minPopulation` | integer | -       | Minimum population                                                                                  |
-| `maxPopulation` | integer | -       | Maximum population                                                                                  |
-| `provinceId`    | integer | -       | Filters villages by parent province ID                                                              |
-| `districtId`    | integer | -       | Filters villages by parent district ID                                                              |
+| Parameter          | Type    | Default | Description                                                                                         |
+| ------------------ | ------- | ------- | --------------------------------------------------------------------------------------------------- |
+| `search`           | string  | -       | Filters by village name                                                                             |
+| `fields`           | string  | -       | Comma-separated village fields to include                                                           |
+| `sort`             | string  | `id`    | Sorts by a village field. Allowed values: `id`, `-id`, `name`, `-name`, `population`, `-population` |
+| `limit`            | integer | `100`   | Number of records to return, from `1` to `1000`                                                     |
+| `offset`           | integer | `0`     | Number of records to skip                                                                           |
+| `minPopulation`    | integer | -       | Minimum population                                                                                  |
+| `maxPopulation`    | integer | -       | Maximum population                                                                                  |
+| `provinceId`       | integer | -       | Filters villages by parent province ID                                                              |
+| `districtId`       | integer | -       | Filters villages by parent district ID                                                              |
+| `postalCode`       | string  | -       | Filters by exact five-digit postal code                                                             |
+| `postalCodePrefix` | string  | -       | Filters by one-to-five digit postal code prefix                                                     |
+| `postalCodeStatus` | string  | -       | Comma-separated postal code status filter: `official`, `estimated`                                  |
+
+If both `minPopulation` and `maxPopulation` are provided, `minPopulation` must be less than or equal to `maxPopulation`. When combining `provinceId` and `districtId`, the district must belong to the selected province.
 
 ### Allowed Fields
 
@@ -103,7 +108,7 @@ id,name,slug,provinceId,districtId,population,postalCode,postalCodeStatus
 ### Request
 
 ```bash
-curl "https://api.turkiyeapi.dev/v2/villages?districtId=1105&limit=2&fields=id,name,provinceId,population"
+curl "https://api.turkiyeapi.dev/v2/villages?districtId=1105&postalCodePrefix=020&limit=2&fields=id,name,provinceId,population,postalCode"
 ```
 
 ### Response
@@ -238,14 +243,16 @@ curl "https://api.turkiyeapi.dev/v2/villages/547?include=province,district"
 
 ## Common Errors
 
-| Status | Code                    | When it happens                                               |
-| ------ | ----------------------- | ------------------------------------------------------------- |
-| `400`  | `BAD_REQUEST`           | Query or path parameter validation fails                      |
-| `400`  | `INVALID_FIELDS`        | `fields` contains an unknown field for the requested resource |
-| `400`  | `INVALID_INCLUDE`       | `include` contains an unsupported relation                    |
-| `404`  | `VILLAGE_NOT_FOUND`     | The requested village does not exist                          |
-| `429`  | -                       | Rate limit exceeded                                           |
-| `500`  | `INTERNAL_SERVER_ERROR` | Unexpected server error                                       |
+| Status | Code                       | When it happens                                                  |
+| ------ | -------------------------- | ---------------------------------------------------------------- |
+| `400`  | `BAD_REQUEST`              | Query or path parameter validation fails                         |
+| `400`  | `INVALID_RANGE_FILTER`     | `minPopulation` is greater than `maxPopulation`                  |
+| `400`  | `INVALID_HIERARCHY_FILTER` | `provinceId` and `districtId` do not describe the same hierarchy |
+| `400`  | `INVALID_FIELDS`           | `fields` contains an unknown field for the requested resource    |
+| `400`  | `INVALID_INCLUDE`          | `include` contains an unsupported relation                       |
+| `404`  | `VILLAGE_NOT_FOUND`        | The requested village does not exist                             |
+| `429`  | -                          | Rate limit exceeded                                              |
+| `500`  | `INTERNAL_SERVER_ERROR`    | Unexpected server error                                          |
 
 Error response:
 

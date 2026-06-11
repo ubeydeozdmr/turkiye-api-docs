@@ -77,6 +77,8 @@ List endpoints return:
 
 `postalCodeStatus` distinguishes values used directly from official PTT postal code data (`official`), neighborhood-only values derived from a previous settlement with a known PTT postal code (`derived`), and values inferred from supplementary public sources, nearby settlements, district-level patterns, or administrative-change records (`estimated`). Clients that require strict official postal code data should filter records where `postalCodeStatus` is `official`.
 
+`stats.*Count` values are derived from the indexed relationships in the loaded dataset. They match the child records served by the corresponding nested collection endpoints.
+
 ## Municipality Types
 
 | Value             | Meaning                      |

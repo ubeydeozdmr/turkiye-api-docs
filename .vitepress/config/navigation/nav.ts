@@ -1,7 +1,6 @@
 export const trNav = [
-  // { text: 'Rehber', link: '/tr/v2/guide/' },
-  // { text: 'API Referansı', link: '/tr/v2/api-reference/' },
-  { text: 'Rehber', link: '/tr/v1/guide/' },
+  { text: 'Rehber', link: '/tr/v2/guide/' },
+  { text: 'API Referansı', link: '/tr/v2/api-reference/' },
   {
     text: 'Sürüm',
     items: [
@@ -22,15 +21,14 @@ export const trNav = [
           },
         ],
       },
-      // { text: 'Değişiklik Günlüğü', link: '/tr/changelog' },
+      { text: 'Değişiklik Günlüğü', link: '/tr/changelog' },
     ],
   },
 ];
 
 export const enNav = [
-  // { text: 'Guide', link: '/en/v2/guide/' },
-  // { text: 'API Reference', link: '/en/v2/api-reference/' },
-  { text: 'Guide', link: '/en/v1/guide/' },
+  { text: 'Guide', link: '/en/v2/guide/' },
+  { text: 'API Reference', link: '/en/v2/api-reference/' },
   {
     text: 'Version',
     items: [
@@ -51,7 +49,7 @@ export const enNav = [
           },
         ],
       },
-      // { text: 'Changelog', link: '/en/changelog' },
+      { text: 'Changelog', link: '/en/changelog' },
     ],
   },
 ];

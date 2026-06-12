@@ -7,14 +7,17 @@ description: REST API for Turkey's administrative data
 hero:
   name: 'TurkiyeAPI'
   text: "REST API for Turkey's administrative data"
-  tagline: A comprehensive REST API providing detailed information about Turkey's administrative divisions including provinces, districts, neighborhoods and villages with demographic and geographical data.
+  tagline: A comprehensive REST API providing detailed information about Turkey's administrative divisions including provinces, districts, municipalities, neighborhoods and villages with demographic and geographical data.
   image:
     src: /logo.png
     alt: TurkiyeAPI Logo
   actions:
     - theme: brand
       text: Guide
-      link: /en/v1/guide/
+      link: /en/v2/guide/
+    - theme: alt
+      text: API Reference
+      link: /en/v2/api-reference/
     - theme: alt
       text: GitHub
       link: https://github.com/ubeydeozdmr/turkiye-api

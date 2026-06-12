@@ -7,14 +7,17 @@ description: Türkiye'nin idari verileri için REST API
 hero:
   name: 'TurkiyeAPI'
   text: "Türkiye'nin idari yapısı için REST API"
-  tagline: TurkiyeAPI, Türkiye'nin iller, ilçeler, mahalleler ve köyler dahil olmak üzere idari bölümleri hakkında demografik ve coğrafi verilerle ayrıntılı bilgi sağlayan kapsamlı bir REST API'dır.
+  tagline: TurkiyeAPI, Türkiye'nin iller, ilçeler, belediyeler, mahalleler ve köyler dahil olmak üzere idari bölümleri hakkında demografik ve coğrafi verilerle ayrıntılı bilgi sağlayan kapsamlı bir REST API'dır.
   image:
     src: /logo.png
     alt: TurkiyeAPI Logo
   actions:
     - theme: brand
       text: Rehber
-      link: /tr/v1/guide/
+      link: /tr/v2/guide/
+    - theme: alt
+      text: API Referansı
+      link: /tr/v2/api-reference/
     - theme: alt
       text: GitHub
       link: https://github.com/ubeydeozdmr/turkiye-api

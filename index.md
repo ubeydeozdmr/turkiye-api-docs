@@ -6,18 +6,18 @@ description: Türkiye'nin idari verileri için REST API
 
 hero:
   name: 'TurkiyeAPI'
-  text: "Türkiye'nin idari verileri için REST API"
-  tagline: TurkiyeAPI provides administrative data for Türkiye, including provinces, districts, neighborhoods, villages and towns.
+  text: "Türkiye'nin idari yapısı için REST API"
+  tagline: A comprehensive REST API providing detailed information about Turkey's administrative divisions including provinces, districts, municipalities, neighborhoods and villages with demographic and geographical data.
   image:
     src: /logo.png
     alt: TurkiyeAPI Logo
   actions:
     - theme: brand
       text: Türkçe Dokümantasyon
-      link: /tr/v1/guide/
+      link: /tr/v2/guide/
     - theme: brand
       text: English Documentation
-      link: /en/v1/guide/
+      link: /en/v2/guide/
     - theme: alt
       text: GitHub
       link: https://github.com/ubeydeozdmr/turkiye-api

@@ -35,6 +35,9 @@ Yaygın kullanım akışları:
 | [Örnekler](./examples.md)                                              | İstanbul'un ilçeleri ve belediyeye göre mahalleler gibi gerçek kullanım akışları                        |
 | [v1'den v2'ye Geçiş](./migration-from-v1.md)                           | Mevcut entegrasyonlar için v1 ve v2 farkları                                                            |
 | [SSS](./faq.md)                                                        | Erişim, metadata, veri setleri ve destek hakkında referans dışı yanıtlar                                |
+| [Destek](./support.md)                                                 | Proje sürdürülebilirliği için isteğe bağlı bağış ve sponsorluk notları                                  |
+| [Gizlilik Politikası](./privacy.md)                                    | Public API'nin neleri logladığı, logların neden kullanıldığı ve saklama süresi                          |
+| [Kullanım Şartları](./terms.md)                                        | Kabul edilebilir kullanım, rate limit'ler, garanti verilmemesi ve bağımsız proje durumu                 |
 
 ## API Yapısı
 

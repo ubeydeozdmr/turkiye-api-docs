@@ -65,6 +65,14 @@ const trV2GuideSidebar = [
       { text: 'SSS', link: '/tr/v2/guide/faq' },
     ],
   },
+  {
+    text: 'Proje',
+    items: [
+      { text: 'Destek', link: '/tr/v2/guide/support' },
+      { text: 'Gizlilik Politikası', link: '/tr/v2/guide/privacy' },
+      { text: 'Kullanım Şartları', link: '/tr/v2/guide/terms' },
+    ],
+  },
 ];
 
 const trV2ApiReferenceSidebar = [
@@ -160,6 +168,14 @@ const enV2GuideSidebar = [
     items: [
       { text: 'Examples', link: '/en/v2/guide/examples' },
       { text: 'FAQ', link: '/en/v2/guide/faq' },
+    ],
+  },
+  {
+    text: 'Project',
+    items: [
+      { text: 'Support', link: '/en/v2/guide/support' },
+      { text: 'Privacy Policy', link: '/en/v2/guide/privacy' },
+      { text: 'Terms of Use', link: '/en/v2/guide/terms' },
     ],
   },
 ];

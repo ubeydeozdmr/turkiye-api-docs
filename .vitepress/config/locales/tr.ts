@@ -14,7 +14,8 @@ export const trLocale = {
       pattern: 'https://github.com/ubeydeozdmr/turkiye-api-docs/edit/main/:path',
     },
     footer: {
-      message: 'MIT Lisansı altında yayınlanmıştır.',
+      message:
+        'MIT Lisansı altında yayınlanmıştır. <a href="/tr/v2/guide/privacy">Gizlilik</a> · <a href="/tr/v2/guide/terms">Şartlar</a> · <a href="/tr/v2/guide/support">Destek</a>',
       copyright:
         'Copyright © 2022-present <a href="https://github.com/ubeydeozdmr" target="_blank">Ubeyde Emir Özdemir</a>',
     },

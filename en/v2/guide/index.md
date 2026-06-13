@@ -35,6 +35,9 @@ Common workflows include:
 | [Examples](./examples.md)                                              | Real workflows such as districts of İstanbul and neighborhoods by municipality           |
 | [Migration from v1](./migration-from-v1.md)                            | v1 to v2 differences for existing integrations                                           |
 | [FAQ](./faq.md)                                                        | Non-reference answers about access, metadata, datasets, and support                      |
+| [Support](./support.md)                                                | Optional donations and sponsorship notes for project sustainability                      |
+| [Privacy Policy](./privacy.md)                                         | What the public API logs, why logs are used, and how long they are retained              |
+| [Terms of Use](./terms.md)                                             | Acceptable use, rate limits, no-warranty terms, and unofficial project status            |
 
 ## API Shape
 

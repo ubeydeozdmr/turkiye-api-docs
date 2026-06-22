@@ -39,7 +39,7 @@ https://api.turkiyeapi.dev/v1/towns
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/towns
+curl "https://api.turkiyeapi.dev/v1/towns"
 ```
 
 ```javascript [fetch]
@@ -97,7 +97,7 @@ Here you should replace the `:id` part with the ID of the town you want to retri
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/towns/1002
+curl "https://api.turkiyeapi.dev/v1/towns/1002"
 ```
 
 ```javascript [fetch]

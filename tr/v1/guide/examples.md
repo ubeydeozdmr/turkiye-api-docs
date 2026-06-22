@@ -22,7 +22,7 @@ Bu yöntemin yalnızca illerin (veya diğer birimlerin) adlarıyla ilgilendiğin
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/provinces?name=istanbul
+curl "https://api.turkiyeapi.dev/v1/provinces?name=istanbul"
 ```
 
 ```javascript [fetch]
@@ -95,7 +95,7 @@ Kullanıcılar belirli bir nüfus aralığındaki ilçeleri listelemek isteyebil
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/districts?minPopulation=100000&maxPopulation=300000
+curl "https://api.turkiyeapi.dev/v1/districts?minPopulation=100000&maxPopulation=300000"
 ```
 
 ```javascript [fetch]
@@ -154,7 +154,7 @@ Bu sorgu, nüfusu 100.000 ile 300.000 arasında olan tüm ilçeleri JSON format�
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/provinces?offset=30&limit=10
+curl "https://api.turkiyeapi.dev/v1/provinces?offset=30&limit=10"
 ```
 
 ```javascript [fetch]
@@ -269,7 +269,7 @@ Tüm illeri listelemek istediğinizi düşünün. Bu durumda bu illerin verileri
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/provinces?fields=id,name,area,population,altitude,areaCode,isCoastal,isMetropolitan,maps,region
+curl "https://api.turkiyeapi.dev/v1/provinces?fields=id,name,area,population,altitude,areaCode,isCoastal,isMetropolitan,maps,region"
 ```
 
 ```javascript [fetch]
@@ -350,7 +350,7 @@ Varsayılan olarak ilçeler önce bağlı oldukları illere göre, eğer ilçele
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/districts?sort=-population
+curl "https://api.turkiyeapi.dev/v1/districts?sort=-population"
 ```
 
 ```javascript [fetch]
@@ -417,7 +417,7 @@ Dikkat ettiyseniz, `?sort=-population` sorgusunda `population`'dan önce bir eks
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/districts?name=i&minPopulation=100000&sort=name&offset=10&limit=20
+curl "https://api.turkiyeapi.dev/v1/districts?name=i&minPopulation=100000&sort=name&offset=10&limit=20"
 ```
 
 ```javascript [fetch]

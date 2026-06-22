@@ -31,7 +31,7 @@ https://api.turkiyeapi.dev/v1/neighborhoods
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/neighborhoods
+curl "https://api.turkiyeapi.dev/v1/neighborhoods"
 ```
 
 ```javascript [fetch]
@@ -87,7 +87,7 @@ https://api.turkiyeapi.dev/v1/neighborhoods/{id}
 Here you should replace the `{id}` part with the ID of the neighborhood you want to get.
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/neighborhoods/176887
+curl "https://api.turkiyeapi.dev/v1/neighborhoods/176887"
 ```
 
 ```javascript [fetch]

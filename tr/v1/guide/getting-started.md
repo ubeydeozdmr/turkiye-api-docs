@@ -43,7 +43,7 @@ Yukarıda belirtilen URL, API'nin ana giriş noktasıdır. Bu URL'yi kullanarak 
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/
+curl "https://api.turkiyeapi.dev/v1/"
 ```
 
 ```javascript [fetch]

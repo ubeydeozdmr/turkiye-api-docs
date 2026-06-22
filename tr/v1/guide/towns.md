@@ -39,7 +39,7 @@ https://api.turkiyeapi.dev/v1/towns
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/towns
+curl "https://api.turkiyeapi.dev/v1/towns"
 ```
 
 ```javascript [fetch]
@@ -97,7 +97,7 @@ Burada `:id` kısmını almak istediğiniz beldenin ID'si ile değiştirmelisini
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/towns/1002
+curl "https://api.turkiyeapi.dev/v1/towns/1002"
 ```
 
 ```javascript [fetch]

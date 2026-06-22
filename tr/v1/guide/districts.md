@@ -40,7 +40,7 @@ https://api.turkiyeapi.dev/v1/districts
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/districts
+curl "https://api.turkiyeapi.dev/v1/districts"
 ```
 
 ```javascript [fetch]
@@ -118,7 +118,7 @@ https://api.turkiyeapi.dev/v1/districts/{id}
 Burada `{id}` kısmını almak istediğiniz ilçenin ID'si ile değiştirmelisiniz.
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/districts/1757
+curl "https://api.turkiyeapi.dev/v1/districts/1757"
 ```
 
 ```javascript [fetch]

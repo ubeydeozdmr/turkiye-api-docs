@@ -43,7 +43,7 @@ Here are a few code examples that demonstrate how to make a `GET` request:
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/
+curl "https://api.turkiyeapi.dev/v1/"
 ```
 
 ```javascript [fetch]

@@ -31,7 +31,7 @@ https://api.turkiyeapi.dev/v1/neighborhoods
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/neighborhoods
+curl "https://api.turkiyeapi.dev/v1/neighborhoods"
 ```
 
 ```javascript [fetch]
@@ -87,7 +87,7 @@ https://api.turkiyeapi.dev/v1/neighborhoods/{id}
 Burada `{id}` kısmını almak istediğiniz mahallenin ID'si ile değiştirmelisiniz.
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/neighborhoods/176887
+curl "https://api.turkiyeapi.dev/v1/neighborhoods/176887"
 ```
 
 ```javascript [fetch]

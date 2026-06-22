@@ -37,7 +37,7 @@ https://api.turkiyeapi.dev/v1/provinces
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/provinces
+curl "https://api.turkiyeapi.dev/v1/provinces"
 ```
 
 ```javascript [fetch]
@@ -189,7 +189,7 @@ https://api.turkiyeapi.dev/v1/provinces/1
 ::: code-group
 
 ```bash [curl]
-curl https://api.turkiyeapi.dev/v1/provinces/1
+curl "https://api.turkiyeapi.dev/v1/provinces/1"
 ```
 
 ```javascript [fetch]

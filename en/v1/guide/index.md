@@ -4,6 +4,16 @@ outline: deep
 
 # Welcome
 
+::: warning WARNING
+The update released on June 20, 2026, for version v1 is the last data set level information update. In this update, 14 towns, 75 neighborhoods, and 27 villages were added to the data set, and the population information of existing settlements was updated from 2023 data to 2025 data.
+After this date, version v1 will **_not_** receive new settlement, population updates, or similar data set level information updates. Additionally, no new feature development will be **_done_** for v1.
+Typographical errors, minor corrections, or non-critical bug fixes may be considered at least until the end of 2026. **However, at a later date, version v1 will be completely deprecated and will not receive any updates.**
+:::
+
+::: tip TIP
+With version v2, all features available in version v1 are also available in version v2. However, version v2 offers more features and improvements compared to version v1. Therefore, it is recommended to use version v2 for your new projects.
+:::
+
 **TurkiyeAPI** is a comprehensive **REST API** that provides demographic and geographic data about Turkey’s administrative divisions (provinces, districts, neighborhoods, and villages).
 
 This guide explains the features of TurkiyeAPI and how to use it in detail.

@@ -4,6 +4,16 @@ outline: deep
 
 # Hoş Geldiniz
 
+::: warning UYARI
+v1 sürümü için 20 Haziran 2026 tarihinde yayımlanan güncelleme, son veri seti düzeyindeki bilgi güncellemesidir. Bu güncellemede 14 belde, 75 mahalle ve 27 köy veri setine eklenmiş, mevcut yerleşim birimlerinin nüfus bilgileri ise 2023 verilerinden 2025 verilerine güncellenmiştir.
+Bu tarihten sonra v1 sürümü yeni yerleşim yeri, nüfus güncellemesi veya benzeri veri seti düzeyindeki bilgi güncellemeleri **_almayacaktır_**. Ayrıca v1 için yeni özellik geliştirmesi **_yapılmayacaktır_**.
+Yazım hataları, küçük düzeltmeler veya kritik olmayan hata giderimleri en azından 2026 sonuna kadar değerlendirilebilir. **Ancak ilerleyen bir tarihten sonra v1 sürümü tamamen bakım dışı bırakılacak ve herhangi bir güncelleme almayacaktır.**
+:::
+
+::: tip İPUCU
+v2 sürümü ile birlikte, v1 sürümünde bulunan tüm özellikler v2 sürümünde de mevcuttur. Ancak v2 sürümü, v1 sürümüne göre daha fazla özellik ve geliştirme sunmaktadır. Bu nedenle, yeni projelerinizde v2 sürümünü kullanmanız önerilir.
+:::
+
 **TurkiyeAPI**, Türkiye'nin idari bölümleri (il, ilçe, mahalle ve köyler) hakkında demografik ve coğrafi veriler sağlayan kapsamlı bir **REST API**'dır.
 
 Bu rehber, TurkiyeAPI'nin özelliklerini ve kullanımını detaylı şekilde açıklamaktadır.

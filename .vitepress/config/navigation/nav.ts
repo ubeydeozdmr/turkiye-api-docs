@@ -5,14 +5,14 @@ export const trNav = [
     text: 'Sürüm',
     items: [
       {
-        text: 'v2 (Önizleme)',
+        text: 'v2',
         items: [
           { text: 'Rehber', link: '/tr/v2/guide/' },
           { text: 'API Referansı', link: '/tr/v2/api-reference/' },
         ],
       },
       {
-        text: 'v1',
+        text: 'v1 (Legacy)',
         items: [
           { text: 'Dokümantasyon', link: '/tr/v1/guide/' },
           {
@@ -33,14 +33,14 @@ export const enNav = [
     text: 'Version',
     items: [
       {
-        text: 'v2 (Preview)',
+        text: 'v2',
         items: [
           { text: 'Guide', link: '/en/v2/guide/' },
           { text: 'API Reference', link: '/en/v2/api-reference/' },
         ],
       },
       {
-        text: 'v1',
+        text: 'v1 (Legacy)',
         items: [
           { text: 'Documentation', link: '/en/v1/guide/' },
           {

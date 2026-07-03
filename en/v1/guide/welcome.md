@@ -14,7 +14,7 @@ This guide explains the features of TurkiyeAPI and how to use it in detail.
 - **Open Source**: Source code is available on [GitHub](https://github.com/ubeydeozdmr/turkiye-api)
 - **Comprehensive Data**: Offers demographic and geographic data on administrative divisions
 - **Data Handling**: Supports filtering, sorting, and pagination
-- **API Tools**: Fully compatible with Postman and Swagger
+- **API Tools**: Compatible with Postman
 - **Easy Access**: No authentication required; open to all users
 
 ## New Documentation
@@ -29,10 +29,9 @@ For more information on why the documentation was changed and how to access the 
 
 ## API Tools
 
-TurkiyeAPI is compatible with popular API tools such as Postman and Swagger:
+TurkiyeAPI is compatible with Postman:
 
 - [Postman Documentation](https://documenter.getpostman.com/view/19561492/UzBguVHM)
-- [Swagger UI](https://api.turkiyeapi.dev/swagger)
 
 ## Authentication
 

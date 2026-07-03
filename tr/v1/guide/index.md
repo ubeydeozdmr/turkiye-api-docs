@@ -39,10 +39,9 @@ Neden dokümantasyonun değiştirildiği, eski dokümantasyona ne olduğu gibi b
 
 ## API Araçları
 
-TurkiyeAPI, Postman ve Swagger gibi popüler API araçları ile uyumludur:
+TurkiyeAPI, Postman ile uyumludur:
 
 - [Postman Dokümantasyonu](https://documenter.getpostman.com/view/19561492/UzBguVHM)
-- [Swagger UI](https://api.turkiyeapi.dev/swagger)
 
 ## Kimlik Doğrulama
 

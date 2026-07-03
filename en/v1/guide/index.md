@@ -39,10 +39,9 @@ For more information on why the documentation was changed and how to access the 
 
 ## API Tools
 
-TurkiyeAPI is compatible with popular API tools such as Postman and Swagger:
+TurkiyeAPI is compatible with Postman:
 
 - [Postman Documentation](https://documenter.getpostman.com/view/19561492/UzBguVHM)
-- [Swagger UI](https://api.turkiyeapi.dev/swagger)
 
 ## Authentication
 

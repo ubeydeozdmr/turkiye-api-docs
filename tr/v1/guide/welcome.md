@@ -14,7 +14,7 @@ Bu rehber, TurkiyeAPI'nin özelliklerini ve kullanımını detaylı şekilde aç
 - **Açık Kaynak**: Kaynak kodu [GitHub](https://github.com/ubeydeozdmr/turkiye-api)'da mevcuttur
 - **Kapsamlı Veri**: İdari bölümler hakkında demografik ve coğrafi veriler sunar
 - **Veri İşleme**: Filtreleme, sıralama ve sayfalama desteği sağlar
-- **API Araçları**: Postman ve Swagger ile tam uyumludur
+- **API Araçları**: Postman ile uyumludur
 - **Kolay Erişim**: Kimlik doğrulama gerektirmez, herkes tarafından kullanılabilir
 
 ## Yeni Dokümantasyon
@@ -29,10 +29,9 @@ Neden dokümantasyonun değiştirildiği, eski dokümantasyona ne olduğu gibi b
 
 ## API Araçları
 
-TurkiyeAPI, Postman ve Swagger gibi popüler API araçları ile uyumludur:
+TurkiyeAPI, Postman ile uyumludur:
 
 - [Postman Dokümantasyonu](https://documenter.getpostman.com/view/19561492/UzBguVHM)
-- [Swagger UI](https://api.turkiyeapi.dev/swagger)
 
 ## Kimlik Doğrulama
 

@@ -24,7 +24,7 @@ This guide explains the features of TurkiyeAPI and how to use it in detail.
 - **Open Source**: Source code is available on [GitHub](https://github.com/ubeydeozdmr/turkiye-api)
 - **Comprehensive Data**: Offers demographic and geographic data on administrative divisions
 - **Data Handling**: Supports filtering, sorting, and pagination
-- **API Tools**: Fully compatible with Postman and Swagger
+- **API Tools**: Compatible with Postman
 - **Easy Access**: No authentication required; open to all users
 
 ## New Documentation
@@ -46,6 +46,14 @@ TurkiyeAPI is compatible with Postman:
 ## Authentication
 
 TurkiyeAPI is a public API that does not require authentication. This means anyone can access and use the API without an API key or login. This approach allows a broader audience to benefit from the service and ensures easy accessibility.
+
+## Unofficial Python Client
+
+The unofficial Python client for TurkiyeAPI v1 is available on [GitHub](https://github.com/gencharitaci/turkiye-api-py) and [PyPI](https://pypi.org/project/turkiye-api-py/). It provides a convenient way to interact with the API using Python, making it easier to integrate TurkiyeAPI into your Python applications.
+
+| Package        | Version | Link                                             | Author                                                                    |
+| -------------- | ------- | ------------------------------------------------ | ------------------------------------------------------------------------- |
+| turkiye-api-py | 1.1.1   | [PyPI](https://pypi.org/project/turkiye-api-py/) | [GitHub (@gencharitaci - Adem Kurtipek)](https://github.com/gencharitaci) |
 
 ## Contact
 

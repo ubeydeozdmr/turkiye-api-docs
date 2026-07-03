@@ -24,7 +24,7 @@ Bu rehber, TurkiyeAPI'nin özelliklerini ve kullanımını detaylı şekilde aç
 - **Açık Kaynak**: Kaynak kodu [GitHub](https://github.com/ubeydeozdmr/turkiye-api)'da mevcuttur
 - **Kapsamlı Veri**: İdari bölümler hakkında demografik ve coğrafi veriler sunar
 - **Veri İşleme**: Filtreleme, sıralama ve sayfalama desteği sağlar
-- **API Araçları**: Postman ve Swagger ile tam uyumludur
+- **API Araçları**: Postman ile uyumludur
 - **Kolay Erişim**: Kimlik doğrulama gerektirmez, herkes tarafından kullanılabilir
 
 ## Yeni Dokümantasyon
@@ -46,6 +46,14 @@ TurkiyeAPI, Postman ile uyumludur:
 ## Kimlik Doğrulama
 
 TurkiyeAPI, kimlik doğrulama gerektirmeyen bir API'dir ve herkes tarafından kullanılabilir. Kimlik doğrulama gerektirmeyen API'lar, kullanıcıların kimlik doğrulama yapmadan API'yi kullanmalarına olanak tanır. Bu, API'nin daha geniş bir kullanıcı kitlesine hitap etmesine ve daha kolay erişilebilir olmasına olanak tanır.
+
+## Python için Resmi Olmayan İstemci
+
+TurkiyeAPI v1 için resmi olmayan Python istemcisi [GitHub](https://github.com/gencharitaci/turkiye-api-py) ve [PyPI](https://pypi.org/project/turkiye-api-py/) üzerinde mevcuttur. Bu istemci, Python kullanarak API ile etkileşimde bulunmayı kolaylaştırır ve TurkiyeAPI'yi Python uygulamalarınıza entegre etmeyi daha basit hale getirir.
+
+| Paket          | Sürüm | Bağlantı                                         | Yazar                                                                     |
+| -------------- | ----- | ------------------------------------------------ | ------------------------------------------------------------------------- |
+| turkiye-api-py | 1.1.1 | [PyPI](https://pypi.org/project/turkiye-api-py/) | [GitHub (@gencharitaci - Adem Kurtipek)](https://github.com/gencharitaci) |
 
 ## İletişim
 

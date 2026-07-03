@@ -53,6 +53,36 @@ The API uses JSON response envelopes:
 - Single-resource endpoints return a `data` object and dataset metadata.
 - Errors return an `error` object with a stable code, message, and HTTP status.
 
+## Official TypeScript Client
+
+`@turkiyeapi/client` is the official lightweight TypeScript client for TurkiyeAPI v2. It works in modern browsers and Node.js 18+ because it uses `fetch`.
+
+::: warning PREVIEW
+This package is currently in pre-1.0.0 development. The public API may change before v1.0.0.
+:::
+
+Install it from [npm](https://www.npmjs.com/package/@turkiyeapi/client):
+
+```bash
+npm install @turkiyeapi/client
+```
+
+Basic usage:
+
+```ts
+import { TurkiyeAPI } from '@turkiyeapi/client';
+
+const api = new TurkiyeAPI();
+
+const provinces = await api.provinces.list({
+  search: 'istanbul',
+  fields: ['id', 'name', 'population'],
+});
+
+const istanbul = await api.provinces.get(34);
+const districts = await api.provinces.districts(34, { limit: 50 });
+```
+
 ## Resource Map
 
 The core resources are:

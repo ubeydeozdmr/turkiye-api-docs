@@ -53,6 +53,36 @@ API, JSON yanıt envelope yapıları kullanır:
 - Tekil kaynak endpoint'leri `data` objesi ve veri seti metadata'sı döndürür.
 - Hatalar sabit bir kod, mesaj ve HTTP status içeren `error` objesi döndürür.
 
+## Resmi TypeScript İstemcisi
+
+`@turkiyeapi/client`, TurkiyeAPI v2 için resmi ve hafif TypeScript istemcisidir. `fetch` kullandığı için modern tarayıcılarda ve Node.js 18+ üzerinde çalışır.
+
+::: warning ÖNİZLEME
+Bu paket şu anda pre-1.0.0 geliştirme aşamasındadır. Public API, v1.0.0 öncesinde değişebilir.
+:::
+
+[npm](https://www.npmjs.com/package/@turkiyeapi/client) üzerinden kurabilirsiniz:
+
+```bash
+npm install @turkiyeapi/client
+```
+
+Temel kullanım:
+
+```ts
+import { TurkiyeAPI } from '@turkiyeapi/client';
+
+const api = new TurkiyeAPI();
+
+const provinces = await api.provinces.list({
+  search: 'istanbul',
+  fields: ['id', 'name', 'population'],
+});
+
+const istanbul = await api.provinces.get(34);
+const districts = await api.provinces.districts(34, { limit: 50 });
+```
+
 ## Kaynak Haritası
 
 Temel kaynaklar:
